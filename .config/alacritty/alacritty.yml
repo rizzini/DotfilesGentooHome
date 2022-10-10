@@ -1,0 +1,44 @@
+
+font:
+  normal:
+    family: Source Code Pro Semibold
+    style: Regular
+
+  bold:
+    family: Source Code Pro Black
+    style: Bold
+
+  italic:
+    family: Source Code Pro ExtraLight
+    style: Italic
+
+  bold_italic:
+    family: Source Code Pro Semibold
+    style: Bold Italic
+  offset:
+    x: 0
+    y: -1
+  size: 10
+
+window:
+  opacity: 0.96
+  dimensions:
+    columns: 110
+    lines: 30
+
+cursor:
+  style: Beam
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+
+
+
+scrolling:
+  history: 100000
+  multiplier: 5
+
+key_bindings:
+  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
+  - { key: H, mods: Control, action: SearchBackward }
+
