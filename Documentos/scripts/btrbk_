@@ -1,0 +1,56 @@
+#!/bin/bash
+if [ "$EUID" -ne 0 ]; then
+    /bin/echo "Please run as root";
+    exit;
+fi
+if test -f "/tmp/btrbk_.sh.lock"; then
+    exit;
+fi
+/usr/bin/touch /tmp/btrbk_.sh.lock
+if [[ ! "$(/bin/mount | /bin/grep '/dev/sda2 on / type btrfs')" == *"subvol=/GENTOO_ROOT)"* ]]; then
+    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Você não está no subvolume ROOT. Snapshot não foi criado.";
+    /bin/echo 'Você não está no subvolume ROOT. Snapshot não foi criado.';
+    /bin/rm /tmp/btrbk_.sh.lock;
+    exit 1
+fi
+threshold=30
+cpu_usage=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print ($2+$4-u1) * 100 / (t-t1); }' <(grep 'cpu ' /proc/stat) <(sleep 1;grep 'cpu ' /proc/stat))
+while [ "${cpu_usage%.*}" -ge $threshold ]; do
+    /usr/bin/sleep 60;
+    cpu_usage=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print ($2+$4-u1) * 100 / (t-t1); }' <(grep 'cpu ' /proc/stat) <(sleep 1;grep 'cpu ' /proc/stat))
+done
+counter=0
+wait=0
+while :; do
+    counter=$((counter + 1))
+    if [ "$(/usr/bin/pgrep steam)" ]; then
+        wait=1
+    elif [ "$(/usr/bin/pgrep wine)" ]; then
+        wait=1
+    fi
+    if [ $wait == 1 ]; then
+        sleep 60
+    else
+        break;
+    fi
+    if [ $counter -le 118 ]; then
+        /bin/rm /tmp/btrbk_.sh.lock;
+        exit;
+    fi
+done
+
+/usr/bin/lsattr /mnt/archlinux/ | /usr/bin/tee /mnt/backup/btrfs_scheme.txt
+if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_home.conf -q run; then
+    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: GENTOO_HOME";
+fi
+if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_root.conf -q run; then
+    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: GENTOO_ROOT.";
+fi
+/usr/bin/rsync -aAXvz /boot/efi/* /mnt/archlinux/BOOT_ESP/ 1> /dev/null;
+if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_boot_esp.conf -q run; then
+    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: BOOT_ESP.";
+fi
+/usr/bin/refind-btrfs --run-mode one-time
+/bin/rm /tmp/btrbk_.sh.lock;
+
+
