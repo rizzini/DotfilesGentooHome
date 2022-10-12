@@ -46,16 +46,15 @@ if [[ "$(/bin/df -B MB  /dev/sda2 --output=avail | /usr/bin/tail -1 | /usr/bin/t
                 /sbin/btrfs sub del "$d";
             fi
         done < <(/usr/bin/find /mnt/archlinux/refind_btrfs_rw_snapshots/* -prune -type d)
-        if [ -z "$(/usr/bin/pgrep spotify)" ];then
-            /bin/rm -rf /home/lucas/.cache/spotify/;
-        fi
-        if [ -z "$(/usr/bin/pgrep makepkg)" ];then
-            echo -e 'Pasta \033[1m/mnt/archlinux/temp_stuff\033[0m'
-            echo "$(ls -lah /mnt/archlinux/temp_stuff/)"
-            echo -e '\033[1mRemover temp_stuff?\033[0m'
-            read $temp_stuff
-            if [ "$temp_stuff" == 's' ];then
-                /bin/rm -rf /mnt/archlinux/temp_stuff/*;
+        if [ "$1" == 'force' ]; then
+            if [ -z "$(/usr/bin/pgrep makepkg)" ]; then
+                echo -e 'Pasta \033[1m/mnt/archlinux/temp_stuff\033[0m'
+                ls -lah /mnt/archlinux/temp_stuff/
+                echo -e '\033[1mRemover temp_stuff?\033[0m'
+                read -r temp_stuff
+                if [ "$temp_stuff" == 's' ];then
+                    /bin/rm -rf /mnt/archlinux/temp_stuff/*;
+                fi
             fi
         fi
         if [ -z "$(/usr/bin/pgrep winetricks)" ];then

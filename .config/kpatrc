@@ -1,0 +1,31 @@
+[KgTheme]
+Theme=themes/greenblaze.desktop
+
+[MainWindow]
+HDMI-1 Height 1920x1080=488
+HDMI-1 Width 1920x1080=871
+HDMI-1 XPosition 1280x720=393
+HDMI-1 XPosition 1920x1080=87
+HDMI-1 YPosition 1280x720=124
+HDMI-1 YPosition 1920x1080=490
+State=AAAA/wAAAAD9AAAAAAAAA2cAAAG3AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+
+[Notification Messages]
+MenubarWarning=false
+
+[Scores]
+loosestreak0=4
+loosestreak2=1
+maxloosestreak0=6
+maxloosestreak2=1
+maxwinstreak0=2
+maxwinstreak2=0
+minmoves0=115
+minmoves2=-1
+total0=28
+total2=1
+winstreak0=0
+winstreak2=0
+won0=8
+won2=0

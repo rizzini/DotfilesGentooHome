@@ -1,0 +1,178 @@
+[General]
+Allow Tab Scrolling=false
+Close After Last=true
+Config Revision=10
+Days Meta Infos=30
+Elide Tab Text=false
+Expand Tabs=true
+Modified Notification=false
+Recent File List Entry Count=10
+Restore Window Configuration=true
+Save Meta Infos=true
+Show Full Path in Title=true
+Show Menu Bar=true
+Show Status Bar=true
+Show Tab Bar=true
+Show Tabs Close Button=true
+Show Url Nav Bar=true
+Show output view for message type=1
+Startup Session=new
+Stash new unsaved files=true
+Stash unsaved file changes=false
+Tab Double Click New Document=true
+Tab Middle Click Close Document=true
+Tabbar Tab Limit=0
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME/Desktop/cachyos,file:$HOME/Documentos/scripts/disk_monitor_taskbar.sh
+Recent URLs[$e]=file:$HOME/,file:$HOME/Documentos/,file:$HOME/Desktop/,file:$HOME/Documentos/scripts/
+iconViewIconSize=64
+
+[KTextEditor Document]
+Allow End of Line Detection=true
+Auto Detect Indent=true
+Auto Reload If State Is In Version Control=true
+Auto Save=false
+Auto Save Interval=0
+Auto Save On Focus Out=false
+BOM=false
+Backup Local=false
+Backup Prefix=
+Backup Remote=false
+Backup Suffix=~
+Camel Cursor=true
+Encoding=UTF-8
+End of Line=0
+Indent On Backspace=true
+Indent On Tab=true
+Indent On Text Paste=false
+Indentation Mode=normal
+Indentation Width=4
+Keep Extra Spaces=false
+Line Length Limit=10000
+Newline at End of File=true
+On-The-Fly Spellcheck=false
+Overwrite Mode=false
+PageUp/PageDown Moves Cursor=true
+Remove Spaces=1
+ReplaceTabsDyn=true
+Show Spaces=0
+Show Tabs=true
+Smart Home=true
+Swap Directory=
+Swap File Mode=1
+Swap Sync Interval=15
+Tab Handling=2
+Tab Width=4
+Trailing Marker Size=1
+Word Wrap=false
+Word Wrap Column=80
+
+[KTextEditor Editor]
+Encoding Prober Type=1
+Fallback Encoding=ISO 8859-15
+
+[KTextEditor Renderer]
+Animate Bracket Matching=true
+Auto Color Theme Selection=false
+Color Theme=Breeze Dark
+Font=Hack,8,-1,5,50,0,0,0,0,0
+Line Height Multiplier=1
+Show Indentation Lines=false
+Show Whole Bracket Expression=false
+Word Wrap Marker=false
+
+[KTextEditor View]
+Allow Mark Menu=true
+Auto Brackets=false
+Auto Center Lines=0
+Auto Completion=true
+Auto Completion Preselect First Entry=true
+Backspace Remove Composed Characters=false
+Bookmark Menu Sorting=0
+Bracket Match Preview=true
+Chars To Enclose Selection=<>(){}[]'"
+Default Mark Type=1
+Dynamic Word Wrap=true
+Dynamic Word Wrap Align Indent=80
+Dynamic Word Wrap At Static Marker=false
+Dynamic Word Wrap Indicators=1
+Dynamic Wrap not at word boundaries=false
+Fold First Line=false
+Folding Bar=true
+Folding Preview=true
+Icon Bar=false
+Input Mode=0
+Keyword Completion=true
+Line Modification=true
+Line Numbers=true
+Max Clipboard History Entries=20
+Maximum Search History Size=100
+Mouse Paste At Cursor Position=false
+Multiple Cursor Modifier=134217728
+Persistent Selection=false
+Scroll Bar Marks=false
+Scroll Bar Mini Map All=true
+Scroll Bar Mini Map Width=60
+Scroll Bar MiniMap=true
+Scroll Bar Preview=true
+Scroll Past End=false
+Search/Replace Flags=140
+Shoe Line Ending Type in Statusbar=false
+Show Documentation With Completion=true
+Show File Encoding=true
+Show Focus Frame Around Editor=true
+Show Folding Icons On Hover Only=true
+Show Line Count=true
+Show Scrollbars=0
+Show Statusbar Dictionary=true
+Show Statusbar Highlighting Mode=true
+Show Statusbar Input Mode=true
+Show Statusbar Line Column=true
+Show Statusbar Tab Settings=true
+Show Word Count=true
+Smart Copy Cut=true
+Statusbar Line Column Compact Mode=true
+Text Drag And Drop=true
+User Sets Of Chars To Enclose Selection=
+Vi Input Mode Steal Keys=false
+Vi Relative Line Numbers=false
+Word Completion=true
+Word Completion Minimal Word Length=3
+Word Completion Remove Tail=true
+
+[KTextEditor::Search]
+Replace History=# CON, is not set,,/bin/mount,/bin/grep,/bin/machinectl,/bin/echo,/bin/rm,/sbin/btrfs,/bin/df,/usr/bin/btrfs,python_single_target_python3_8,${PYTHON_USEDEP},python_targets_python3_8,lxqt-archiver.desktop,Source Code Pro Semibold,sudo btrfs sub del HOME,sudo btrfs sub del ROOT,printf,/usr/bin/mv,/usr/bin/printf,/usr/bin/echo,/bin/bash,/usr/bin/find,/usr/bin/gawk,/usr/bin/sort,read -r,read -r ,"$PWD",files,srt,dfsgfg45t34f,-prune -false,DroidSansMono Nerd Font Mono,/usr/bin/echo -n, ,$mpv_players,/opt/wine-tkg-staging-fsync-git-opt/share/wine/wine.inf,/usr/share/wine/wine.inf,",if [[ "$players" == *"$active_window_pid"* ]]; then,players,ln -sf,/home/lucas/.config/cmyflix/,-iw,antialias" "0",yt-dlp 'https:/,/EFI/BOOT/btrfs-snapshot-stanzas/icons/snapshot.png,/ ,sudo yadm -Y /etc/yadm add /,syadm add /,yadm add /home/lucas/,yadm add ,syadm add ,cfs,yadm rm -r --cached \n,/usr/bin/tee,/tmp/check_btrfs_health.sh.pid,discard\\,nospace_cache\\,,en-us,noatime\\,discard\\,,yadm rm --cached ,-volume 40 ,/usr/bin/ffplay  -nodisp -autoexit -volume 50 /home/lucas/Documentos/scripts/notify.mp3,playerctl --no-messages,sed 's/^.*\\\\(etc.*\\\\).*$/\\\\1/',sed 's/^.*\\\\(etc.*\\\\).*$/\\\\1/'),grep "??",--porcelain | grep -E '^ ??|^??' | tr -d '??' | tr -d '"' | cut -c2-); do if [ -n "$i" ];then yadm add /$i; fi done,| grep -v "^A" | grep -v "^D" | tr -d '??' | tr -d '"' | cut -c2-); do if [ -n "$i" ];then yadm add /home/lucas/$i; fi done,org.kde.gwenview.desktop;Adobe Photoshop CS6.desktop,Adobe Photoshop CS6,yadm add,/boot/,/etc/,/usr/,/var/,syadm add etc/
+Search History=virtualbo,virtual,watchdog,amd,#Con,amdg,wireless,watchdo,zstd,btrfs,nvme,ati,radeon,systemd,AMD,nvidia,AMDGPU,mpv,pyth,ctl,find,/usr/bin/mount,/usr/bin/grep,/usr/bin/machinectl,/usr/bin/echo,/usr/bin/rm,/usr/bin/btrfs,/usr/bin/df,flag,gst,v4l,udev,virtua,pulse,pulsea,ffmpe,glu,libvpx,mango,python,${PYTHON_USEDEP},python_targets_python3_8,picker,compressed,org.kde.ark.desktop,PYTHON_COMPAT,VictorMono Nerd Font,HOME,ROOT,exec,WINE_GECKO,MULTILIB_USEDEP,unbi,WINE_EGIT_REPO_URI,mouse,gentoo,utils_find_pro_file,geck,wine,fish,echo,325ms,325,Tela,python-,',x,simul,mesa,libdrm,root #,/usr/bin/printf,vbo,tmux,your,BG_CPUIO,arch,video,package,btrbk,back,compiler,gcc,compile,0,mv,fail,printf,bash,osdValue,gawk,sort,"'$numero_mkv'",read,$PWD,srt,{files\\,\\,},mkv,asa-a-sa-sa,0058
+
+[Konsole]
+AutoSyncronize=true
+KonsoleEscKeyBehaviour=true
+KonsoleEscKeyExceptions=vi,vim,nvim
+RemoveExtension=false
+RunPrefix=
+SetEditor=false
+
+[MainWindow]
+HDMI-1 Height 1920x1080=621
+HDMI-1 Width 1920x1080=768
+HDMI1 Height 1920x1080=603
+HDMI1 Width 1920x1080=794
+HDMI1 Window-Maximized 1920x1080=true
+Virtual-1 Window-Maximized 1024x768=true
+
+[Notification Messages]
+Kate hide sidebars notification message=false
+
+[UiSettings]
+ColorScheme=
+
+[filetree]
+editShade=37,90,117
+listMode=false
+shadingEnabled=true
+showCloseButton=false
+showFullPathOnRoots=false
+showToolbar=true
+sortRole=0
+viewShade=9,95,106

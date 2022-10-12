@@ -9,6 +9,7 @@ if test -d ~/.local/bin
 end
 alias plasmashell='/usr/bin/killall plasmashell &> /dev/null; /usr/bin/plasmashell --replace &> /dev/null & disown $last_pid';
 alias ls='/usr/bin/exa -al --color=always --group-directories-first';
+alias l='/usr/bin/exa -al --color=always --group-directories-first';
 alias grep='/bin/grep --color=auto';
 alias big="/usr/bin/expac -H M '%m\t%n' | /usr/bin/sort -h | nl";
 alias gitpkg='/usr/bin/pacman -Q | grep -i "\-git" ';

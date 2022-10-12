@@ -1,0 +1,7 @@
+Threshold = 44
+DisplayMonitorSources = false
+EnableUpdates = true
+FilterInput = true
+FilterOutput = false
+LastUsedInput = "alsa_input.usb-Generic_USB2.0_PC_CAMERA-02.pro-input-0"
+LastUsedOutput = ""

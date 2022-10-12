@@ -1,0 +1,43 @@
+#!/bin/bash
+IFS=$(echo -en "\n\b");
+if [[ "$(mount | grep '/dev/sda2 on / type btrfs')" == *"subvol=/GENTOO_ROOT)"* ]];then
+    #/home/lucas/.local/share/icons/* #Too many files. It takes to long to verify all of them every time I push my changes. Think mothafocka..
+    for i in $(yadm stun /home/lucas/.themes/* \
+    /home/lucas/.icons/* \
+    /home/lucas/Documentos/scripts/* \
+    /home/lucas/.config/fish/* \
+    /home/lucas/Documentos/hardware_specs/* \
+    /home/lucas/.config/Kvantum/* \
+    /home/lucas/Imagens/Wallpaper/* \
+    /home/lucas/.config/autostart/* \
+    /home/lucas/.config/gtk-4.0/* \
+    /home/lucas/.config/frogminer/* \
+    /home/lucas/.config/gtk-3.0/* \
+    /home/lucas/.config/mpv/* \
+    /home/lucas/.local/share/icons/* \
+    /home/lucas/.local/share/plasma/desktoptheme/* \
+    /home/lucas/.local/share/konsole/* \
+    /home/lucas/.config/systemd/user/* \
+    /home/lucas/.config/easyeffects/* \
+    /home/lucas/.local/share/applications/* \
+    /home/lucas/.local/share/color-schemes/* \
+    /home/lucas/.local/share/aurorae/themes/* \
+    /home/lucas/.local/share/kwin/tabbox/* \
+    /home/lucas/.local/share/plasma/plasmoids/* \
+    /home/lucas/.local/share/plasma/look-and-feel/* \
+    /home/lucas/.config/autostart-scripts/* \
+      --porcelain); do
+        if [ -n "$(echo "$i" | grep '??')" ];then
+            yadm add "/home/lucas/$(echo "$i" | cut -d '"' -f2 | tr -d '??' | perl -pe 's/^\s+//')";
+        fi
+    done
+    if [ -n "$(yadm status --porcelain)" ];then
+        yadm encrypt 2> /dev/null
+        yadm status --porcelain;
+        echo -e "\nPressione enter para continuar";
+        read;
+        yadm commit -a -m "atualizando";
+    fi
+else
+    echo -e "Você não está no subvolume ROOT. push não realizado";
+fi

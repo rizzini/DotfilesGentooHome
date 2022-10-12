@@ -1,0 +1,212 @@
+[$Version]
+update_info=filepicker.upd:filepicker-remove-old-previews-entry,fonts_global.upd:Fonts_Global,fonts_global_toolbar.upd:Fonts_Global_Toolbar,icons_remove_effects.upd:IconsRemoveEffects,kwin.upd:animation-speed,style_widgetstyle_default_breeze.upd:StyleWidgetStyleDefaultBreeze
+
+[ColorEffects:Disabled]
+ChangeSelectionColor=
+Color=150,150,150
+ColorAmount=0
+ColorEffect=0
+ContrastAmount=0.65
+ContrastEffect=1
+Enable=
+IntensityAmount=0.1
+IntensityEffect=2
+
+[ColorEffects:Inactive]
+ChangeSelectionColor=true
+Color=150,150,150
+ColorAmount=0.025
+ColorEffect=2
+ContrastAmount=0.1
+ContrastEffect=2
+Enable=false
+IntensityAmount=0
+IntensityEffect=0
+
+[Colors:Button]
+BackgroundAlternate=90,90,90
+BackgroundNormal=77,77,77
+DecorationFocus=30,146,255
+DecorationHover=87,177,255
+ForegroundActive=61,174,233
+ForegroundInactive=223,223,223,100
+ForegroundLink=66,133,244
+ForegroundNegative=218,68,83
+ForegroundNeutral=255,109,0
+ForegroundNormal=223,223,223
+ForegroundPositive=1,162,153
+ForegroundVisited=0,188,212
+
+[Colors:Complementary]
+BackgroundAlternate=48,48,48
+BackgroundNormal=40,40,40
+DecorationFocus=30,146,255
+DecorationHover=61,174,230
+ForegroundActive=246,116,0
+ForegroundInactive=239,240,241,100
+ForegroundLink=61,174,230
+ForegroundNegative=237,21,21
+ForegroundNeutral=201,206,59
+ForegroundNormal=239,240,241
+ForegroundPositive=17,209,22
+ForegroundVisited=61,174,230
+
+[Colors:Header]
+BackgroundAlternate=51,51,51
+BackgroundNormal=44,44,44
+DecorationFocus=0,120,215
+DecorationHover=66,156,227
+ForegroundActive=61,174,233
+ForegroundInactive=223,223,223,100
+ForegroundLink=66,133,244
+ForegroundNegative=218,68,83
+ForegroundNeutral=255,109,0
+ForegroundNormal=223,223,223
+ForegroundPositive=1,162,153
+ForegroundVisited=0,188,212
+
+[Colors:Header][Inactive]
+BackgroundAlternate=48,48,48
+BackgroundNormal=42,42,42
+DecorationFocus=0,120,215
+DecorationHover=66,156,227
+ForegroundActive=61,174,233
+ForegroundInactive=223,223,223,70
+ForegroundLink=66,133,244
+ForegroundNegative=218,68,83
+ForegroundNeutral=255,109,0
+ForegroundNormal=223,223,223,150
+ForegroundPositive=1,162,153
+ForegroundVisited=0,188,212
+
+[Colors:Selection]
+BackgroundAlternate=29,153,243
+BackgroundNormal=26,115,232
+DecorationFocus=101,183,255
+DecorationHover=131,201,255
+ForegroundActive=252,252,252
+ForegroundInactive=255,255,255,150
+ForegroundLink=253,188,75
+ForegroundNegative=218,68,83
+ForegroundNeutral=255,109,0
+ForegroundNormal=255,255,255
+ForegroundPositive=1,162,153
+ForegroundVisited=189,195,199
+
+[Colors:Tooltip]
+BackgroundAlternate=40,40,40
+BackgroundNormal=40,40,40
+DecorationFocus=30,146,255
+DecorationHover=30,146,255
+ForegroundActive=61,174,233
+ForegroundInactive=223,223,223,150
+ForegroundLink=66,133,244
+ForegroundNegative=218,68,83
+ForegroundNeutral=255,109,0
+ForegroundNormal=223,223,223
+ForegroundPositive=1,162,153
+ForegroundVisited=0,188,212
+
+[Colors:View]
+BackgroundAlternate=48,48,48
+BackgroundNormal=48,48,48
+DecorationFocus=30,146,255
+DecorationHover=30,146,255
+ForegroundActive=61,174,233
+ForegroundInactive=223,223,223,100
+ForegroundLink=66,133,244
+ForegroundNegative=218,68,83
+ForegroundNeutral=255,109,0
+ForegroundNormal=223,223,223
+ForegroundPositive=1,162,153
+ForegroundVisited=0,188,212
+
+[Colors:Window]
+BackgroundAlternate=48,48,48
+BackgroundNormal=40,40,40
+DecorationFocus=30,146,255
+DecorationHover=30,146,255
+ForegroundActive=61,174,233
+ForegroundInactive=223,223,223,100
+ForegroundLink=66,133,244
+ForegroundNegative=218,68,83
+ForegroundNeutral=255,109,0
+ForegroundNormal=223,223,223
+ForegroundPositive=1,162,153
+ForegroundVisited=0,188,212
+
+[DirSelect Dialog]
+DirSelectDialog Size=896,592
+History Items[$e]=file:$HOME/.wine_photoshop,file:$HOME/.wine_photoshop,file:///mnt/dados/amule,file:///mnt/archlinux/Games/Need for Speed Most Wanted Black Edition,file:///mnt/archlinux/temp_stuff,file:///mnt/archlinux/Games/Foregone,file:///mnt/archlinux/temp_stuff/vm,file:///mnt/archlinux/Games/Ori.And.The.Blind.Forest.DE.REPACK-KaOs,file:///mnt/archlinux/Games/google_chrome_primevideo/drive_c/Program Files/Google/Chrome/Application,file:$HOME/Downloads/1,file:///mnt/dados/Games/prefixos_wine/google_chrome_primevideo/drive_c/Program Files/Google/Chrome/Application,file:///mnt/dados/Games/The Tarnishing Of Juxtia,file:$HOME/reddit-hide-vote-extension,file:$HOME/reddit-hide-vote-extension,file:$HOME/reddit-hide-vote-extension,file:$HOME/reddit-hide-vote-extension,file:$HOME/reddit-hide-vote-extension,file:$HOME/reddit-hide-vote-extension,file:///mnt/dados/Games/GTAV,file:///mnt/dados/VM,file:///mnt/archlinux/Games/Diablo III,file:///mnt/dados/Downloads,file:///mnt/dados/VMs,file:$HOME/Downloads,file:///mnt/archlinux/Games/Half-Life 2 Episode Two,file:$HOME/Filmes e Series,file:///mnt/archlinux/Games/Half-Life 2 Episode One,file:$HOME/Downloads,file:///mnt/dados/amule/final/old,file:///mnt/dados/amule/final,file:///mnt/archlinux/CCACHE/vm,file:///mnt/dados/old,file:///mnt/archlinux/amule/old,file:$HOME/Downloads,file:///mnt/archlinux/amule/final,file:$HOME/Games,file:$HOME/Downloads,file:$HOME/Downloads/vm,file:$HOME/Downloads/vm,file:$HOME/Downloads/amule/final/old,file:$HOME/Downloads/amule/final,file:$HOME/Downloads/amule/final,file:$HOME/Games/Record of Lodoss War Deedlit in Wonder Labyrinth/drive_c/Record.of.Lodoss.War.Deedlit.in.Wonder.Labyrinth,file:$HOME/Games/Record of Lodoss War Deedlit in Wonder Labyrinth/drive_c/Record.of.Lodoss.War.Deedlit.in.Wonder.Labyrinth,file:$HOME/Downloads/amule/old,file:$HOME/Downloads/amule,file:$HOME/Downloads/amule/old,file:$HOME/Downloads/amule/old,file:$HOME/Downloads/amule/final,file:$HOME/Downloads/amule/old
+
+[General]
+BrowserApplication=google-chrome.desktop
+ColorSchemeHash=2dafdb8db7e259fce6399dae70f9cd60076faef2
+Name[pt_BR]=Breeze Dark
+Name=Nord-Dark-Color
+TerminalApplication=alacritty
+TerminalService=Alacritty.desktop
+XftAntialias=true
+XftHintStyle=hintslight
+XftSubPixel=rgb
+accentColorFromWallpaper=false
+fixed=Hack,8,-1,5,50,0,0,0,0,0
+font=Noto Sans,8,-1,5,50,0,0,0,0,0
+menuFont=Noto Sans,8,-1,5,50,0,0,0,0,0
+shadeSortColumn=true
+smallestReadableFont=Noto Sans,7,-1,5,50,0,0,0,0,0
+toolBarFont=Noto Sans,8,-1,5,50,0,0,0,0,0
+widgetStyle=Breeze
+
+[Icons]
+Theme=Tela
+
+[KDE]
+AnimationDurationFactor=0.25
+ColorScheme=BreezeLight
+LookAndFeelPackage=com.github.varlesh.arc-dark
+ScrollbarLeftClickNavigatesByPage=false
+ShowDeleteCommand=true
+contrast=4
+widgetStyle=kvantum-dark
+
+[KFileDialog Settings]
+Allow Expansion=false
+Automatically select filename extension=true
+Breadcrumb Navigation=true
+Decoration position=2
+LocationCombo Completionmode=5
+PathCombo Completionmode=5
+Show Bookmarks=false
+Show Full Path=false
+Show Inline Previews=true
+Show Preview=false
+Show Speedbar=true
+Show hidden files=false
+Sort by=Date
+Sort directories first=true
+Sort hidden files last=false
+Sort reversed=false
+Speedbar Width=144
+View Style=Simple
+
+[KScreen]
+ScreenScaleFactors=VGA-1=1;HDMI-1=1;
+
+[KShortcutsDialog Settings]
+Dialog Size=600,480
+
+[PreviewSettings]
+MaximumRemoteSize=0
+
+[WM]
+activeBackground=40,40,40
+activeBlend=40,40,40
+activeFont=Noto Sans,8,-1,5,50,0,0,0,0,0
+activeForeground=223,223,223
+inactiveBackground=50,50,50
+inactiveBlend=50,50,50
+inactiveForeground=223,223,223,100
+
+[Zoom]
+view_zoom_in=Meta+Num+*; Ctrl+=

@@ -1,0 +1,625 @@
+[$Version]
+update_info=kwinrules.upd:replace-placement-string-to-enum,kwinrules.upd:use-virtual-desktop-ids
+
+[0a3decb5-53a9-4ff8-b104-28dee978e845]
+Description=Configurações de janela para UNO
+size=666,400
+sizerule=2
+title=UNO
+wmclass=steam_app_470220 steam_app_470220
+wmclasscomplete=true
+wmclassmatch=1
+
+[1]
+Description=Configurações de aplicativo para ttoj.exe
+blockcompositing=true
+clientmachine=localhost
+ignoregeometry=true
+ignoregeometryrule=2
+position=17,301
+positionrule=3
+title=The Tarnishing of Juxtia
+titlematch=1
+windowrole=browser
+wmclass=ttoj.exe ttoj.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[10]
+Description=Hammerwatch
+blockcompositing=true
+blockcompositingrule=2
+ignoregeometry=true
+ignoregeometryrule=2
+position=23,298
+positionrule=3
+size=1282,740
+sizerule=3
+title=Hammerwatch 1.41
+titlematch=1
+wmclass=hammerwatch.exe hammerwatch.exe
+wmclasscomplete=true
+wmclassmatch=2
+
+[11]
+Description=Valfaris
+blockcompositing=true
+blockcompositingrule=2
+ignoregeometry=true
+ignoregeometryrule=2
+position=15,289
+positionrule=3
+size=1282,740
+sizerule=3
+title=Valfaris
+titlematch=1
+wmclass=valfaris.exe valfaris.exe
+wmclasscomplete=true
+wmclassmatch=2
+
+[12]
+Description=Configurações de janela para Shadow of the Tomb Raider v1.0 build 458.0_64
+blockcompositing=true
+blockcompositingrule=2
+title=Default - Wine desktop
+wmclass=explorer.exe explorer.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[13]
+Description=Configurações de janela para Dex
+size=1280,720
+sizerule=2
+title=Dex
+wmclassmatch=1
+
+[15093030-2845-4cdf-875d-d88f92614b91]
+Description=Configurações de aplicativo para dolphin-emu
+clientmachine=localhost
+size=800,600
+sizerule=2
+wmclass=dolphin-emu
+wmclasscomplete=true
+wmclassmatch=2
+
+[15d6249a-8ecb-4267-b19d-1931f446a5b1]
+Description=Configurações de janela para UNO
+blockcompositing=true
+blockcompositingrule=2
+ignoregeometry=true
+position=329,612
+positionrule=2
+size=560,350
+sizerule=2
+title=UNO
+titlematch=1
+wmclass=steam_app_470220 steam_app_470220
+wmclasscomplete=true
+wmclassmatch=1
+
+[18d6f5c5-da06-4526-8cdd-668186fa1a3d]
+Description=Configurações de janela para Lords Mobile
+size=870,432
+sizerule=2
+title=Lords Mobile
+wmclass=steam_app_1041320 steam_app_1041320
+wmclasscomplete=true
+wmclassmatch=1
+
+[194439bf-28eb-4f19-8c08-2ab9330cc580]
+Description=Configurações de janela para Dark Devotion
+ignoregeometry=true
+ignoregeometryrule=2
+position=26,257
+positionrule=3
+size=1330,772
+sizerule=2
+title=Dark Devotion
+wmclass=darkdevotion.exe darkdevotion.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[1ae186a4-2107-4425-a939-dfa2407ec5c0]
+Description=Dark Devotion
+ignoregeometry=true
+ignoregeometryrule=2
+position=23,250
+positionrule=3
+size=1280,744
+sizerule=2
+title=Dark Devotion
+titlematch=1
+wmclass=steam_app_0 steam_app_0
+wmclasscomplete=true
+wmclassmatch=1
+
+[2]
+Description=Configurações de aplicativo para diablo iii.exe
+blockcompositing=true
+blockcompositingrule=2
+clientmachine=localhost
+ignoregeometry=true
+position=22,238
+size=965,670
+title=HALF-LIFE 2
+windowrole=browser
+wmclass=diablo iii.exe
+wmclassmatch=1
+
+[27f3c1d1-2383-4a22-9813-671a1a14f84f]
+Description=Configurações de aplicativo para ttoj.exe
+clientmachine=localhost
+ignoregeometry=true
+ignoregeometryrule=2
+position=12,264
+positionrule=3
+title=The Tarnishing of Juxtia
+titlematch=1
+wmclass=ttoj.exe ttoj.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[2c29c231-73e8-4dc6-a8eb-e7b7bc33dc57]
+Description=Configurações de janela para Blasphemous
+ignoregeometry=true
+ignoregeometryrule=2
+position=15,237
+positionrule=3
+title=Blasphemous
+wmclass=blasphemous blasphemous
+wmclasscomplete=true
+wmclassmatch=1
+
+[2c7f02df-614e-4cf5-9a88-e11be1157e9a]
+Description=Configurações de janela para Anbox - Android in a Box
+position=960,530
+positionrule=3
+title=Anbox - Android in a Box
+wmclass=anbox anbox
+wmclasscomplete=true
+wmclassmatch=1
+
+[3]
+Description=Configurações de aplicativo para hl2.exe
+blockcompositing=true
+blockcompositingrule=2
+clientmachine=localhost
+ignoregeometry=true
+ignoregeometryrule=2
+position=22,238
+positionrule=3
+size=965,670
+title=Left 4 Dead 2 - OpenGL
+titlematch=1
+windowrole=browser
+wmclass=hl2_linux hl2_linux
+wmclasscomplete=true
+wmclassmatch=1
+
+[30b57231-2847-4424-b306-8f3b27e5dbb1]
+Description=Valfaris
+blockcompositing=true
+blockcompositingrule=2
+ignoregeometry=true
+ignoregeometryrule=2
+position=15,289
+positionrule=3
+size=1282,740
+sizerule=3
+title=Valfaris
+titlematch=1
+wmclass=valfaris.exe valfaris.exe
+wmclasscomplete=true
+wmclassmatch=2
+
+[33c3f8b5-3b9f-4c99-8a4a-5e181e339193]
+Description=Configurações de janela para EasyEffects
+ignoregeometry=true
+ignoregeometryrule=3
+position=997,549
+positionrule=3
+size=882,483
+sizerule=3
+title=EasyEffects
+wmclass=easyeffects easyeffects
+wmclasscomplete=true
+wmclassmatch=1
+
+[38799bdd-6198-4364-9bce-c1b8f03c887a]
+Description=Configurações de janela para Deedlit in Wonder Labyrinth
+ignoregeometry=true
+ignoregeometryrule=3
+position=11,293
+positionrule=3
+size=1284,747
+sizerule=3
+title=Deedlit in Wonder Labyrinth
+wmclass=deedlit in wonder labyrinth.exe deedlit in wonder labyrinth.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[39956b0f-9ca4-4216-b179-186a59575149]
+Description=Configurações de janela para Blasphemous
+ignoregeometry=true
+ignoregeometryrule=2
+position=13,246
+positionrule=3
+title=Blasphemous
+wmclass=blasphemous blasphemous
+wmclasscomplete=true
+wmclassmatch=1
+
+[3b9d91a2-b7e1-4c7d-b9a6-3c1461a6bbb1]
+Description=Configurações para zenity zenity
+position=247,683
+positionrule=3
+types=32
+wmclass=zenity zenity
+wmclasscomplete=true
+wmclassmatch=1
+
+[4]
+Description=Configurações de janela para EasyEffects
+ignoregeometry=true
+ignoregeometryrule=3
+position=997,549
+positionrule=3
+size=882,483
+sizerule=3
+title=EasyEffects
+wmclass=easyeffects easyeffects
+wmclasscomplete=true
+wmclassmatch=1
+
+[44ba784f-2e26-4afc-9b00-2b98ecb1fec8]
+Description=Configurações de nova janela
+wmclassmatch=1
+
+[4eaebda4-4836-4490-b995-a73e50286c68]
+Description=TV Globo
+blockcompositing=true
+ignoregeometry=true
+position=960,-144
+positionrule=2
+size=960,670
+sizerule=2
+title=TV Globo Ao Vivo Online Grátis | Assista no Globoplay - Google Chrome
+titlematch=1
+wmclass=google-chrome google-chrome
+wmclasscomplete=true
+wmclassmatch=1
+
+[5]
+Description=Configurações de janela para Anbox - Android in a Box
+blockcompositing=true
+ignoregeometry=true
+ignoregeometryrule=3
+position=960,525
+positionrule=3
+size=600,526
+sizerule=3
+title=Anbox - Android in a Box
+wmclass=anbox anbox
+wmclasscomplete=true
+wmclassmatch=1
+
+[53f983a5-128a-45aa-b341-605153327e88]
+Description=Configurações de aplicativo para diablo iii.exe
+blockcompositing=true
+blockcompositingrule=2
+clientmachine=localhost
+wmclass=diablo iii.exe
+wmclassmatch=1
+
+[6]
+Description=Configurações de janela para UNO
+blockcompositing=true
+blockcompositingrule=2
+ignoregeometry=true
+position=329,612
+positionrule=3
+size=560,350
+sizerule=2
+title=UNO
+titlematch=1
+wmclass=steam_app_470220 steam_app_470220
+wmclasscomplete=true
+wmclassmatch=1
+
+[6ad221fe-9420-4156-b120-84127fc21ce4]
+Description=PrimeVideo(Chrome Linux)
+position=960,-144
+positionrule=2
+size=960,670
+sizerule=2
+title=Prime Video - Google Chrome
+titlematch=1
+wmclass=google-chrome google-chrome
+wmclasscomplete=true
+wmclassmatch=1
+
+[6e256e8d-6ef0-47c3-b810-58b9555ff032]
+Description=Configurações de janela para Darkwood
+ignoregeometry=true
+ignoregeometryrule=2
+position=12,290
+positionrule=3
+title=Darkwood
+titlematch=1
+wmclass=darkwood.exe darkwood.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[7]
+Description=PrimeVideo
+blockcompositing=true
+ignoregeometry=true
+position=960,-144
+positionrule=2
+size=960,670
+sizerule=2
+title=Prime Video - Google Chrome
+titlematch=1
+wmclass=google-chrome google-chrome
+wmclasscomplete=true
+wmclassmatch=1
+
+[7c6478c2-3c65-4ecc-a8ce-a2459d421437]
+Description=Configurações de janela para Dark Devotion
+ignoregeometry=true
+ignoregeometryrule=3
+position=26,317
+positionrule=3
+size=1258,732
+sizerule=2
+title=Dark Devotion
+titlematch=1
+wmclass=darkdevotion.exe darkdevotion.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[8]
+Description=TV Globo
+blockcompositing=true
+position=960,0
+positionrule=2
+size=960,526
+sizerule=2
+title=TV Globo Ao Vivo Online Grátis | Assista no Globoplay - Google Chrome
+titlematch=1
+wmclass=google-chrome google-chrome
+wmclasscomplete=true
+wmclassmatch=1
+
+[812bd2dd-c42c-4679-be01-9ce467e31264]
+Description=Hammerwatch
+blockcompositing=true
+blockcompositingrule=2
+ignoregeometry=true
+ignoregeometryrule=2
+position=24,281
+positionrule=3
+title=Hammerwatch 1.41
+titlematch=1
+wmclass=hammerwatch.exe hammerwatch.exe
+wmclasscomplete=true
+wmclassmatch=2
+
+[81b7bc30-4f94-43e1-bb58-49bdeefa961d]
+Description=Configurações de aplicativo para hl2.exe
+clientmachine=localhost
+position=11,287
+positionrule=3
+title=HALF-LIFE 2
+wmclass=hl2.exe hl2.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[81c566b9-b5bc-4860-9331-f019f8940e03]
+Description=Configurações de janela para Blasphemous
+ignoregeometry=true
+ignoregeometryrule=2
+position=19,241
+positionrule=3
+title=Blasphemous
+wmclass=blasphemous blasphemous
+wmclasscomplete=true
+wmclassmatch=1
+
+[820952b7-4ef5-4514-86f6-08412e931eb9]
+Description=Configurações de janela para JIT64
+size=800,616
+sizerule=2
+title=JIT64
+titlematch=2
+wmclassmatch=2
+
+[8a9cc11e-2dc1-4f4c-8b5e-cb3ecf40e6c7]
+Description=Configurações de janela para Intravenous v1.3.31
+ignoregeometry=true
+ignoregeometryrule=2
+position=26,285
+positionrule=3
+title=Intravenous v1.3.31
+wmclass=intravenous.exe intravenous.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[8c965414-c2fc-4963-9ac9-f70f59487ad7]
+Description=Configurações de janela para BandNews TV Ao Vivo
+position=960,-295
+positionrule=2
+size=964,813
+sizerule=2
+title=BandNews TV Ao Vivo
+titlematch=2
+wmclass=chromium
+wmclasscomplete=true
+wmclassmatch=2
+
+[8e266161-b932-4e29-a03c-1614c9f8470d]
+Description=Cópia de Configurações de janela para UNO [WINE]
+position=247,683
+size=600,400
+sizerule=2
+title=UNO
+wmclass=steam_proton
+wmclasscomplete=true
+wmclassmatch=2
+
+[9]
+Description=Foregone
+blockcompositing=true
+blockcompositingrule=2
+ignoregeometry=true
+ignoregeometryrule=2
+position=24,281
+positionrule=3
+title=Foregone
+titlematch=1
+wmclass=foregone.exe foregone.exe
+wmclasscomplete=true
+wmclassmatch=2
+
+[94bbabc8-2858-4c0f-bb67-216b8ed1cf61]
+Description=Configurações de janela para Children of Morta
+position=17,287
+positionrule=3
+title=Children of Morta
+wmclass=childrenofmorta childrenofmorta
+wmclasscomplete=true
+wmclassmatch=1
+
+[99bcea93-d57a-4484-bfdc-69a4aa807ee9]
+Description=Ori and the Blind Forest
+blockcompositing=true
+blockcompositingrule=2
+ignoregeometry=true
+ignoregeometryrule=2
+position=16,291
+positionrule=3
+title=Ori And The Blind Forest: Definitive Edition
+titlematch=1
+wmclass=oride.exe oride.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[9febe502-c69c-427c-bcf2-8172876f3c52]
+Description=Configurações de janela para Carrion
+ignoregeometry=true
+ignoregeometryrule=2
+position=30,275
+positionrule=2
+title=Carrion
+wmclass=carrion.exe carrion.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[General]
+count=13
+rules=1,2,3,4,5,6,7,8,9,10,11,12,13
+
+[a0a0e2c0-fef1-4087-b006-bc4730991325]
+Description=Configurações de janela para Ion Fury
+position=16,292
+positionrule=2
+size=1284,747
+sizerule=2
+title=Ion Fury
+titlematch=1
+wmclass=fury_nodrm.bin fury_nodrm.bin
+wmclasscomplete=true
+wmclassmatch=1
+
+[b5e67adf-288f-4082-ad0f-f72ef0ec7dfd]
+Description=Configurações de janela para Dex
+ignoregeometry=true
+ignoregeometryrule=2
+size=1280,720
+sizerule=3
+title=Dex
+wmclassmatch=1
+
+[baab69ca-594a-43d2-af61-ff3e20f933d9]
+Description=Configurações de nova janela
+ignoregeometry=true
+ignoregeometryrule=2
+position=17,292
+positionrule=3
+wmclassmatch=1
+
+[cb58e05a-a8c5-4375-92b4-0f25cb6a3fae]
+Description=Configurações de janela para Anbox - Android in a Box
+ignoregeometry=true
+ignoregeometryrule=3
+position=960,525
+positionrule=3
+size=600,526
+sizerule=3
+title=Anbox - Android in a Box
+wmclass=anbox anbox
+wmclasscomplete=true
+wmclassmatch=1
+
+[cf1b0906-7ad9-4d1a-af4a-47b3b21b8c6f]
+Description=Configurações de janela para Shadow of the Tomb Raider v1.0 build 458.0_64
+blockcompositing=true
+blockcompositingrule=2
+title=Default - Wine desktop
+wmclass=explorer.exe explorer.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[d4586b6d-421b-4658-be33-771c9b434c5c]
+Description=Configurações de janela para UNO
+size=600,400
+sizerule=2
+title=UNO
+wmclass=steam_app_470220 steam_app_470220
+wmclasscomplete=true
+wmclassmatch=1
+
+[d4f079d3-69f8-4f88-891a-cd4560f8abc3]
+Description=Configurações de aplicativo para supertuxkart
+clientmachine=localhost
+size=832,600
+sizerule=2
+title=SuperTuxKart
+wmclass=supertuxkart supertuxkart
+wmclasscomplete=true
+wmclassmatch=1
+
+[df0ee8a7-f352-4082-8673-4178382b8c64]
+Description=Configurações de aplicativo para huntdown.x86_64
+clientmachine=localhost
+ignoregeometry=true
+ignoregeometryrule=2
+position=60,226
+positionrule=3
+title=Huntdown
+wmclass=huntdown.x86_64 huntdown.x86_64
+wmclasscomplete=true
+wmclassmatch=1
+
+[f18888a6-499e-4fd7-925a-6c966c58d1f0]
+Description=Configurações de janela para Dex
+size=1280,720
+sizerule=2
+title=Dex
+wmclassmatch=1
+
+[f8557045-df88-4010-9bcb-199c8495c36a]
+Description=Configurações de aplicativo para google-chrome
+clientmachine=localhost
+position=0,0
+positionrule=3
+size=928,1052
+sizerule=3
+windowrole=browser
+wmclass=google-chrome google-chrome
+wmclasscomplete=true
+wmclassmatch=1
+
+[ff19e168-096f-40d7-ab92-7e9405511fb2]
+Description=Configurações de nova janela
+wmclassmatch=1
