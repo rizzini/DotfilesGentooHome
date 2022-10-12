@@ -1,0 +1,23 @@
+[Desktop Entry]
+Categories=Development;Emulator;
+Comment[pt_BR]=
+Comment=
+Encoding=UTF-8
+Exec=/opt/genymobile/genymotion/player --vm-name='Custom Phone'
+GenericName[pt_BR]=Android Emulator
+GenericName=Android Emulator
+GenericName[fr]=Emulateur Android
+Icon=genymotion-bin
+MimeType=
+Name[pt_BR]=Genymotion
+Name=Genymotion
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

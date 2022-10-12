@@ -1,0 +1,20 @@
+[Desktop Entry]
+Comment[pt_BR]=
+Comment=
+Exec=MANGOHUD_CONFIG=fps_only WINEFSYNC=1 WINEPREFIX=/mnt/archlinux/Games/Valfaris/prefixo mangohud --dlsym gamemoderun wine Valfaris.exe
+GenericName[pt_BR]=
+GenericName=
+Icon=/mnt/archlinux/Games/Valfaris/valfaris.png
+MimeType=
+Name[pt_BR]=Valfaris
+Name=Valfaris
+NoDisplay=false
+Path=/mnt/archlinux/Games/Valfaris
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

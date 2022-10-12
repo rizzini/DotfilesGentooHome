@@ -1,0 +1,21 @@
+[Desktop Entry]
+Categories=Qt;Graphics;Viewer;
+Comment[pt_BR]=Adobe Photoshop CS6
+Comment=Adobe Photoshop CS6
+Exec=/bin/bash -c "export WINEPREFIX='/home/lucas/.wine_photoshop/'; /home/lucas/.wine_photoshop/wine/bin/winepath -w -0 %F | /usr/bin/xargs -0 /home/lucas/.wine_photoshop/wine/bin/wine 'C:\\\\Program Files\\\\Adobe\\\\Adobe Photoshop CS6 (64 Bit)\\\\Photoshop.exe'"
+GenericName[pt_BR]=Adobe Photoshop CS6
+GenericName=Adobe Photoshop CS6
+Icon=/home/lucas/.wine_photoshop/Adobe_Photoshop_CS6_icon.svg
+MimeType=video/webm;image/webp;image/vnd.adobe.photoshop;image/png;image/jpeg;image/gif;image/bmp;
+Name[pt_BR]=Adobe Photoshop CS6
+Name=Adobe Photoshop CS6
+Path=/home/lucas/.wine_photoshop
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
