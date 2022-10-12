@@ -1,0 +1,57 @@
+System:
+  Host: gentoo Kernel: 6.0.0-tkg-cfs arch: x86_64 bits: 64 Console: pty pts/1
+    Distro: Gentoo Base System release 2.8
+Machine:
+  Type: Desktop Mobo: INTEL model: H81 serial: N/A UEFI: American Megatrends
+    v: 4.6.5 date: 09/18/2020
+CPU:
+  Info: dual core model: Intel Core i3-4170 bits: 64 type: MT MCP cache:
+    L2: 512 KiB
+  Speed (MHz): avg: 3692 min/max: 800/3700 cores: 1: 3693 2: 3692 3: 3692
+    4: 3692
+Graphics:
+  Device-1: Intel 4th Generation Core Processor Family Integrated Graphics
+    driver: i915 v: kernel
+  Device-2: GEMBIRD USB2.0 PC CAMERA type: USB
+    driver: snd-usb-audio,uvcvideo
+  Display: x11 server: X.org v: 1.21.1.4 with: Xwayland v: 22.1.3 driver:
+    X: loaded: modesetting gpu: i915 resolution: <missing: xdpyinfo/xrandr>
+    resolution: 1920x1080
+  OpenGL: renderer: Mesa Intel HD Graphics 4400 (HSW GT2)
+    v: 4.6 Mesa 22.1.7
+Audio:
+  Device-1: Intel Xeon E3-1200 v3/4th Gen Core Processor HD Audio
+    driver: snd_hda_intel
+  Device-2: Intel 8 Series/C220 Series High Definition Audio
+    driver: snd_hda_intel
+  Device-3: GEMBIRD USB2.0 PC CAMERA type: USB
+    driver: snd-usb-audio,uvcvideo
+  Sound Server-1: ALSA v: k6.0.0-tkg-cfs running: yes
+  Sound Server-2: PipeWire v: 0.3.56 running: yes
+Network:
+  Device-1: Realtek RTL8111/8168/8411 PCI Express Gigabit Ethernet
+    driver: r8169
+  IF: enp2s0 state: up speed: 1000 Mbps duplex: full mac: 00:e0:4c:f5:51:d8
+Bluetooth:
+  Device-1: Realtek Bluetooth Radio type: USB driver: btusb
+  Report: rfkill ID: hci0 state: up address: see --recommends
+Drives:
+  Local Storage: total: 344.68 GiB used: 159.23 GiB (46.2%)
+  ID-1: /dev/sda vendor: SanDisk model: SSD PLUS 120GB size: 111.79 GiB
+  ID-2: /dev/sdb vendor: Hitachi model: HDP725025GLA380 size: 232.89 GiB
+Partition:
+  ID-1: / size: 103.66 GiB used: 65.75 GiB (63.4%) fs: btrfs dev: /dev/sda2
+  ID-2: /boot/efi size: 126 MiB used: 2.2 MiB (1.8%) fs: vfat
+    dev: /dev/sda1
+  ID-3: /home size: 103.66 GiB used: 65.75 GiB (63.4%) fs: btrfs
+    dev: /dev/sda2
+Swap:
+  ID-1: swap-1 type: zram size: 4 GiB used: 1.27 GiB (31.8%) dev: /dev/zram0
+  ID-2: swap-2 type: partition size: 8 GiB used: 0 KiB (0.0%)
+    dev: /dev/sda3
+Sensors:
+  System Temperatures: cpu: 29.8 C mobo: 27.8 C
+  Fan Speeds (RPM): N/A
+Info:
+  Processes: 271 Uptime: 21m Memory: 7.69 GiB used: 2.19 GiB (28.5%)
+  Shell: generate_hardwa inxi: 3.3.17

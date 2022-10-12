@@ -1,0 +1,36 @@
+Disk /dev/sda: 111.79 GiB, 120034123776 bytes, 234441648 sectors
+Disk model: SanDisk SSD PLUS
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: C932B96A-2553-4827-BE2D-2C993ED424BA
+
+Device         Start       End   Sectors   Size Type
+/dev/sda1       2048    264191    262144   128M EFI System
+/dev/sda2     264192 217663487 217399296 103.7G Linux filesystem
+/dev/sda3  217663488 234440703  16777216     8G Linux swap
+
+
+Disk /dev/sdb: 232.89 GiB, 250059350016 bytes, 488397168 sectors
+Disk model: Hitachi HDP72502
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: D59B7BBD-9136-7141-A35F-FE13B20C74C0
+
+Device         Start       End   Sectors   Size Type
+/dev/sdb1       2048    923647    921600   450M Windows recovery environment
+/dev/sdb2     923648   1128447    204800   100M EFI System
+/dev/sdb3    1128448   1161215     32768    16M Microsoft reserved
+/dev/sdb4    1161216  77832191  76670976  36.6G Microsoft basic data
+/dev/sdb5   77832192 164986879  87154688  41.6G Linux filesystem
+/dev/sdb6  164986880 175226879  10240000   4.9G Linux filesystem
+/dev/sdb7  175226880 488396799 313169920 149.3G Linux filesystem
+
+
+Disk /dev/zram0: 4 GiB, 4294967296 bytes, 1048576 sectors
+Units: sectors of 1 * 4096 = 4096 bytes
+Sector size (logical/physical): 4096 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
