@@ -25,22 +25,6 @@ wmclass=ttoj.exe ttoj.exe
 wmclasscomplete=true
 wmclassmatch=1
 
-[10]
-Description=Hammerwatch
-blockcompositing=true
-blockcompositingrule=2
-ignoregeometry=true
-ignoregeometryrule=2
-position=23,298
-positionrule=3
-size=1282,740
-sizerule=3
-title=Hammerwatch 1.41
-titlematch=1
-wmclass=hammerwatch.exe hammerwatch.exe
-wmclasscomplete=true
-wmclassmatch=2
-
 [11]
 Description=Valfaris
 blockcompositing=true
@@ -56,22 +40,6 @@ titlematch=1
 wmclass=valfaris.exe valfaris.exe
 wmclasscomplete=true
 wmclassmatch=2
-
-[12]
-Description=Configurações de janela para Shadow of the Tomb Raider v1.0 build 458.0_64
-blockcompositing=true
-blockcompositingrule=2
-title=Default - Wine desktop
-wmclass=explorer.exe explorer.exe
-wmclasscomplete=true
-wmclassmatch=1
-
-[13]
-Description=Configurações de janela para Dex
-size=1280,720
-sizerule=2
-title=Dex
-wmclassmatch=1
 
 [15093030-2845-4cdf-875d-d88f92614b91]
 Description=Configurações de aplicativo para dolphin-emu
@@ -468,16 +436,18 @@ wmclasscomplete=true
 wmclassmatch=2
 
 [9]
-Description=Foregone
+Description=Valfaris
 blockcompositing=true
 blockcompositingrule=2
 ignoregeometry=true
 ignoregeometryrule=2
-position=24,281
+position=15,289
 positionrule=3
-title=Foregone
+size=1282,740
+sizerule=3
+title=Valfaris
 titlematch=1
-wmclass=foregone.exe foregone.exe
+wmclass=valfaris.exe valfaris.exe
 wmclasscomplete=true
 wmclassmatch=2
 
@@ -516,8 +486,8 @@ wmclasscomplete=true
 wmclassmatch=1
 
 [General]
-count=13
-rules=1,2,3,4,5,6,7,8,9,10,11,12,13
+count=9
+rules=1,2,3,4,5,6,7,8,9
 
 [a0a0e2c0-fef1-4087-b006-bc4730991325]
 Description=Configurações de janela para Ion Fury

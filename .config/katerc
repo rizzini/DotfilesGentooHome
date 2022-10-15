@@ -51,7 +51,7 @@ Indentation Width=4
 Keep Extra Spaces=false
 Line Length Limit=10000
 Newline at End of File=true
-On-The-Fly Spellcheck=false
+On-The-Fly Spellcheck=true
 Overwrite Mode=false
 PageUp/PageDown Moves Cursor=true
 Remove Spaces=1
@@ -143,7 +143,7 @@ Word Completion Remove Tail=true
 
 [KTextEditor::Search]
 Replace History=/usr/bin/sudo /usr/bin/yadm -Y /etc/yadm,syadm add , ,# CON, is not set,,/bin/mount,/bin/grep,/bin/machinectl,/bin/echo,/bin/rm,/sbin/btrfs,/bin/df,/usr/bin/btrfs,python_single_target_python3_8,${PYTHON_USEDEP},python_targets_python3_8,lxqt-archiver.desktop,Source Code Pro Semibold,sudo btrfs sub del HOME,sudo btrfs sub del ROOT,printf,/usr/bin/mv,/usr/bin/printf,/usr/bin/echo,/bin/bash,/usr/bin/find,/usr/bin/gawk,/usr/bin/sort,read -r,read -r ,"$PWD",files,srt,dfsgfg45t34f,-prune -false,DroidSansMono Nerd Font Mono,/usr/bin/echo -n,$mpv_players,/opt/wine-tkg-staging-fsync-git-opt/share/wine/wine.inf,/usr/share/wine/wine.inf,",if [[ "$players" == *"$active_window_pid"* ]]; then,players,ln -sf,/home/lucas/.config/cmyflix/,-iw,antialias" "0",yt-dlp 'https:/,/EFI/BOOT/btrfs-snapshot-stanzas/icons/snapshot.png,/ ,sudo yadm -Y /etc/yadm add /,syadm add /,yadm add /home/lucas/,yadm add ,cfs,yadm rm -r --cached \n,/usr/bin/tee,/tmp/check_btrfs_health.sh.pid,discard\\,nospace_cache\\,,en-us,noatime\\,discard\\,,yadm rm --cached ,-volume 40 ,/usr/bin/ffplay  -nodisp -autoexit -volume 50 /home/lucas/Documentos/scripts/notify.mp3,playerctl --no-messages,sed 's/^.*\\\\(etc.*\\\\).*$/\\\\1/',sed 's/^.*\\\\(etc.*\\\\).*$/\\\\1/'),grep "??",--porcelain | grep -E '^ ??|^??' | tr -d '??' | tr -d '"' | cut -c2-); do if [ -n "$i" ];then yadm add /$i; fi done,| grep -v "^A" | grep -v "^D" | tr -d '??' | tr -d '"' | cut -c2-); do if [ -n "$i" ];then yadm add /home/lucas/$i; fi done,org.kde.gwenview.desktop;Adobe Photoshop CS6.desktop,Adobe Photoshop CS6,yadm add,/boot/,/etc/,/usr/,/var/,syadm add etc/
-Search History=scripts,scripts/config,gentoo,readme,python,git,λ,CONFIG_BCMA_HOST_PCI is not set,watchd,iw,syadm,yadm add , -r ,virtualbo,virtual,watchdog,amd,#Con,amdg,wireless,watchdo,zstd,btrfs,nvme,ati,radeon,systemd,AMD,nvidia,AMDGPU,mpv,pyth,ctl,find,/usr/bin/mount,/usr/bin/grep,/usr/bin/machinectl,/usr/bin/echo,/usr/bin/rm,/usr/bin/btrfs,/usr/bin/df,flag,gst,v4l,udev,virtua,pulse,pulsea,ffmpe,glu,libvpx,mango,${PYTHON_USEDEP},python_targets_python3_8,picker,compressed,org.kde.ark.desktop,PYTHON_COMPAT,VictorMono Nerd Font,HOME,ROOT,exec,WINE_GECKO,MULTILIB_USEDEP,unbi,WINE_EGIT_REPO_URI,mouse,utils_find_pro_file,geck,wine,fish,echo,325ms,325,Tela,python-,',x,simul,mesa,libdrm,root #,/usr/bin/printf,vbo,tmux,your,BG_CPUIO,arch,video,package,btrbk,back,compiler,gcc,compile,0,mv,fail,printf,bash
+Search History=cups,ffmp,maes,ksmd,pmadv,sound,anb,modprobeddb_db_path,$where,where,SCRIPTPATH,SCRIPT_PATH,modp,_modprobeddb_db_path,scripts,scripts/config,gentoo,readme,python,git,λ,CONFIG_BCMA_HOST_PCI is not set,watchd,iw,syadm,yadm add , -r ,virtualbo,virtual,watchdog,amd,#Con,amdg,wireless,watchdo,zstd,btrfs,nvme,ati,radeon,systemd,AMD,nvidia,AMDGPU,mpv,pyth,ctl,find,/usr/bin/mount,/usr/bin/grep,/usr/bin/machinectl,/usr/bin/echo,/usr/bin/rm,/usr/bin/btrfs,/usr/bin/df,flag,gst,v4l,udev,virtua,pulse,pulsea,ffmpe,glu,libvpx,mango,${PYTHON_USEDEP},python_targets_python3_8,picker,compressed,org.kde.ark.desktop,PYTHON_COMPAT,VictorMono Nerd Font,HOME,ROOT,exec,WINE_GECKO,MULTILIB_USEDEP,unbi,WINE_EGIT_REPO_URI,mouse,utils_find_pro_file,geck,wine,fish,echo,325ms,325,Tela,python-,',x,simul,mesa,libdrm,root #,/usr/bin/printf,vbo,tmux,your
 
 [Konsole]
 AutoSyncronize=true
@@ -154,8 +154,8 @@ RunPrefix=
 SetEditor=false
 
 [MainWindow]
-HDMI-1 Height 1920x1080=722
-HDMI-1 Width 1920x1080=954
+HDMI-1 Height 1920x1080=707
+HDMI-1 Width 1920x1080=956
 HDMI1 Height 1920x1080=603
 HDMI1 Width 1920x1080=794
 HDMI1 Window-Maximized 1920x1080=true

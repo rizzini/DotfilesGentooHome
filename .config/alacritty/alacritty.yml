@@ -21,7 +21,7 @@ font:
   size: 10
 
 window:
-  opacity: 0.96
+  opacity: 0.90
   dimensions:
     columns: 110
     lines: 30
@@ -33,10 +33,9 @@ selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
 
 
-
 scrolling:
   history: 100000
-  multiplier: 5
+  multiplier: 4
 
 key_bindings:
   - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
