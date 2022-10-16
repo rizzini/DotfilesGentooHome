@@ -2,7 +2,8 @@
 +++ prepare	2022-10-16 08:19:38.839844054 -0300
 @@ -1644,2 +1644,5 @@
  
-+  ln -s arch/x86 arch/amd64
++  cd arch
++  ln -s x86 amd64
 +  msg2 PATCH OK
 +
    # modprobed-db
