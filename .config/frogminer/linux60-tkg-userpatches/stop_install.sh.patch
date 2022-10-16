@@ -1,8 +1,8 @@
---- install.sh	2022-10-16 07:54:20.317395825 -0300
-+++ install.sh_	2022-10-16 08:10:54.791785733 -0300
-@@ -302,2 +302,5 @@
-     ./scripts/config --set-str LOCALVERSION "-${_kernel_flavor}"
-+    ln -s arch/x86 arch/amd64
-+    msg LINK OK
-+
+--- prepare	2022-10-16 07:54:20.326729171 -0300
++++ prepare	2022-10-16 08:19:38.839844054 -0300
+@@ -1644,2 +1644,5 @@
  
++  ln -s arch/x86 arch/amd64
++  msg2 PATCH OK
++
+   # modprobed-db
