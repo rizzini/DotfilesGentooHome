@@ -776,6 +776,7 @@ PreloadWeight=65
 
 [Containments][84][Applets][206][Configuration][Appearance]
 chartFace=org.kde.ksysguard.textonly
+showTitle=true
 title=Velocidade de rede
 updateRateLimit=500
 
@@ -811,7 +812,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][84][Applets][207][Configuration]
-PreloadWeight=60
+PreloadWeight=70
 
 [Containments][84][Applets][207][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -846,7 +847,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][84][Applets][209][Configuration]
-PreloadWeight=65
+PreloadWeight=70
 
 [Containments][84][Applets][209][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
