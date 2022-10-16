@@ -1,10 +1,19 @@
 --- prepare	2022-10-16 07:54:20.326729171 -0300
-+++ prepare_	2022-10-16 08:32:31.924788249 -0300
-@@ -99,2 +99,3 @@
++++ prepare_	2022-10-16 08:44:10.016266459 -0300
+@@ -99,5 +99,10 @@
  _disable() {
-+  msg2 $(pwd)
-   for _config_name in "$@"; do
-@@ -1644,2 +1645,6 @@
+-  for _config_name in "$@"; do
++  if [[ "$(pwd)" == *"arch"* ]];then
++    cd ..
+     scripts/config -k --disable "${_config_name}"
+-  done
++  else
++    for _config_name in "$@"; do
++      scripts/config -k --disable "${_config_name}"
++    done
++  fi
+ }
+@@ -1644,2 +1649,6 @@
  
 +  cd arch
 +  ln -s x86 amd64
