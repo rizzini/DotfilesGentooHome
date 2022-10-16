@@ -1,6 +1,8 @@
---- install.sh	2022-10-16 07:20:41.275416845 -0300
-+++ install.sh	2022-10-16 07:21:34.946280091 -0300
-@@ -300,2 +300,3 @@
-   elif [[ "$_distro" =~ ^(Gentoo|Generic)$ ]]; then
-+    exit 0
+--- install.sh	2022-10-16 07:54:20.317395825 -0300
++++ install.sh_	2022-10-16 08:10:54.791785733 -0300
+@@ -302,2 +302,5 @@
+     ./scripts/config --set-str LOCALVERSION "-${_kernel_flavor}"
++    ln -s arch/x86 arch/amd64
++    msg LINK OK
++
  
