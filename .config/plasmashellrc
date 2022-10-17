@@ -14,7 +14,7 @@ Recent URLs[$e]=file:$HOME/,file:$HOME/Documentos/,file:///usr/share/help/C/easy
 iconViewIconSize=64
 
 [KPropertiesDialog]
-HDMI-1 Height 1920x1080=468
+HDMI-1 Height 1920x1080=472
 HDMI-1 Width 1920x1080=423
 
 [Open-with settings]
@@ -22,7 +22,7 @@ CompletionMode=1
 History=kate
 
 [PlasmaTransientsConfig]
-PreloadWeight=10
+PreloadWeight=42
 
 [PlasmaViews][Panel 2][Defaults]
 thickness=44
