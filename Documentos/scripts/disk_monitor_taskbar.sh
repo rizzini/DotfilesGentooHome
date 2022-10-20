@@ -6,30 +6,30 @@ fi
 if [ -b "/dev/sdc" ]; then
     sdc="1";
 fi
-data1_read_sda2=$(/bin/grep -w sda /proc/diskstats | /usr/bin/awk '{print $6}');
-data1_write_sda2=$(/bin/grep -w sda /proc/diskstats | /usr/bin/awk '{print $10}');
+data1_read_sda2=$(/usr/bin/awk '/\<sda\>/{print $6}' /proc/diskstats);
+data1_write_sda2=$(/usr/bin/awk '/\<sda\>/{print $10}' /proc/diskstats);
 if [ "$sdb" ]; then
-    data1_read_sdb=$(/bin/grep -w sdb /proc/diskstats | /usr/bin/awk '{print $6}');
-    data1_write_sdb=$(/bin/grep -w sdb /proc/diskstats | /usr/bin/awk '{print $10}');
+    data1_read_sdb=$(/usr/bin/awk '/\<sdb\>/{print $6}' /proc/diskstats);
+    data1_write_sdb=$(/usr/bin/awk '/\<sdb\>/{print $10}' /proc/diskstats);
 fi
 if [ "$sdc" ]; then
-    data1_read_sdc=$(/bin/grep -w sdc /proc/diskstats | /usr/bin/awk '{print $6}');
-    data1_write_sdc=$(/bin/grep -w sdc /proc/diskstats | /usr/bin/awk '{print $10}');
+    data1_read_sdc=$(/usr/bin/awk '/\<sdc\>/{print $6}' /proc/diskstats);
+    data1_write_sdc=$(/usr/bin/awk '/\<sdc\>/{print $10}' /proc/diskstats);
 fi
 /usr/bin/sleep 0.5 &&
-data2_read_sda2=$(/bin/grep -w sda /proc/diskstats | /usr/bin/awk '{print $6}');
-data2_write_sda2=$(/bin/grep -w sda /proc/diskstats | /usr/bin/awk '{print $10}');
+data2_read_sda2=$(/usr/bin/awk '/\<sda\>/{print $6}' /proc/diskstats);
+data2_write_sda2=$(/usr/bin/awk '/\<sda\>/{print $10}' /proc/diskstats);
 read_sda2=$((data2_read_sda2 - data1_read_sda2));
 write_sda2=$((data2_write_sda2 - data1_write_sda2));
 if [ "$sdb" ]; then
-    data2_read_sdb=$(/bin/grep -w sdb /proc/diskstats | /usr/bin/awk '{print $6}');
-    data2_write_sdb=$(/bin/grep -w sdb /proc/diskstats | /usr/bin/awk '{print $10}');
+    data2_read_sdb=$(/usr/bin/awk '/\<sdb\>/{print $6}' /proc/diskstats);
+    data2_write_sdb=$(/usr/bin/awk '/\<sdb\>/{print $10}' /proc/diskstats);
     read_sdb=$((data2_read_sdb - data1_read_sdb));
     write_sdb=$((data2_write_sdb - data1_write_sdb));
 fi
 if [ "$sdc" ]; then
-    data2_read_sdc=$(/bin/grep -w sdc /proc/diskstats | /usr/bin/awk '{print $6}');
-    data2_write_sdc=$(/bin/grep -w sdc /proc/diskstats | /usr/bin/awk '{print $10}');
+    data2_read_sdc=$(/usr/bin/awk '/\<sdc\>/{print $6}' /proc/diskstats);
+    data2_write_sdc=$(/usr/bin/awk '/\<sdc\>/{print $10}' /proc/diskstats);
     read_sdc=$((data2_read_sdc - data1_read_sdc));
     write_sdc=$((data2_write_sdc - data1_write_sdc));
 fi
