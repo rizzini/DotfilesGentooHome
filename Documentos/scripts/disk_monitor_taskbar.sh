@@ -51,7 +51,7 @@ fi
 if [ $write_sdcc ]; then
     sdc_write_final=$((${write_sdc%%}/1024));
 fi
-threshold=10
+threshold=1
 if [[ "$1" == 'taskbar' ]];then
     if [[ $sdb_read_final -ge $threshold || $sdb_write_final -ge $threshold && $sda_read_final -ge $threshold || $sda_write_final -ge $threshold ]];then
         /bin/echo "SSD| R: "$sda_read_final" MB/s W: "$sda_write_final" MB/s <=> ";
@@ -67,13 +67,13 @@ if [[ "$1" == 'taskbar' ]];then
     fi
     exit
 fi
-/usr/bin/printf "SSD|""R: $(/bin/echo "$sda_read_final MB/s") W: $(/bin/echo "$sda_write_final MB/s")\n";
+/bin/echo "SSD| R: "$sda_read_final" MB/s W: "$sda_write_final" MB/s";
 if [ "$sdb" ]; then
-    /usr/bin/printf "HDD|""R: $(/bin/echo "$sdb_read_final MB/s") W: $(/bin/echo "$sdb_write_final MB/s")\n";
+    /bin/echo "HDD| R: "$sdb_read_final" MB/s W: "$sdb_write_final" MB/s";
 fi
 if [ "$sdc" ]; then
-    /usr/bin/printf "sdc|""R: $(/bin/echo "$sdc_read_final MB/s") W: $(/bin/echo "$sdc_write_final MB/s")\n";
+    /bin/echo "sdc| R: "$sdc_read_final" MB/s W: "$sdc_write_final" MB/s";
 fi
 if [ "$1" != 'taskbar' ];then
-    /usr/bin/printf "CPU Temp: ""$(/bin/echo "$(/usr/bin/sensors | /bin/grep 'Package id 0:' | /usr/bin/tail -1 | /usr/bin/cut -c 17-18)")""ºc";
+    /bin/echo "CPU Temp: ""$(/bin/echo "$(/usr/bin/sensors | /bin/grep 'Package id 0:' | /usr/bin/tail -1 | /usr/bin/cut -c 17-18)")""ºc";
 fi
