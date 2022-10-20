@@ -1,5 +1,4 @@
 #!/bin/bash
-sleep=0
 if [ -b "/dev/sdb" ]; then
     sdb="1";
 fi
@@ -33,29 +32,30 @@ if [ "$sdc" ]; then
     read_sdc=$((data2_read_sdc - data1_read_sdc));
     write_sdc=$((data2_write_sdc - data1_write_sdc));
 fi
-if [ $read_sda ]; then
+if [ "$read_sda" ]; then
     sda_read_final=$((${read_sda%%}/1024));
 fi
-if [ $write_sda ]; then
+if [ "$write_sda" ]; then
     sda_write_final=$((${write_sda%%}/1024));
 fi
-if [ $read_sdb ]; then
+if [ "$read_sdb" ]; then
     sdb_read_final=$((${read_sdb%%}/1024));
 fi
-if [ $write_sdb ]; then
+if [ "$write_sdb" ]; then
     sdb_write_final=$((${write_sdb%%}/1024));
 fi
-if [ $read_sdc ]; then
+if [ "$read_sdc" ]; then
     sdc_read_final=$((${read_sdc%%}/1024));
 fi
-if [ $write_sdcc ]; then
+if [ "$write_sdcc" ]; then
     sdc_write_final=$((${write_sdc%%}/1024));
 fi
+sleep=0
 threshold=10
 if [[ "$1" == 'taskbar' ]];then
     if [[ $sdb_read_final -ge $threshold || $sdb_write_final -ge $threshold && $sda_read_final -ge $threshold || $sda_write_final -ge $threshold ]];then
-        /bin/echo "SSD| R: "$sda_read_final" MB/s W: "$sda_write_final" MB/s <=> ";
-        /bin/echo "HDD| R: "$sdb_read_final" MB/s W: "$sdb_write_final" MB/s";
+        /bin/echo "SSD| R: $sda_read_final MB/s W: $sda_write_final MB/s <=> ";
+        /bin/echo "HDD| R: $sdb_read_final MB/s W: $sdb_write_final MB/s";
         sleep=1
     fi
 #     if [[ $sdc_read_final -ge $threshold || $sdc_write_final -ge $threshold  ]];then
@@ -67,12 +67,12 @@ if [[ "$1" == 'taskbar' ]];then
     fi
     exit
 fi
-/bin/echo "SSD| R: "$sda_read_final" MB/s W: "$sda_write_final" MB/s";
+/bin/echo "SSD| R: $sda_read_final MB/s W: $sda_write_final MB/s";
 if [ "$sdb" ]; then
-    /bin/echo "HDD| R: "$sdb_read_final" MB/s W: "$sdb_write_final" MB/s";
+    /bin/echo "HDD| R: $sdb_read_final MB/s W: $sdb_write_final MB/s";
 fi
 if [ "$sdc" ]; then
-    /bin/echo "sdc| R: "$sdc_read_final" MB/s W: "$sdc_write_final" MB/s";
+    /bin/echo "sdc| R: $sdc_read_final MB/s W: $sdc_write_final MB/s";
 fi
 if [ "$1" != 'taskbar' ];then
     /bin/echo "CPU Temp: ""$(/bin/echo "$(/usr/bin/sensors | /bin/grep 'Package id 0:' | /usr/bin/tail -1 | /usr/bin/cut -c 17-18)")""ºc";
