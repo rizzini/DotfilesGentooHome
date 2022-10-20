@@ -34,7 +34,7 @@ selection:
 
 
 scrolling:
-  history: 100000
+  #history: 100000
   multiplier: 4
 
 key_bindings:

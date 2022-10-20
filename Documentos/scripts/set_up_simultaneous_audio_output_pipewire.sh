@@ -14,11 +14,11 @@ elif [ -h "/etc/wireplumber/main.lua.d/51-alsa-disable.lua" ]; then
     get_current_volume="$(pactl get-sink-volume 'alsa_output.pci-0000_00_03.0.hdmi-stereo-extra1' | /usr/bin/awk '{print $12}')";
     /usr/bin/sudo /bin/rm -f /etc/wireplumber/main.lua.d/51-alsa-disable.lua;
     /bin/systemctl --user restart pipewire.service wireplumber.service;
+    /usr/bin/pactl load-module module-combine-sink sink_name=combination-sink sink_properties=slaves=alsa_output.pci-0000_00_03.0.hdmi-stereo-extra1,alsa_output.pci-0000_00_1b.0.analog-stereo channels=2
     /usr/bin/sleep 1
-    pactl load-module module-combine-sink sink_name=combination-sink sink_properties=slaves=alsa_output.pci-0000_00_03.0.hdmi-stereo-extra1,alsa_output.pci-0000_00_1b.0.analog-stereo channels=2
-    /usr/bin/sleep 1
-    /usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo 100%;
-    /usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_03.0.hdmi-stereo-extra1 100%;
+    sinks=($(/usr/bin/pactl list sinks | /bin/grep -sw 'Nome:' | /bin/grep -e 'alsa_output.pci' | /usr/bin/cut -d ":" -f2))
+    /usr/bin/pactl set-sink-volume ${sinks[0]} 100%;
+    /usr/bin/pactl set-sink-volume ${sinks[1]} 100%;
     /usr/bin/pactl set-sink-volume "$(pactl get-default-sink)" "$get_current_volume";
     /usr/bin/pactl set-default-sink combination-sink;
 fi

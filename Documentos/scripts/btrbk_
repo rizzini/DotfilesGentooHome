@@ -46,11 +46,12 @@ fi
 if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_root.conf -q run; then
     /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: GENTOO_ROOT.";
 fi
-/usr/bin/rsync -aAXvz /boot/efi/* /mnt/archlinux/BOOT_ESP/ 1> /dev/null;
-if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_boot_esp.conf -q run; then
-    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: BOOT_ESP.";
+if ! /usr/bin/rsync -aAXvz /boot/efi/* /mnt/archlinux/BOOT_ESP/; then
+    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao executar refind-btrfs.";
 fi
-/usr/bin/refind-btrfs --run-mode one-time
+if ! /usr/bin/refind-btrfs --run-mode one-time; then
+    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao executar refind-btrfs.";
+fi
 /bin/rm /tmp/btrbk_.sh.lock;
 
 

@@ -78,6 +78,7 @@ videowallEnabled=false
 [TabBox]
 BorderActivate=9
 LayoutName=MediumRoundedDark
+MoveMinimizedWindowsToEndOfTabBoxFocusChain=true
 
 [Windows]
 ElectricBorderMaximize=false

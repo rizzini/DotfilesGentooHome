@@ -53,6 +53,7 @@ x-scheme-handler/https=chromium-bin-browser-chromium.desktop;google-chrome.deskt
 x-scheme-handler/mailto=google-chrome.desktop;chromium.desktop;
 x-scheme-handler/tel=skypeforlinux.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-VZNHJ1.desktop;
+application/x-ms-dos-executable=org.kde.kate.desktop;
 
 [Default Applications]
 application/json=org.kde.kate.desktop;

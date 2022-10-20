@@ -16,7 +16,7 @@ alias gitpkg='/usr/bin/pacman -Q | grep -i "\-git" ';
 alias syadm="/usr/bin/sudo /usr/bin/yadm -Y /etc/yadm";
 alias rip="/usr/bin/expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | /usr/bin/sort | /usr/bin/tail -200 | /usr/bin/nl";
 #alias cat='/usr/bin/bat -p ';
-alias cat="highlight -O ansi --force"
+# alias cat="highlight -O ansi --force"
 alias kmake='k /etc/portage/make.conf'
 alias kuse='k /etc/portage/package.use/package.use'
 alias kwords='k /etc/portage/package.accept_keywords/zz-autounmask'
