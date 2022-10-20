@@ -58,10 +58,10 @@ if [[ "$1" == 'taskbar' ]];then
         /bin/echo "HDD| R: "$sdb_read_final" MB/s W: "$sdb_write_final" MB/s";
         sleep=1
     fi
-    if [[ $sdc_read_final -ge $threshold || $sdc_write_final -ge $threshold  ]];then
-        /bin/echo "sdc|""R: $(/bin/echo "$sdc_read_final MB/s") W: $(/bin/echo "$sdc_write_final MB/s")";
-        sleep=1;
-    fi
+#     if [[ $sdc_read_final -ge $threshold || $sdc_write_final -ge $threshold  ]];then
+#         /bin/echo "sdc|""R: $(/bin/echo "$sdc_read_final MB/s") W: $(/bin/echo "$sdc_write_final MB/s")";
+#         sleep=1;
+#     fi
     if [ "$sleep" == '1' ];then
         /usr/bin/sleep 1;
     fi
