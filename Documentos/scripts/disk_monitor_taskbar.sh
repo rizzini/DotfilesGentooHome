@@ -51,7 +51,7 @@ fi
 if [ $write_sdcc ]; then
     sdc_write_final=$((${write_sdc%%}/1024));
 fi
-threshold=1
+threshold=10
 if [[ "$1" == 'taskbar' ]];then
     if [[ $sdb_read_final -ge $threshold || $sdb_write_final -ge $threshold && $sda_read_final -ge $threshold || $sda_write_final -ge $threshold ]];then
         /bin/echo "SSD| R: "$sda_read_final" MB/s W: "$sda_write_final" MB/s <=> ";
