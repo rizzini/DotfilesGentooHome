@@ -15,7 +15,9 @@ iconViewIconSize=64
 
 [KPropertiesDialog]
 HDMI-1 Height 1920x1080=472
+HDMI-1 Height 1920x1080 HDMI-1=504
 HDMI-1 Width 1920x1080=423
+HDMI-1 Width 1920x1080 HDMI-1=708
 
 [Open-with settings]
 CompletionMode=1
