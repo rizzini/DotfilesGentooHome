@@ -33,7 +33,7 @@ while :; do
     else
         break;
     fi
-    if [ $counter -le 118 ]; then
+    if [ $counter -ge 118 ]; then
         /bin/rm /tmp/btrbk_.sh.lock;
         exit;
     fi
