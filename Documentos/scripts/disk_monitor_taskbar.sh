@@ -34,17 +34,24 @@ if [ "$sdc" ]; then
     write_sdc=$((data2_write_sdc - data1_write_sdc));
 fi
 if [ "$1" == 'taskbar' ];then
-    /bin/echo -e "SSD| R: $((${read_sda2%%}/1024))MB/s W: $((${write_sda2%%}/1024))MB/s <=> ";
+    /bin/echo "SSD| R: $((${read_sda2%%}/1024))MB/s W: $((${write_sda2%%}/1024))MB/s <=> ";
+    if [ "$sdb" ]; then
+        /bin/echo "HDD| R: $((${read_sdb%%}/1024))MB/s W: $((${write_sdb%%}/1024))MB/s";
+    fi
+    if [ "$sdc" ]; then
+        /bin/echo "sdc| R: $((${read_sdc%%}/1024))MB/s W: $((${write_sdc%%}/1024))MB/s";
+    fi
 else
-    /bin/echo -e "SSD| R: $((${read_sda2%%}/1024))MB/s W: $((${write_sda2%%}/1024))MB/s\n";
+    /bin/echo "SSD| R: $((${read_sda2%%}/1024))MB/s W: $((${write_sda2%%}/1024))MB/s";
+    if [ "$sdb" ]; then
+        /bin/echo "HDD| R: $((${read_sdb%%}/1024))MB/s W: $((${write_sdb%%}/1024))MB/s";
+    fi
+    if [ "$sdc" ]; then
+        /bin/echo "sdc| R: $((${read_sdc%%}/1024))MB/s W: $((${write_sdc%%}/1024))MB/s";
+    fi
+    if [ "$1" != 'taskbar' ];then
+        /bin/echo "CPU Temp: ""$(/bin/echo "$(/usr/bin/sensors | /bin/grep 'Package id 0:' | /usr/bin/tail -1 | /usr/bin/cut -c 17-18)")ºc";
+    fi
 fi
 
-if [ "$sdb" ]; then
-    /bin/echo -e "HDD| R: $((${read_sdb%%}/1024))MB/s W: $((${write_sdb%%}/1024))MB/s\n";
-fi
-if [ "$sdc" ]; then
-    /bin/echo -e "sdc| R: $((${read_sdc%%}/1024))MB/s W: $((${write_sdc%%}/1024))MB/s\n";
-fi
-if [ "$1" != 'taskbar' ];then
-    /bin/echo -e "CPU Temp: ""$(/bin/echo "$(/usr/bin/sensors | /bin/grep 'Package id 0:' | /usr/bin/tail -1 | /usr/bin/cut -c 17-18)")""ºc";
-fi
+
