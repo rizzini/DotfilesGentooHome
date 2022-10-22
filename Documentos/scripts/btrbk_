@@ -38,7 +38,6 @@ while :; do
         exit;
     fi
 done
-
 /usr/bin/lsattr /mnt/archlinux/ | /usr/bin/tee /mnt/backup/btrfs_scheme.txt
 if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_home.conf -q run; then
     /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: GENTOO_HOME";
@@ -46,8 +45,12 @@ fi
 if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_root.conf -q run; then
     /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: GENTOO_ROOT.";
 fi
-if ! /usr/bin/rsync -aAXvz /boot/efi/* /mnt/archlinux/BOOT_ESP/; then
-    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao executar refind-btrfs.";
+if /usr/bin/rsync -aAXvz /boot/efi/* /mnt/archlinux/BOOT_ESP/; then
+    if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_boot_esp.conf -q run; then
+        /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: BOOT_ESP.";
+    fi
+else
+    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao copiar dados da partição EFI para o subvolume BOOT_ESP.";
 fi
 if ! /usr/bin/refind-btrfs --run-mode one-time; then
     /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao executar refind-btrfs.";
