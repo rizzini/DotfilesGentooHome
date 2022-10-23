@@ -57,6 +57,131 @@ Item {
 		readonly property bool showOutline: plasmoid.configuration.showOutline
 
 		onCommandChanged: widget.runCommand()
+		onIntervalChanged: {
+			// interval=0 stops the timer even with Timer.repeat=true, so we may
+			// need to restart the timer. Might as well restart the interval too.
+			timer.restart()
+		}
+		onWaitForCompletionChanged: {
+			if (!waitForCompletion) {
+				// The timer needs to be restarted in case the timer was already
+				// triggered and the command is running. If we don't restart the
+				// timer, it'll stop forever.
+				timer.restart()
+			}
+		}
+	}
+
+	// https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences
+	property var ansiColors: ({
+		30: '#000000', // Black
+		31: '#aa0000', // Red
+		32: '#00aa00', // Green
+		33: '#aa6500', // Yellow
+		34: '#0000aa', // Blue
+		35: '#aa00aa', // Magenta
+		36: '#00aaaa', // Cyan
+		37: '#aaaaaa', // White
+		90: '#656565', // Bright Black
+		91: '#ff6565', // Bright Red
+		92: '#65ff65', // Bright Green
+		93: '#ffff65', // Bright Yellow
+		94: '#6565ff', // Bright Blue
+		95: '#ff65ff', // Bright Magenta
+		96: '#65ffff', // Bright Cyan
+		97: '#ffffff', // Bright White
+	})
+	function resetState(state) {
+		var out = state.closeTags.join(' ')
+		state.bold = false
+		state.closeTags = []
+		return out
+	}
+	function parseAnsiCode(n, i, tokens, state) {
+		if (n == 0) { // Reset
+			return resetState(state)
+		} else if (n == 1) {
+			state.closeTags.push('</b>')
+			state.bold = true
+			return '<b>'
+		} else if (30 <= n && n <= 37 || 90 <= n && n <= 97) {
+			if (state.bold && 30 <= n && n <= 37) {
+				// Bold also intensifies the colors to "Bright".
+				// 30 => 90
+				n += 60
+			}
+			var hexColor = ansiColors[n]
+			state.closeTags.push('</font>')
+			return '<font color="' + hexColor + '">'
+		} else {
+			return ''
+		}
+	}
+	// https://stackoverflow.com/questions/4745317/converting-integers-to-hex-string-in-javascript
+	function formatHexInt(n) {
+		var num = Number(n)
+		if (isNaN(num)) {
+			return "00"
+		}
+		num = Math.max(0, Math.min(num, 255))
+		var str = num.toString(16)
+		return str.length == 1 ? '0' + str : str
+	}
+	function rgbToHex(r, g, b) {
+		return '#' + formatHexInt(r) + formatHexInt(g) + formatHexInt(b)
+	}
+	function parseColorMode(i, tokens) {
+		var colorMode = parseInt(tokens[++i], 10)
+		if (colorMode == 2) { // RGB
+			var r = parseInt(tokens[++i], 10)
+			var g = parseInt(tokens[++i], 10)
+			var b = parseInt(tokens[++i], 10)
+			return rgbToHex(r, g, b)
+		} else if (colorMode == 5) { // Preset of 256 colors
+			// Logic taken from Konsole
+			// https://invent.kde.org/utilities/konsole/-/blob/master/src/autotests/CharacterColorTest.cpp#L159
+			var n = parseInt(tokens[++i], 10)
+			if (0 <= n && n <= 7) { // Normal
+				var u = n + 30
+				return ansiColors[u]
+			} else if (8 <= n && n <= 15) { // Bright
+				var u = n - 8 + 90
+				return ansiColors[u]
+			} else if (16 <= n && n <= 231) { // 212
+				var u = n - 16
+				var r = Math.floor(((u / 36) % 6) != 0 ? (40 * ((u / 36) % 6) + 55) : 0)
+				var g = Math.floor(((u / 6) % 6) != 0 ? (40 * ((u / 6) % 6) + 55) : 0)
+				var b = Math.floor(((u / 1) % 6) != 0 ? (40 * ((u / 1) % 6) + 55) : 0)
+				return rgbToHex(r, g, b)
+			} else if (232 <= n && n <= 255) {
+				var gray = Math.floor((n - 232) * 10 + 8)
+				return rgbToHex(gray, gray, gray)
+			}
+		}
+		return null
+	}
+	function parseAnsiEscape(codes, state) {
+		var tokens = codes.split(';')
+		var out = ''
+		for (var i = 0; i < tokens.length; i++) {
+			tokens[i] = parseInt(tokens[i], 10)
+		}
+		for (var i = 0; i < tokens.length; i++) {
+			var token = tokens[i]
+			if (token == 38) { // Set FG
+				var hexColor = parseColorMode(i, tokens)
+				if (hexColor) {
+					state.closeTags.push('</font>')
+					out += '<font color="' + hexColor + '">'
+				}
+			} else if (token == 48) { // Set BG
+				var hexColor = parseColorMode(i, tokens)
+				// Ignore
+			} else {
+				out += parseAnsiCode(token, i, tokens, state)
+			}
+		}
+		return out
 	}
 
 	property string outputText: ''
@@ -65,11 +190,35 @@ Item {
 		onExited: {
 			if (cmd == config.command) {
 				var formattedText = stdout
+
+				// Newlines
 				if (plasmoid.configuration.replaceAllNewlines) {
-					formattedText = formattedText.replace('\n', ' ').trim()
+					formattedText = formattedText.replace(/\n/g, ' ').trim()
 				} else if (formattedText.length >= 1 && formattedText[formattedText.length-1] == '\n') {
 					formattedText = formattedText.substr(0, formattedText.length-1)
 				}
+
+				// Terminal Colors (Issue #7)
+				var state = {
+					html: false,
+					bold: false,
+					closeTags: [],
+				}
+				formattedText = formattedText.replace(/\033\[(\d+(;\d+)*)?m/g, function(match, p1, p2){
+					state.html = true
+					if (typeof p1 === 'string') {
+						return parseAnsiEscape(p1, state)
+					} else { // \033[m is Reset
+						return parseAnsiEscape('0', state)
+					}
+				})
+				formattedText += resetState(state)
+
+				// Format Newlines when in HTML mode
+				if (state.html) {
+					formattedText = formattedText.replace(/\n/g, '<br>')
+				}
+
 				// console.log('[commandoutput]', 'stdout', JSON.stringify(stdout))
 				// console.log('[commandoutput]', 'format', JSON.stringify(formattedText))
 				widget.outputText = formattedText
@@ -92,6 +241,9 @@ Item {
 		running: true
 		repeat: !config.waitForCompletion
 		onTriggered: widget.runCommand()
+		// onIntervalChanged: console.log('interval', interval)
+		// onRunningChanged: console.log('running', running)
+		// onRepeatChanged: console.log('repeat', repeat)
 
 		Component.onCompleted: {
 			// Run right away in case the interval is very long.
@@ -202,7 +354,7 @@ Item {
 			font.underline: plasmoid.configuration.underline
 			fontSizeMode: Text.FixedSize
 			horizontalAlignment: plasmoid.configuration.textAlign
-			verticalAlignment: Text.AlignVCenter
+			verticalAlignment: plasmoid.configuration.vertAlign
 
 			property bool isFixedWidth: {
 				if (plasmoid.formFactor == PlasmaCore.Types.Planar) { // Desktop Widget

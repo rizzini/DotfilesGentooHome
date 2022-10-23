@@ -42,7 +42,6 @@ ConfigPage {
 		CheckBox {
 			id: waitForCompletion
 			text: i18n("Wait for completion")
-			enabled: false
 		}
 	}
 
@@ -63,6 +62,7 @@ ConfigPage {
 			italicConfigKey: 'italic'
 			underlineConfigKey: 'underline'
 			alignConfigKey: 'textAlign'
+			vertAlignConfigKey: 'vertAlign'
 		}
 	}
 
