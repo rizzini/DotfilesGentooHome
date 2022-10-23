@@ -1,6 +1,17 @@
 #!/bin/bash
 rm -f /tmp/disk_monitor_taskbar.tmp
-do_readings() {
+if [ -e "/dev/sdb" ]; then
+    sdb="1";
+fi
+if [ -e "/dev/sdc" ]; then
+    sdc="1";
+fi
+threshold_sda=5
+threshold_sdb=10
+threshold_sdc=10
+counter=0
+counter2=0
+while :; do
     data1_read_sda=$(/usr/bin/awk '/\<sda\>/{print $6}' /proc/diskstats);
     data1_write_sda=$(/usr/bin/awk '/\<sda\>/{print $10}' /proc/diskstats);
     if [ "$sdb" ]; then
@@ -34,64 +45,35 @@ do_readings() {
         sdc_read_final=$((${read_sdc%%}/1024))
         sdc_write_final=$((${write_sdc%%}/1024))
     fi
-}
-if [ -e "/dev/sdb" ]; then
-    sdb="1";
-fi
-if [ -e "/dev/sdc" ]; then
-    sdc="1";
-fi
-if [ "$1" == 'taskbar' ];then
-    threshold_sda=1
-    threshold_sdb=10
-    threshold_sdc=10
-    counter=0
-    counter2=0
-    while :; do
-        DATA=()
-        has_data=()
-        do_readings
-        counter=$((counter+1))
-        if [[ $sda_read_final -ge $threshold_sda || $sda_write_final -ge $threshold_sda || -e /tmp/disk_monitor_taskbar.tmp && $(grep sda /tmp/disk_monitor_taskbar.tmp) ]]; then
-            DATA+='| A | SSD\| R: <b>'$sda_read_final'MB/s</b> W: <b>'$sda_write_final'MB/s</b> | | |'
-            has_data+=("sda")
-        fi
-        if [[ $sdb_read_final -ge $threshold_sdb || $sdb_write_final -ge $threshold_sdb || -e /tmp/disk_monitor_taskbar.tmp && $(grep sdb /tmp/disk_monitor_taskbar.tmp) ]]; then
-            DATA+='| A | HDD\| R: <b>'$sdb_read_final'MB/s</b> W: <b>'$sdb_write_final'MB/s</b> | | |'
-            has_data+=("sdb")
-        fi
-        if [[ $sdc_read_final -ge $threshold_sdc || $sdc_write_final -ge $threshold_sdc || -e /tmp/disk_monitor_taskbar.tmp && $(grep sdc /tmp/disk_monitor_taskbar.tmp) ]]; then
-            DATA+='| A | sdc\| R: '$sdc_read_final'MB/s W: '$sdc_write_final'MB/s | | |'
-            has_data+=("sdc")
-        fi
-        if [ ! "${has_data[*]}" ];then
-            DATA='| A | | | |';
-            counter2=$((counter2+1))
-        else
-            if [[ ! -e /tmp/disk_monitor_taskbar.tmp ]]; then
-                printf "%s\n" "${has_data[@]}" > /tmp/disk_monitor_taskbar.tmp
-            fi
-        fi
-        if [ $(($counter2+7)) == $counter ]; then
-            rm -f /tmp/disk_monitor_taskbar.tmp
-            counter=0
-            counter2=0
-        fi
-        /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[*]}"
-        /bin/sleep 0.5
-    done
-else
-    do_readings
-    /bin/echo "SSD| R: "$sda_read_final"MB/s W: "$sda_write_final"MB/s";
-    if [ "$sdb" ]; then
-        /bin/echo "HDD| R: "$sdb_read_final"MB/s W: "$sdb_write_final"MB/s";
+    DATA=()
+    has_data=()
+    counter=$((counter+1))
+    if [[ $sda_read_final -ge $threshold_sda || $sda_write_final -ge $threshold_sda || -e /tmp/disk_monitor_taskbar.tmp && $(grep sda /tmp/disk_monitor_taskbar.tmp) ]]; then
+        DATA+='| A | SSD\| R: <b>'$sda_read_final'MB/s</b> W: <b>'$sda_write_final'MB/s</b> | | |'
+        has_data+=("sda")
     fi
-    if [ "$sdc" ]; then
-        /bin/echo "sdc| R: "$sdc_read_final"MB/s W: "$sdc_write_final"MB/s";
+    if [[ $sdb_read_final -ge $threshold_sdb || $sdb_write_final -ge $threshold_sdb || -e /tmp/disk_monitor_taskbar.tmp && $(grep sdb /tmp/disk_monitor_taskbar.tmp) ]]; then
+        DATA+='| A | HDD\| R: <b>'$sdb_read_final'MB/s</b> W: <b>'$sdb_write_final'MB/s</b> | | |'
+        has_data+=("sdb")
     fi
-    if [ "$1" != 'taskbar' ];then
-        /bin/echo "CPU Temp: ""$(/bin/echo "$(/usr/bin/sensors | /bin/grep 'Package id 0:' | /usr/bin/tail -1 | /usr/bin/cut -c 17-18)")ºc";
+    if [[ $sdc_read_final -ge $threshold_sdc || $sdc_write_final -ge $threshold_sdc || -e /tmp/disk_monitor_taskbar.tmp && $(grep sdc /tmp/disk_monitor_taskbar.tmp) ]]; then
+        DATA+='| A | sdc\| R: '$sdc_read_final'MB/s W: '$sdc_write_final'MB/s | | |'
+        has_data+=("sdc")
     fi
-fi
-
+    if [ ! "${has_data[*]}" ];then
+        DATA='| A | | | |';
+        counter2=$((counter2+1))
+    else
+        if [[ ! -e /tmp/disk_monitor_taskbar.tmp ]]; then
+            printf "%s\n" "${has_data[@]}" > /tmp/disk_monitor_taskbar.tmp
+        fi
+    fi
+    if [ $(($counter2+8)) == $counter ]; then
+        rm -f /tmp/disk_monitor_taskbar.tmp
+        counter=0
+        counter2=0
+    fi
+    /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[*]}"
+    /bin/sleep 0.5
+done
 
