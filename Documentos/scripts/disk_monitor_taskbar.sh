@@ -55,62 +55,63 @@ while :; do
     counter_sdb=$((counter_sdb+1))
     counter_sdc=$((counter_sdc+1))
     if [[ $sda_read_final -ge $threshold_sda || $sda_write_final -ge $threshold_sda || -e /tmp/disk_monitor_taskbar_sda.tmp ]]; then
-        DATA+=("| A | SSD\| R: <b>""$sda_read_final""MB/s</b> W: <b>""$sda_write_final""MB/s</b> | | |")
+        DATA+='| A | SSD\| R: <b>'$sda_read_final'MB/s</b> W: <b>'$sda_write_final'MB/s</b> | | |'
         has_data+=("sda")
     fi
     if [[ $sdb_read_final -ge $threshold_sdb || $sdb_write_final -ge $threshold_sdb || -e /tmp/disk_monitor_taskbar_sdb.tmp ]]; then
-        DATA+=("| A | HDD\| R: <b>""$sdb_read_final""MB/s</b> W: <b>""$sdb_write_final""MB/s</b> | | |")
+        DATA+='| A | HDD\| R: <b>'$sdb_read_final'MB/s</b> W: <b>'$sdb_write_final'MB/s</b> | | |'
         has_data+=("sdb")
     fi
     if [[ $sdc_read_final -ge $threshold_sdc || $sdc_write_final -ge $threshold_sdc || -e /tmp/disk_monitor_taskbar_sdc.tmp ]]; then
-        DATA+=("| A | sdc\| R: ""$sdc_read_final""MB/s W: ""$sdc_write_final""MB/s | | |")
+        DATA+='| A | sdc\| R: '$sdc_read_final'MB/s W: '$sdc_write_final'MB/s | | |'
         has_data+=("sdc")
     fi
-    if [ ! "${has_data[*]}" ];then
-        DATA=('| A | | | |')
-        counter_no_data_sda=$((counter_no_data_sda+1))
-        counter_no_data_sdb=$((counter_no_data_sdb+1))
-        counter_no_data_sdc=$((counter_no_data_sdc+1))
+    if [ ! "$has_data" ];then
+        DATA='| A | | | |'
+            counter_no_data_sda=$((counter_no_data_sda+1))
+            counter_no_data_sdb=$((counter_no_data_sdb+1))
+            counter_no_data_sdc=$((counter_no_data_sdc+1))
     else
-        for i in "${has_data[@]}"; do
-            if [ "$i" == "sda" ]; then
-                if [ ! -e /tmp/disk_monitor_taskbar_sda.tmp ]; then
-                    /usr/bin/touch /tmp/disk_monitor_taskbar_sda.tmp
-                fi
-            else
-                counter_no_data_sda=$((counter_no_data_sda+1))
+        if [[ "${has_data[@]}" == *"sda"* ]]; then
+            if [ ! -e /tmp/disk_monitor_taskbar_sda.tmp ]; then
+                /usr/bin/touch /tmp/disk_monitor_taskbar_sda.tmp
             fi
-            if [ "$i" == "sdb" ]; then
-                if [ ! -e /tmp/disk_monitor_taskbar_sdb.tmp ]; then
-                    /usr/bin/touch /tmp/disk_monitor_taskbar_sdb.tmp
-                fi
-            else
-                counter_no_data_sdb=$((counter_no_data_sdb+1))
+        else
+            counter_no_data_sda=$((counter_no_data_sda+1))
+        fi
+        if [[ "${has_data[@]}" == *"sdb"* ]]; then
+            if [ ! -e /tmp/disk_monitor_taskbar_sdb.tmp ]; then
+                /usr/bin/touch /tmp/disk_monitor_taskbar_sdb.tmp
             fi
-            if [ "$i" == "sdc" ]; then
-                if [ ! -e /tmp/disk_monitor_taskbar_sdc.tmp ]; then
-                    /usr/bin/touch /tmp/disk_monitor_taskbar_sdc.tmp
-                fi
-            else
-                counter_no_data_sdc=$((counter_no_data_sdc+1))
+        else
+            counter_no_data_sdb=$((counter_no_data_sdb+1))
+        fi
+        if [[ "${has_data[@]}" == *"sdc"* ]]; then
+            if [ ! -e /tmp/disk_monitor_taskbar_sdc.tmp ]; then
+                /usr/bin/touch /tmp/disk_monitor_taskbar_sdc.tmp
             fi
-        done
+        else
+            counter_no_data_sdc=$((counter_no_data_sdc+1))
+        fi
     fi
-    if [ $((counter_no_data_sda+8)) == $counter_sda ]; then
+
+
+    if [ $((counter_no_data_sda+5)) == $counter_sda ]; then
         /bin/rm -f /tmp/disk_monitor_taskbar_sda.tmp
         counter_sda=0
         counter_no_data_sda=0
     fi
-    if [ $((counter_no_data_sdb+8)) == $counter_sdb ]; then
+    if [ $((counter_no_data_sdb+5)) == $counter_sdb ]; then
         /bin/rm -f /tmp/disk_monitor_taskbar_sdb.tmp
         counter_sdb=0
         counter_no_data_sdb=0
     fi
-    if [ $((counter_no_data_sdc+8)) == $counter_sdc ]; then
+    if [ $((counter_no_data_sdc+5)) == $counter_sdc ]; then
         /bin/rm -f /tmp/disk_monitor_taskbar_sdc.tmp
         counter_sdc=0
         counter_no_data_sdc=0
     fi
+
 #<debug>
 #     echo "counter_no_data_sda  $counter_no_data_sda"
 #     echo "counter_no_data_sdb  $counter_no_data_sdb"
@@ -119,7 +120,7 @@ while :; do
 #     echo "counter_sdb  $counter_sdb"
 #     echo "counter_sdc  $counter_sdc"
 #<\debug>
-    /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[*]}"
+    /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[@]}"
     /bin/sleep 0.5
 done
 
