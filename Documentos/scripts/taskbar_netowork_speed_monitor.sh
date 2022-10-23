@@ -39,12 +39,12 @@ size () {
 while :;do
     dl=$(/usr/bin/awk '/\<enp2s0\>/{print $2}' /proc/net/dev)
     up=$(/usr/bin/awk '/\<enp2s0\>/{print $10}' /proc/net/dev)
-    /usr/bin/sleep
+    /usr/bin/sleep 1
     dl_=$(/usr/bin/awk '/\<enp2s0\>/{print $2}' /proc/net/dev)
     up_=$(/usr/bin/awk '/\<enp2s0\>/{print $10}' /proc/net/dev)
-    dl_final=$(size $(( (dl_-dl) / 1024 )))
-    up_final=$(size $(( (up_-up) / 1024 )))
-    /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_952 org.kde.plasma.doityourselfbar.pass '| A | DL: '$dl_final'/s UP: '$up_final'/s | | |'
-
-
+    DATA='| A | DL: '$(size $(( (dl_-dl) / 1024 )))'/s UP: '$(size $(( (up_-up) / 1024 )))'/s | | |'
+    if [ "$DATA" != "$DATA_last" ];then
+        /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_952 org.kde.plasma.doityourselfbar.pass "$DATA"
+        DATA_last="$DATA"
+    fi
 done
