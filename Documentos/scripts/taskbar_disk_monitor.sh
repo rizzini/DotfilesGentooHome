@@ -94,22 +94,22 @@ while :; do
             counter_no_data_sdc=$((counter_no_data_sdc+1))
         fi
     fi
-    if [ $((counter_no_data_sda+5)) == $counter_sda ]; then
+    if [ $((counter_no_data_sda+8)) == $counter_sda ]; then
         /bin/rm -f /tmp/disk_monitor_taskbar_sda.tmp
         counter_sda=0
         counter_no_data_sda=0
     fi
-    if [ $((counter_no_data_sdb+5)) == $counter_sdb ]; then
+    if [ $((counter_no_data_sdb+8)) == $counter_sdb ]; then
         /bin/rm -f /tmp/disk_monitor_taskbar_sdb.tmp
         counter_sdb=0
         counter_no_data_sdb=0
     fi
-    if [ $((counter_no_data_sdc+5)) == $counter_sdc ]; then
+    if [ $((counter_no_data_sdc+8)) == $counter_sdc ]; then
         /bin/rm -f /tmp/disk_monitor_taskbar_sdc.tmp
         counter_sdc=0
         counter_no_data_sdc=0
     fi
-    /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[@]}"
+    /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[@]}" #to-do: don't update when $DATA value is the same as before
     /bin/sleep 0.5
 done
 
