@@ -111,12 +111,14 @@ while :; do
         counter_sdc=0
         counter_no_data_sdc=0
     fi
-    echo "counter_no_data_sda  $counter_no_data_sda"
-    echo "counter_no_data_sdb  $counter_no_data_sdb"
-    echo "counter_no_data_sdc  $counter_no_data_sdc"
-    echo "counter_sda  $counter_sda"
-    echo "counter_sdb  $counter_sdb"
-    echo "counter_sdc  $counter_sdc"
+#<debug>
+#     echo "counter_no_data_sda  $counter_no_data_sda"
+#     echo "counter_no_data_sdb  $counter_no_data_sdb"
+#     echo "counter_no_data_sdc  $counter_no_data_sdc"
+#     echo "counter_sda  $counter_sda"
+#     echo "counter_sdb  $counter_sdb"
+#     echo "counter_sdc  $counter_sdc"
+#<\debug>
     /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[*]}"
     /bin/sleep 0.5
 done
