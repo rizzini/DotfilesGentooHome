@@ -72,21 +72,21 @@ while :; do
             counter_no_data_sdb=$((counter_no_data_sdb+1))
             counter_no_data_sdc=$((counter_no_data_sdc+1))
     else
-        if [[ "${has_data[@]}" == *"sda"* ]]; then
+        if [[ "${has_data[*]}" == *"sda"* ]]; then
             if [ ! -e /tmp/disk_monitor_taskbar_sda.tmp ]; then
                 /usr/bin/touch /tmp/disk_monitor_taskbar_sda.tmp
             fi
         else
             counter_no_data_sda=$((counter_no_data_sda+1))
         fi
-        if [[ "${has_data[@]}" == *"sdb"* ]]; then
+        if [[ "${has_data[*]}" == *"sdb"* ]]; then
             if [ ! -e /tmp/disk_monitor_taskbar_sdb.tmp ]; then
                 /usr/bin/touch /tmp/disk_monitor_taskbar_sdb.tmp
             fi
         else
             counter_no_data_sdb=$((counter_no_data_sdb+1))
         fi
-        if [[ "${has_data[@]}" == *"sdc"* ]]; then
+        if [[ "${has_data[*]}" == *"sdc"* ]]; then
             if [ ! -e /tmp/disk_monitor_taskbar_sdc.tmp ]; then
                 /usr/bin/touch /tmp/disk_monitor_taskbar_sdc.tmp
             fi
@@ -94,8 +94,6 @@ while :; do
             counter_no_data_sdc=$((counter_no_data_sdc+1))
         fi
     fi
-
-
     if [ $((counter_no_data_sda+5)) == $counter_sda ]; then
         /bin/rm -f /tmp/disk_monitor_taskbar_sda.tmp
         counter_sda=0
@@ -111,15 +109,6 @@ while :; do
         counter_sdc=0
         counter_no_data_sdc=0
     fi
-
-#<debug>
-#     echo "counter_no_data_sda  $counter_no_data_sda"
-#     echo "counter_no_data_sdb  $counter_no_data_sdb"
-#     echo "counter_no_data_sdc  $counter_no_data_sdc"
-#     echo "counter_sda  $counter_sda"
-#     echo "counter_sdb  $counter_sdb"
-#     echo "counter_sdc  $counter_sdc"
-#<\debug>
     /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[@]}"
     /bin/sleep 0.5
 done
