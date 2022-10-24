@@ -26,16 +26,18 @@ size () {
             decimal=".$fraction"
         fi
     fi
-    echo "${whole}${units[$unit]}"
+    echo "${whole}${decimal}${units[$unit]}"
 }
-
+comando='/usr/bin/alacritty -o window.dimensions.lines=30 window.dimensions.columns=120 -e /usr/bin/sudo /usr/sbin/nethogs'
 while :;do
     dl=$(/usr/bin/awk '/\<enp2s0\>/{print $2}' /proc/net/dev)
     up=$(/usr/bin/awk '/\<enp2s0\>/{print $10}' /proc/net/dev)
     /usr/bin/sleep 1
     dl_=$(/usr/bin/awk '/\<enp2s0\>/{print $2}' /proc/net/dev)
     up_=$(/usr/bin/awk '/\<enp2s0\>/{print $10}' /proc/net/dev)
-    DATA='| A | DL: <b>'$(size $(( (dl_-dl) / 1024 )))'/s</b> UP: <b>'$(size $(( (up_-up) / 1024 )))'/s</b> | | |'
+    dl_final=$(size $(( (dl_-dl) / 1024 )))
+    up_final=$(size $(( (up_-up) / 1024 )))
+    DATA='| A | DL: <b>'$dl_final'/s</b> UP: <b>'$up_final'/s</b> | Download total: <b>'$(size $((dl_/1024)))'</b> Upload total: <b>'$(size $((up_/1024)))'</b> | '$comando' |'
     if [ "$DATA" != "$DATA_last" ];then
         /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_952 org.kde.plasma.doityourselfbar.pass "$DATA"
         DATA_last="$DATA"

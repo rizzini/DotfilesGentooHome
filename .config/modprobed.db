@@ -85,6 +85,7 @@ mei_hdcp
 mei_me
 mei_pxp
 mousedev
+mptcp_diag
 mtd
 nf_conntrack
 nf_conntrack_broadcast

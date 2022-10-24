@@ -113,6 +113,6 @@ while :; do
         /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[@]}"
         DATA_last="$DATA"
     fi
-    /bin/sleep 0.5
+    /bin/sleep 1
 done
 
