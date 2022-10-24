@@ -11,11 +11,11 @@ function h
         builtin history merge
         set --local --export SHELL (command --search fish)        
         set command_with_ts (
-            builtin history --null --show-time="%m-%d %H:%M:%S | " |
+            builtin history --null --show-time="%d-%m-%y %H:%M:%S | " |
             fzf --exact --read0 \
                 --tiebreak=index \
                 $query \
-                $fzf_history_opts
+                $fzf_history_opts |
             string collect
         )
         if test $status -eq 0

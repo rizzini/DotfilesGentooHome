@@ -109,7 +109,10 @@ while :; do
         counter_sdc=0
         counter_no_data_sdc=0
     fi
-    /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[@]}" #to-do: don't update when $DATA value is the same as before
+    if [ "$DATA" != "$DATA_last" ];then
+        /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[@]}"
+        DATA_last="$DATA"
+    fi
     /bin/sleep 0.5
 done
 
