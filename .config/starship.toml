@@ -69,7 +69,7 @@ disabled = true
 
 # Prompt: param 2 └─
 [character]
-success_symbol = " [╰─](bold blue)"
+success_symbol = " [╰─\uf30d ]()"
 error_symbol = " [×](bold purple)"
 #use_symbol_for_status = true
 

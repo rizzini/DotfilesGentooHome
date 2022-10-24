@@ -15,7 +15,7 @@ function h
             fzf --exact --read0 \
                 --tiebreak=index \
                 $query \
-                $fzf_history_opts |
+                $fzf_history_opts
             string collect
         )
         if test $status -eq 0

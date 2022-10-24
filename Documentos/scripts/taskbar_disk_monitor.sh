@@ -67,7 +67,7 @@ while :; do
         has_data+=("sdc")
     fi
     if [ ! "$has_data" ];then
-        DATA='| A | | | |'
+        DATA='| A | No disk activity | | |'
             counter_no_data_sda=$((counter_no_data_sda+1))
             counter_no_data_sdb=$((counter_no_data_sdb+1))
             counter_no_data_sdc=$((counter_no_data_sdc+1))
@@ -94,17 +94,17 @@ while :; do
             counter_no_data_sdc=$((counter_no_data_sdc+1))
         fi
     fi
-    if [ $((counter_no_data_sda+8)) == $counter_sda ]; then
+    if [ $((counter_no_data_sda+7)) == $counter_sda ]; then
         /bin/rm -f /tmp/disk_monitor_taskbar_sda.tmp
         counter_sda=0
         counter_no_data_sda=0
     fi
-    if [ $((counter_no_data_sdb+8)) == $counter_sdb ]; then
+    if [ $((counter_no_data_sdb+7)) == $counter_sdb ]; then
         /bin/rm -f /tmp/disk_monitor_taskbar_sdb.tmp
         counter_sdb=0
         counter_no_data_sdb=0
     fi
-    if [ $((counter_no_data_sdc+8)) == $counter_sdc ]; then
+    if [ $((counter_no_data_sdc+7)) == $counter_sdc ]; then
         /bin/rm -f /tmp/disk_monitor_taskbar_sdc.tmp
         counter_sdc=0
         counter_no_data_sdc=0

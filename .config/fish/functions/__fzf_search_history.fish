@@ -24,8 +24,8 @@ function __fzf_search_history --description "Search command history. Replace the
             --tiebreak=index \
             $query \
             # preview current command using fish_ident in a window at the bottom 3 lines tall
-#             --preview="echo -- {4..} | fish_indent --ansi" \
-#             --preview-window="bottom:3:wrap" \
+             --preview="echo -- {4..} | fish_indent --ansi" \
+             --preview-window="bottom:3:wrap" \
             $fzf_history_opts |
         string collect
     )

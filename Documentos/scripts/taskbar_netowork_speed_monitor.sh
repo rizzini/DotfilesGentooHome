@@ -35,7 +35,7 @@ while :;do
     /usr/bin/sleep 1
     dl_=$(/usr/bin/awk '/\<enp2s0\>/{print $2}' /proc/net/dev)
     up_=$(/usr/bin/awk '/\<enp2s0\>/{print $10}' /proc/net/dev)
-    DATA='| A | DL: '$(size $(( (dl_-dl) / 1024 )))'/s UP: '$(size $(( (up_-up) / 1024 )))'/s | | |'
+    DATA='| A | DL: <b>'$(size $(( (dl_-dl) / 1024 )))'/s</b> UP: <b>'$(size $(( (up_-up) / 1024 )))'/s</b> | | |'
     if [ "$DATA" != "$DATA_last" ];then
         /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_952 org.kde.plasma.doityourselfbar.pass "$DATA"
         DATA_last="$DATA"
