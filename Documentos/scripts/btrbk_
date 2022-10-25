@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 if [ "$EUID" -ne 0 ]; then
     /bin/echo "Please run as root";
     exit;
@@ -7,7 +8,7 @@ if test -f "/tmp/btrbk_.sh.lock"; then
     exit;
 fi
 /usr/bin/touch /tmp/btrbk_.sh.lock
-if [[ ! "$(/bin/mount | /bin/grep '/dev/sda2 on / type btrfs')" == *"subvol=/GENTOO_ROOT)"* ]]; then
+if [[ ! "$(/bin/mount | /bin/grep '/dev/sda2 on / type btrfs')" == *"subvol=/ROOT)"* ]]; then
     /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Você não está no subvolume ROOT. Snapshot não foi criado.";
     /bin/echo 'Você não está no subvolume ROOT. Snapshot não foi criado.';
     /bin/rm /tmp/btrbk_.sh.lock;
@@ -38,14 +39,14 @@ while :; do
         exit;
     fi
 done
-/usr/bin/lsattr /mnt/archlinux/ | /usr/bin/tee /mnt/backup/btrfs_scheme.txt
+/usr/bin/tree -d -L 2 /mnt/gentoo/ | /usr/bin/tee /mnt/backup/btrfs_scheme.txt
 if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_home.conf -q run; then
-    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: GENTOO_HOME";
+    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: HOME";
 fi
 if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_root.conf -q run; then
-    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: GENTOO_ROOT.";
+    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: ROOT.";
 fi
-if /usr/bin/rsync -aAXvz /boot/efi/* /mnt/archlinux/BOOT_ESP/; then
+if /usr/bin/rsync -aAXvz /boot/efi/* /mnt/gentoo/BOOT_ESP/; then
     if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_boot_esp.conf -q run; then
         /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: BOOT_ESP.";
     fi

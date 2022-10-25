@@ -21,39 +21,39 @@ fi
 if [[ "$(/bin/df -B MB  /dev/sda2 --output=avail | /usr/bin/tail -1 | /usr/bin/tr -d 'MB')" -le 700 || "$1" == 'force' && "$2" != 'allhdd' ]];then
     out_of_space=1;
     if [ "$2" == 'allssd' ];then
-        /sbin/btrfs sub del /mnt/archlinux/btrbk_snapshots/GENTOO_HOME/*;
-        /sbin/btrfs sub del /mnt/archlinux/btrbk_snapshots/GENTOO_ROOT/*;
-        /sbin/btrfs sub del /mnt/archlinux/btrbk_snapshots/BOOT_ESP/*;
-        /sbin/btrfs sub del /mnt/archlinux/refind_btrfs_rw_snapshots/*;
+        /sbin/btrfs sub del /mnt/gentoo/btrbk_snapshots/HOME/*;
+        /sbin/btrfs sub del /mnt/gentoo/btrbk_snapshots/ROOT/*;
+        /sbin/btrfs sub del /mnt/gentoo/btrbk_snapshots/BOOT_ESP/*;
+        /sbin/btrfs sub del /mnt/gentoo/refind_btrfs_rw_snapshots/*;
     else
         while IFS= read -r d;do
-            if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list / | /bin/grep GENTOO_HOME | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
+            if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list / | /bin/grep HOME | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
                 /sbin/btrfs sub del "$d";
             fi
-        done < <(/usr/bin/find /mnt/archlinux/btrbk_snapshots/GENTOO_HOME/* -prune -type d)
+        done < <(/usr/bin/find /mnt/gentoo/btrbk_snapshots/HOME/* -prune -type d)
         while IFS= read -r d;do
-            if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list / | /bin/grep GENTOO_ROOT | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
+            if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list / | /bin/grep ROOT | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
                 /sbin/btrfs sub del "$d";
             fi
-        done < <(/usr/bin/find /mnt/archlinux/btrbk_snapshots/GENTOO_ROOT/* -prune -type d)
+        done < <(/usr/bin/find /mnt/gentoo/btrbk_snapshots/ROOT/* -prune -type d)
         while IFS= read -r d;do
             if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list / | /bin/grep BOOT_ESP | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
                 /sbin/btrfs sub del "$d";
             fi
-        done < <(/usr/bin/find /mnt/archlinux/btrbk_snapshots/BOOT_ESP/* -prune -type d)
+        done < <(/usr/bin/find /mnt/gentoo/btrbk_snapshots/BOOT_ESP/* -prune -type d)
         while IFS= read -r d;do
             if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list / | /bin/grep refind_btrfs_rw_snapshots | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]]; then
                 /sbin/btrfs sub del "$d";
             fi
-        done < <(/usr/bin/find /mnt/archlinux/refind_btrfs_rw_snapshots/* -prune -type d)
+        done < <(/usr/bin/find /mnt/gentoo/refind_btrfs_rw_snapshots/* -prune -type d)
         if [ "$1" == 'force' ]; then
             if [ -z "$(/usr/bin/pgrep makepkg)" ]; then
-                echo -e 'Pasta \033[1m/mnt/archlinux/temp_stuff\033[0m'
-                ls -lah /mnt/archlinux/temp_stuff/
+                echo -e 'Pasta \033[1m/mnt/gentoo/temp_stuff\033[0m'
+                ls -lah /mnt/gentoo/temp_stuff/
                 echo -e '\033[1mRemover temp_stuff?\033[0m'
                 read -r temp_stuff
                 if [ "$temp_stuff" == 's' ];then
-                    /bin/rm -rf /mnt/archlinux/temp_stuff/*;
+                    /bin/rm -rf /mnt/gentoo/temp_stuff/*;
                 fi
             fi
         fi
@@ -66,20 +66,20 @@ if [[ "$(/bin/df -B MB  "$(/bin/mount | /bin/grep  '/mnt/backup' | /usr/bin/awk 
     out_of_space=1;
     /usr/bin/killall -9 btrbk_ btrbk;
     if [ "$2" == 'allhdd' ];then
-        /sbin/btrfs sub del /mnt/backup/GENTOO_HOME/*;
-        /sbin/btrfs sub del /mnt/backup/GENTOO_ROOT/*;
+        /sbin/btrfs sub del /mnt/backup/HOME/*;
+        /sbin/btrfs sub del /mnt/backup/ROOT/*;
         /sbin/btrfs sub del /mnt/backup/BOOT_ESP/*;
     else
         while IFS= read -r d;do
-            if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list /mnt/backup/GENTOO_ROOT/ | /bin/grep GENTOO_ROOT | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
+            if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list /mnt/backup/ROOT/ | /bin/grep ROOT | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
                 /sbin/btrfs sub del "$d";
             fi
-        done < <(/usr/bin/find /mnt/backup/GENTOO_ROOT/* -prune -type d)
+        done < <(/usr/bin/find /mnt/backup/ROOT/* -prune -type d)
         while IFS= read -r d;do
-            if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list /mnt/backup/GENTOO_HOME/ | /bin/grep GENTOO_HOME | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
+            if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list /mnt/backup/HOME/ | /bin/grep HOME | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
                 /sbin/btrfs sub del "$d";
             fi
-        done < <(/usr/bin/find /mnt/backup/GENTOO_HOME/* -prune -type d)
+        done < <(/usr/bin/find /mnt/backup/HOME/* -prune -type d)
         while IFS= read -r d;do
             if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list /mnt/backup/BOOT_ESP/ | /bin/grep BOOT_ESP | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
                 /sbin/btrfs sub del "$d";

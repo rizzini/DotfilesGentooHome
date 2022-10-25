@@ -4,7 +4,7 @@ Comment=
 Exec=MANGOHUD_CONFIG=fps_only WINEFSYNC=1 WINEPREFIX=/mnt/archlinux/Games/Valfaris/prefixo mangohud --dlsym gamemoderun wine Valfaris.exe
 GenericName[pt_BR]=
 GenericName=
-Icon=/mnt/archlinux/Games/Valfaris/valfaris.png
+Icon=/mnt/gentoo/Games/Valfaris/valfaris.png
 MimeType=
 Name[pt_BR]=Valfaris
 Name=Valfaris

@@ -117,7 +117,7 @@ Scroll Bar Mini Map Width=60
 Scroll Bar MiniMap=true
 Scroll Bar Preview=true
 Scroll Past End=false
-Search/Replace Flags=268
+Search/Replace Flags=140
 Shoe Line Ending Type in Statusbar=false
 Show Documentation With Completion=true
 Show File Encoding=true
@@ -142,8 +142,8 @@ Word Completion Minimal Word Length=3
 Word Completion Remove Tail=true
 
 [KTextEditor::Search]
-Replace History=,/usr/bin/awk,sda,=m,/usr/bin/sudo /usr/bin/yadm -Y /etc/yadm,syadm add , ,# CON, is not set,/bin/mount,/bin/grep,/bin/machinectl,/bin/echo,/bin/rm,/sbin/btrfs,/bin/df,/usr/bin/btrfs,python_single_target_python3_8,${PYTHON_USEDEP},python_targets_python3_8,lxqt-archiver.desktop,Source Code Pro Semibold,sudo btrfs sub del HOME,sudo btrfs sub del ROOT,printf,/usr/bin/mv,/usr/bin/printf,/usr/bin/echo,/bin/bash,/usr/bin/find,/usr/bin/gawk,/usr/bin/sort,read -r,read -r ,"$PWD",files,srt,dfsgfg45t34f,-prune -false,DroidSansMono Nerd Font Mono,/usr/bin/echo -n,$mpv_players,/opt/wine-tkg-staging-fsync-git-opt/share/wine/wine.inf,/usr/share/wine/wine.inf,",if [[ "$players" == *"$active_window_pid"* ]]; then,players,ln -sf,/home/lucas/.config/cmyflix/,-iw,antialias" "0",yt-dlp 'https:/,/EFI/BOOT/btrfs-snapshot-stanzas/icons/snapshot.png,/ ,sudo yadm -Y /etc/yadm add /,syadm add /,yadm add /home/lucas/,yadm add ,cfs,yadm rm -r --cached \n,/usr/bin/tee,/tmp/check_btrfs_health.sh.pid,discard\\,nospace_cache\\,,en-us,noatime\\,discard\\,,yadm rm --cached ,-volume 40 ,/usr/bin/ffplay  -nodisp -autoexit -volume 50 /home/lucas/Documentos/scripts/notify.mp3,playerctl --no-messages,sed 's/^.*\\\\(etc.*\\\\).*$/\\\\1/',sed 's/^.*\\\\(etc.*\\\\).*$/\\\\1/'),grep "??",--porcelain | grep -E '^ ??|^??' | tr -d '??' | tr -d '"' | cut -c2-); do if [ -n "$i" ];then yadm add /$i; fi done,| grep -v "^A" | grep -v "^D" | tr -d '??' | tr -d '"' | cut -c2-); do if [ -n "$i" ];then yadm add /home/lucas/$i; fi done,org.kde.gwenview.desktop;Adobe Photoshop CS6.desktop,Adobe Photoshop CS6,yadm add,/boot/,/etc/,/usr/,/var/,syadm add etc/
-Search History=sy,Graph_cpus,graph_cpus,View_STATES,Cpu(s),user,us,child,_nomakepkg_prefix_path,__fzf_search_shell_variables,nerd,fzf_history_opts,awk,8,\\\\033[1;4m,\\\\033[0m,sda2,python,64,32,rubberban,sandman, --disable-features=UseChromeOSDirectVideoDecoder --enable-features=VaapiVideoDecoder\\,VaapiVideoEncoder\\,WebUIDarkMode --force-dark-mode,exec=,version.,CMAKE_CXX_FLAGS,CMAKE_CXX_FLAGS_RELEASE,CMAKE_CURRENT_SOURCE_DIR,CMAKE_CURRENT_SOURCE_DI,opencl,opencc,opencv,ffmpe,enable-ccache.conf,VHOST,CONFIG_BRIDGE,=y,virtualb,mpv,timeou,observer.is_alive,watc,watchd,kde,sys-ker,libpcre2,libva,gstr,config_netfilter_xt_match_comment,wine,pcspkr,cups,amd64,gentoo,make prepare,exit 0,bin,disk,network,speed,meta,fish,libpcre,openh264,open,ladspa,imagemagick,ffmp,maes,ksmd,pmadv,sound,anb,modprobeddb_db_path,$where,where,SCRIPTPATH,SCRIPT_PATH,modp,_modprobeddb_db_path,scripts,scripts/config,readme,git,λ,CONFIG_BCMA_HOST_PCI is not set,iw,syadm,yadm add , -r ,virtualbo,virtual,watchdog,amd,#Con,amdg,wireless,watchdo,zstd,btrfs
+Replace History=/gentoo/,,/usr/bin/awk,sda,=m,/usr/bin/sudo /usr/bin/yadm -Y /etc/yadm,syadm add , ,# CON, is not set,/bin/mount,/bin/grep,/bin/machinectl,/bin/echo,/bin/rm,/sbin/btrfs,/bin/df,/usr/bin/btrfs,python_single_target_python3_8,${PYTHON_USEDEP},python_targets_python3_8,lxqt-archiver.desktop,Source Code Pro Semibold,sudo btrfs sub del HOME,sudo btrfs sub del ROOT,printf,/usr/bin/mv,/usr/bin/printf,/usr/bin/echo,/bin/bash,/usr/bin/find,/usr/bin/gawk,/usr/bin/sort,read -r,read -r ,"$PWD",files,srt,dfsgfg45t34f,-prune -false,DroidSansMono Nerd Font Mono,/usr/bin/echo -n,$mpv_players,/opt/wine-tkg-staging-fsync-git-opt/share/wine/wine.inf,/usr/share/wine/wine.inf,",if [[ "$players" == *"$active_window_pid"* ]]; then,players,ln -sf,/home/lucas/.config/cmyflix/,-iw,antialias" "0",yt-dlp 'https:/,/EFI/BOOT/btrfs-snapshot-stanzas/icons/snapshot.png,/ ,sudo yadm -Y /etc/yadm add /,syadm add /,yadm add /home/lucas/,yadm add ,cfs,yadm rm -r --cached \n,/usr/bin/tee,/tmp/check_btrfs_health.sh.pid,discard\\,nospace_cache\\,,en-us,noatime\\,discard\\,,yadm rm --cached ,-volume 40 ,/usr/bin/ffplay  -nodisp -autoexit -volume 50 /home/lucas/Documentos/scripts/notify.mp3,playerctl --no-messages,sed 's/^.*\\\\(etc.*\\\\).*$/\\\\1/',sed 's/^.*\\\\(etc.*\\\\).*$/\\\\1/'),grep "??",--porcelain | grep -E '^ ??|^??' | tr -d '??' | tr -d '"' | cut -c2-); do if [ -n "$i" ];then yadm add /$i; fi done,| grep -v "^A" | grep -v "^D" | tr -d '??' | tr -d '"' | cut -c2-); do if [ -n "$i" ];then yadm add /home/lucas/$i; fi done,org.kde.gwenview.desktop;Adobe Photoshop CS6.desktop,Adobe Photoshop CS6,yadm add,/boot/,/etc/,/usr/,/var/,syadm add etc/
+Search History=/archlinux/,GENTOO_,GENTOO,gentoo,systemd,sy,Graph_cpus,graph_cpus,View_STATES,Cpu(s),user,us,child,_nomakepkg_prefix_path,__fzf_search_shell_variables,nerd,fzf_history_opts,awk,8,\\\\033[1;4m,\\\\033[0m,sda2,python,64,32,rubberban,sandman, --disable-features=UseChromeOSDirectVideoDecoder --enable-features=VaapiVideoDecoder\\,VaapiVideoEncoder\\,WebUIDarkMode --force-dark-mode,exec=,version.,CMAKE_CXX_FLAGS,CMAKE_CXX_FLAGS_RELEASE,CMAKE_CURRENT_SOURCE_DIR,CMAKE_CURRENT_SOURCE_DI,opencl,opencc,opencv,ffmpe,enable-ccache.conf,VHOST,CONFIG_BRIDGE,=y,virtualb,mpv,timeou,observer.is_alive,watc,watchd,kde,sys-ker,libpcre2,libva,gstr,config_netfilter_xt_match_comment,wine,pcspkr,cups,amd64,make prepare,exit 0,bin,disk,network,speed,meta,fish,libpcre,openh264,open,ladspa,imagemagick,ffmp,maes,ksmd,pmadv,sound,anb,modprobeddb_db_path,$where,where,SCRIPTPATH,SCRIPT_PATH,modp,_modprobeddb_db_path,scripts,scripts/config,readme,git,λ,CONFIG_BCMA_HOST_PCI is not set,iw,syadm,yadm add , -r ,virtualbo,virtual,watchdog,amd,#Con,amdg
 
 [Konsole]
 AutoSyncronize=true
@@ -155,9 +155,9 @@ SetEditor=false
 
 [MainWindow]
 HDMI-1 Height 1920x1080=504
-HDMI-1 Height 1920x1080 HDMI-1=714
+HDMI-1 Height 1920x1080 HDMI-1=739
 HDMI-1 Width 1920x1080=1108
-HDMI-1 Width 1920x1080 HDMI-1=1305
+HDMI-1 Width 1920x1080 HDMI-1=1055
 HDMI1 Height 1920x1080=603
 HDMI1 Width 1920x1080=794
 HDMI1 Window-Maximized 1920x1080=true
