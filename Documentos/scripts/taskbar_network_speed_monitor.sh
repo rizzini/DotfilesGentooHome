@@ -1,4 +1,5 @@
 #!/bin/bash
+export LANG=C LC_ALL=C
 size () {
     local -a units
     local -i scale

@@ -3,7 +3,7 @@ if [ "$EUID" -ne 0 ]; then
     /bin/echo "Please run as root";
     exit;
 fi
-if test -f "/tmp/check_btrfs_health.sh.tmp"; then
+if test -e "/tmp/check_btrfs_health.sh.tmp"; then
     exit;
 fi
 /usr/bin/touch "/tmp/check_btrfs_health.sh.tmp";

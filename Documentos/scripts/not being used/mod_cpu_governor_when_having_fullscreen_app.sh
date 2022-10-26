@@ -3,7 +3,7 @@ disable_file='/tmp/mod_cpu_governor_when_having_fullscreen_app.disable'
 /usr/bin/sleep 10
 mp3='/home/lucas/Documentos/scripts/mod_cpu_governor_when_having_fullscreen_app.mp3'
 while :; do
-    if ! test -f "$disable_file"; then
+    if ! test -e "$disable_file"; then
         if [ "$(pgrep mpv)" ] || wmctrl -l | /usr/bin/grep -q "Netflix"; [[ "$(/usr/bin/xdotool getactivewindow getwindowgeometry | /usr/bin/grep 'Geometry:' | /usr/bin/awk '{print $2}')" == '1920x1080' && "$(/usr/bin/xdotool getactivewindow getwindowclassname)" != 'plasmashell' && -z "$(/usr/bin/pgrep wine)" && -z "$(/usr/bin/pgrep makepkg)"  ]]; then
             change_governor=1;
             sleep=1;

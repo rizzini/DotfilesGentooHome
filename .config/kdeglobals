@@ -142,8 +142,8 @@ History Items[$e]=file:$HOME/Downloads,file:$HOME/Musicas,file:///mnt/archlinux/
 [General]
 BrowserApplication=google-chrome.desktop
 ColorSchemeHash=2dafdb8db7e259fce6399dae70f9cd60076faef2
-Name=Nord-Dark-Color
 Name[pt_BR]=Breeze Dark
+Name=Nord-Dark-Color
 TerminalApplication=alacritty
 TerminalService=Alacritty.desktop
 XftAntialias=true

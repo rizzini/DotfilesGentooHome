@@ -1,4 +1,5 @@
 #!/bin/bash
+export LANG=C LC_ALL=C
 if [ -e "/dev/sdb" ]; then
     sdb="1";
 fi
@@ -69,7 +70,7 @@ while :; do
         has_data+=("sdc")
     fi
     if [ ! "$has_data" ];then
-        DATA='| A | No disk activity | | |'
+        DATA='| A | Sem atividade de disco | | |'
             counter_no_data_sda=$((counter_no_data_sda+1))
             counter_no_data_sdb=$((counter_no_data_sdb+1))
             counter_no_data_sdc=$((counter_no_data_sdc+1))

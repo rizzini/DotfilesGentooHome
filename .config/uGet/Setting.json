@@ -114,10 +114,11 @@
 		"OnError": null
 	},
 	"FolderHistory": [
+		"\/mnt\/gentoo\/temp_stuff",
+		"\/mnt\/gentoo\/temp_stuff\/",
 		"\/home\/lucas\/Downloads",
-		"\/mnt\/archlinux\/temp_stuff\/",
 		"\/home\/lucas",
-		"\/mnt\/archlinux\/CCACHE",
+		"\/mnt\/gentoo\/CCACHE",
 		"\/mnt\/dados\/VMs",
 		"\/home\/lucas\/Documentos"
 	],

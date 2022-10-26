@@ -4,7 +4,7 @@ if [ "$EUID" -ne 0 ]; then
     /bin/echo "Please run as root";
     exit;
 fi
-if test -f "/tmp/btrbk_.sh.lock"; then
+if test -e "/tmp/btrbk_.sh.lock"; then
     exit;
 fi
 /usr/bin/touch /tmp/btrbk_.sh.lock
@@ -39,7 +39,7 @@ while :; do
         exit;
     fi
 done
-/usr/bin/tree -d -L 2 /mnt/gentoo/ | /usr/bin/tee /mnt/backup/btrfs_scheme.txt
+/usr/bin/tree -d -L 2  -I 'CACHE|bin|boot|ccache|dev|etc|home|lib|lib64|lost+found|media|mnt|opt|proc|root|run|sbin|srv|sys|tmp|usr|var|rwsnap*|' /mnt/gentoo/ | /usr/bin/tee /mnt/backup/btrfs_scheme.txt
 if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_home.conf -q run; then
     /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: HOME";
 fi

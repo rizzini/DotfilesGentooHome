@@ -1,7 +1,7 @@
 [Desktop Entry]
 Comment[pt_BR]=
 Comment=
-Exec='WINEPREFIX=/mnt/archlinux/Games/Need for Speed Most Wanted Black Edition/prefixo' MANGOHUD_CONFIG=fps_only mangohud --dlsym /opt/wine-tkg-staging-fsync-git-opt/bin/wine speed.exe -mod
+Exec='WINEPREFIX=/mnt/gentoo/Games/Need for Speed Most Wanted Black Edition/prefixo' MANGOHUD_CONFIG=fps_only mangohud --dlsym /opt/wine-tkg-staging-fsync-git-opt/bin/wine speed.exe -mod
 GenericName[pt_BR]=
 GenericName=
 Icon=/mnt/gentoo/Games/Need for Speed Most Wanted Black Edition/NFSMW_icon.ico
@@ -9,7 +9,7 @@ MimeType=
 Name[pt_BR]=Need for Speed: Most Wanted\n
 Name=Need for Speed: Most Wanted\n
 NoDisplay=false
-Path=/mnt/archlinux/Games/Need for Speed Most Wanted Black Edition
+Path=/mnt/gentoo/Games/Need for Speed Most Wanted Black Edition
 StartupNotify=true
 Terminal=false
 TerminalOptions=

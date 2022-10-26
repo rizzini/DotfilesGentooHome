@@ -13,7 +13,7 @@ elif [[ -n "$1" && "$1" != 'force' ]];then
     echo 'O primeiro argumento, se existir, deve ser "force"';
     exit 1;
 fi
-if test -f "/tmp/clean_space_emergency.sh.lock";then
+if test -e "/tmp/clean_space_emergency.sh.lock";then
     exit 1;
 fi
 /usr/bin/touch /tmp/clean_space_emergency.sh.lock;

@@ -1,21 +1,56 @@
 #!/bin/bash
 /usr/bin/sleep 3
+size () {
+    local -a units
+    local -i scale
+    scale=1000
+    units=(KB MB GB)
+    local -i unit=0
+    if [ -z "${units[0]}" ]
+    then
+        unit=1
+    fi
+    local -i whole=${1:-0}
+    local -i remainder=0
+    while (( whole >= $scale ))
+    do
+        remainder=$(( whole % scale ))
+        whole=$((whole / scale))
+        unit=$(( $unit + 1 ))
+    done
+    local decimal
+    if [ $remainder -gt 0 ]
+    then
+        local -i fraction="$(( (remainder * 10 / scale)))"
+        if [ "$fraction" -gt 0 ]
+        then
+            decimal=".$fraction"
+        fi
+    fi
+    echo "${whole}${decimal}${units[$unit]}"
+}
 command='/usr/bin/alacritty -o window.dimensions.lines=13 window.dimensions.columns=55 -e /usr/bin/sudo /usr/bin/intel_gpu_top'
 threshold=65
 while :;do
+    mem_stats+=($(/bin/grep -e "MemTotal" -e "MemAvailable" /proc/meminfo))
+    mem_used=$(((${mem_stats[1]} - ${mem_stats[4]}) - 256000))
     cpu_temp=$(/usr/bin/sensors | /bin/grep 'Package id 0:' | /usr/bin/tail -1 | /usr/bin/cut -c 17-18)
     if /bin/grep -q 'ENABLED=no' /etc/ufw/ufw.conf; then
-        DATA='| C | Firewall desativado | | '$command' |';
+        DATA='| C | Firewall <b>desativado</b> \| RAM: <b>'$(size $mem_used)'</b> | | '$command' |';
     elif [ "$(/usr/bin/pgrep easyeffects)" ]; then
-        DATA='| A | EasyEffects ligado | CPU: <b>'$cpu_temp'ºc</b>  | '$command' |'
+        DATA='| A | EasyEffects <b>ligado</b> \| RAM: <b>'$(size $mem_used)'</b> | CPU: <b>'$cpu_temp'ºc</b> | '$command' |'
         if [[ $cpu_temp -ge $threshold ]]; then
-           DATA='| C | EasyEffects ligado \| CPU <b>'$cpu_temp'ºc</b> | | '$command' |'
+           DATA='| C | EasyEffects <b>ligado</b> \| CPU <b>'$cpu_temp'ºc</b> | Consumo RAM: <b>'$(size $mem_used)'</b> | '$command' |'
         fi
     else
         if [ "$cpu_temp" -ge $threshold ]; then
-            DATA='| C | CPU <b>'$cpu_temp'ºc</b> | | '$command' |'
+            DATA='| C | CPU <b>'$cpu_temp'ºc</b> \| Consumo RAM: <b>'$(size $mem_used)'</b> | | '$command' |'
         else
-            DATA='| A | | | '$command' |'
+            if [ $mem_used -lt 6000000 ];then
+                DATA='| A | Consumo RAM: <b>'$(size $mem_used)'</b> | | '$command' |'
+            else
+                DATA='| C | Consumo RAM: <b>'$(size $mem_used)'</b> | | '$command' |'
+            fi
         fi
     fi
     if [ "$DATA" != "$DATA_last" ];then
