@@ -4,6 +4,9 @@ Seen=true
 [Applications][chromium-bin-browser-chromium]
 Seen=true
 
+[Applications][deluge]
+Seen=true
+
 [Applications][discord]
 Seen=true
 

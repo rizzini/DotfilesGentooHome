@@ -38,7 +38,7 @@ while :;do
     up_=$(/usr/bin/awk '/\<enp2s0\>/{print $10}' /proc/net/dev)
     dl_final=$(size $(( (dl_-dl) / 1024 )))
     up_final=$(size $(( (up_-up) / 1024 )))
-    DATA='| A | DL: <b>'$dl_final'/s</b> UP: <b>'$up_final'/s</b> | Download total: <b>'$(size $((dl_/1024)))'</b> Upload total: <b>'$(size $((up_/1024)))'</b> | '$comando' |'
+    DATA='| A | Dl: <b>'$dl_final'/s</b> Up: <b>'$up_final'/s</b> | Download total: <b>'$(size $((dl_/1024)))'</b> Upload total: <b>'$(size $((up_/1024)))'</b> | '$comando' |'
     if [ "$DATA" != "$DATA_last" ];then
         /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_952 org.kde.plasma.doityourselfbar.pass "$DATA"
         DATA_last="$DATA"
