@@ -37,7 +37,7 @@ while :;do
     mem_used=$(((mem_stats[1] - mem_stats[4]) - 256000))
     cpu_temp=$(/usr/bin/sensors | /bin/grep 'Package id 0:' | /usr/bin/tail -1 | /usr/bin/cut -c 17-18)
     if /bin/grep -q 'ENABLED=no' /etc/ufw/ufw.conf; then
-        DATA='| C | Firewall <b>desativado</b> \| RAM: <b>'$(size $mem_used)'</b> | | '$command' |';
+        DATA='| C | Firewall <b>desativado</b> \| RAM: <b>'$(size $mem_used)'</b> | CPU: <b>'$cpu_temp'ºc</b> | '$command' |';
     elif [ "$(/usr/bin/pgrep easyeffects)" ]; then
         if [ $mem_used -ge 6000000 ];then
             DATA='| C | EasyEffects <b>ligado</b> \| RAM: <b>'$(size $mem_used)'</b> | CPU: <b>'$cpu_temp'ºc</b> | '$command' |'
@@ -50,9 +50,9 @@ while :;do
         if [ $cpu_temp -ge $threshold ]; then
             DATA='| C | CPU <b>'$cpu_temp'ºc</b> \| Consumo RAM: <b>'$(size $mem_used)'</b> | | '$command' |'
         elif [ $mem_used -ge 6000000 ];then
-            DATA='| C | Consumo RAM: <b>'$(size $mem_used)'</b> | | '$command' |'
+            DATA='| C | Consumo RAM: <b>'$(size $mem_used)'</b> | CPU: <b>'$cpu_temp'ºc</b> | '$command' |'
         else
-            DATA='| A | Consumo RAM: <b>'$(size $mem_used)'</b> | | '$command' |'
+            DATA='| A | Consumo RAM: <b>'$(size $mem_used)'</b> | CPU: <b>'$cpu_temp'ºc</b> | '$command' |'
         fi
     fi
     if [ "$DATA" != "$DATA_last" ];then
