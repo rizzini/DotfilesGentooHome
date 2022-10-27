@@ -1,24 +1,25 @@
 Overall:
     Device size:		 103.66GiB
-    Device allocated:		  92.02GiB
-    Device unallocated:		  11.64GiB
+    Device allocated:		  89.65GiB
+    Device unallocated:		  14.01GiB
     Device missing:		     0.00B
-    Used:			  54.30GiB
-    Free (estimated):		  46.19GiB	(min: 40.37GiB)
-    Free (statfs, df):		  46.19GiB
+    Device slack:		     0.00B
+    Used:			  45.55GiB
+    Free (estimated):		  52.49GiB	(min: 45.49GiB)
+    Free (statfs, df):		  52.49GiB
     Data ratio:			      1.00
     Metadata ratio:		      2.00
-    Global reserve:		 121.48MiB	(used: 0.00B)
+    Global reserve:		 100.34MiB	(used: 0.00B)
     Multiple profiles:		        no
 
-Data,single: Size:86.01GiB, Used:51.46GiB (59.83%)
-   /dev/sda2	  86.01GiB
+Data,single: Size:82.01GiB, Used:43.53GiB (53.07%)
+   /dev/sda2	  82.01GiB
 
-Metadata,DUP: Size:3.00GiB, Used:1.42GiB (47.37%)
-   /dev/sda2	   6.00GiB
+Metadata,DUP: Size:3.81GiB, Used:1.01GiB (26.53%)
+   /dev/sda2	   7.63GiB
 
 System,DUP: Size:8.00MiB, Used:16.00KiB (0.20%)
    /dev/sda2	  16.00MiB
 
 Unallocated:
-   /dev/sda2	  11.64GiB
+   /dev/sda2	  14.01GiB

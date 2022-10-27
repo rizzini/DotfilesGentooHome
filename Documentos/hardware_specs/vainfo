@@ -1,4 +1,5 @@
-vainfo: VA-API version: 1.15 (libva 2.15.0)
+Trying display: x11
+vainfo: VA-API version: 1.16 (libva 2.16.0)
 vainfo: Driver version: Intel i965 driver for Intel(R) Haswell - 2.4.1
 vainfo: Supported profile and entrypoints
       VAProfileMPEG2Simple            :	VAEntrypointVLD

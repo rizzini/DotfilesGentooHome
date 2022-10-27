@@ -1,36 +1,38 @@
-Architecture:                    x86_64
-CPU op-mode(s):                  32-bit, 64-bit
-Address sizes:                   39 bits physical, 48 bits virtual
-Byte Order:                      Little Endian
-CPU(s):                          4
-On-line CPU(s) list:             0-3
-Vendor ID:                       GenuineIntel
-BIOS Vendor ID:                  Intel
-Model name:                      Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz
-BIOS Model name:                 Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz
-CPU family:                      6
-Model:                           60
-Thread(s) per core:              2
-Core(s) per socket:              2
-Socket(s):                       1
-Stepping:                        3
-CPU max MHz:                     3700.0000
-CPU min MHz:                     800.0000
-BogoMIPS:                        7390.69
-Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
-Virtualization:                  VT-x
-L1d cache:                       64 KiB (2 instances)
-L1i cache:                       64 KiB (2 instances)
-L2 cache:                        512 KiB (2 instances)
-L3 cache:                        3 MiB (1 instance)
-Vulnerability Itlb multihit:     KVM: Mitigation: VMX disabled
-Vulnerability L1tf:              Mitigation; PTE Inversion; VMX vulnerable
-Vulnerability Mds:               Vulnerable; SMT vulnerable
-Vulnerability Meltdown:          Vulnerable
-Vulnerability Mmio stale data:   Unknown: No mitigations
-Vulnerability Retbleed:          Not affected
-Vulnerability Spec store bypass: Vulnerable
-Vulnerability Spectre v1:        Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers
-Vulnerability Spectre v2:        Vulnerable, IBPB: disabled, STIBP: disabled, PBRSB-eIBRS: Not affected
-Vulnerability Srbds:             Vulnerable
-Vulnerability Tsx async abort:   Not affected
+Arquitetura:                       x86_64
+Modo(s) operacional da CPU:        32-bit, 64-bit
+Tamanhos de endereço:              39 bits physical, 48 bits virtual
+Ordem dos bytes:                   Little Endian
+CPU(s):                            4
+Lista de CPU(s) on-line:           0-3
+ID de fornecedor:                  GenuineIntel
+ID de fornecedor da BIOS:          Intel
+Nome do modelo:                    Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz
+Nome do modelo da BIOS:            Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz Fill By OEM CPU @ 3.7GHz
+BIOS CPU family:                   206
+Família da CPU:                    6
+Modelo:                            60
+Thread(s) per núcleo:              2
+Núcleo(s) por soquete:             2
+Soquete(s):                        1
+Step:                              3
+CPU(s) scaling MHz:                100%
+CPU MHz máx.:                      3700,0000
+CPU MHz mín.:                      800,0000
+BogoMIPS:                          7390,75
+Opções:                            fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
+Virtualização:                     VT-x
+cache de L1d:                      64 KiB (2 instâncias)
+cache de L1i:                      64 KiB (2 instâncias)
+cache de L2:                       512 KiB (2 instâncias)
+cache de L3:                       3 MiB (1 instância)
+Vulnerabilidade Itlb multihit:     KVM: Mitigation: VMX disabled
+Vulnerabilidade L1tf:              Mitigation; PTE Inversion; VMX vulnerable
+Vulnerabilidade Mds:               Vulnerable; SMT vulnerable
+Vulnerabilidade Meltdown:          Vulnerable
+Vulnerabilidade Mmio stale data:   Unknown: No mitigations
+Vulnerabilidade Retbleed:          Not affected
+Vulnerabilidade Spec store bypass: Vulnerable
+Vulnerabilidade Spectre v1:        Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers
+Vulnerabilidade Spectre v2:        Vulnerable, IBPB: disabled, STIBP: disabled, PBRSB-eIBRS: Not affected
+Vulnerabilidade Srbds:             Vulnerable
+Vulnerabilidade Tsx async abort:   Not affected
