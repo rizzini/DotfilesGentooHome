@@ -18,7 +18,7 @@ counter_no_data_sdc=0
 show_sda=0
 show_sdb=0
 show_sdc=0
-command='/usr/bin/systemmonitor'
+command='if [ "$(pgrep "systemmonitor")" ];then killall systemmonitor &> /dev/null;else /usr/bin/systemmonitor & disown $!;fi'
 while :; do
     data1_read_sda=$(/usr/bin/awk '/\<sda\>/{print $6}' /proc/diskstats);
     data1_write_sda=$(/usr/bin/awk '/\<sda\>/{print $10}' /proc/diskstats);
