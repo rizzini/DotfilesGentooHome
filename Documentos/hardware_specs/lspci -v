@@ -7,7 +7,7 @@
 00:02.0 VGA compatible controller: Intel Corporation 4th Generation Core Processor Family Integrated Graphics Controller (rev 06) (prog-if 00 [VGA controller])
 	DeviceName:  Onboard IGD
 	Subsystem: Intel Corporation 4th Generation Core Processor Family Integrated Graphics Controller
-	Flags: bus master, fast devsel, latency 0, IRQ 28
+	Flags: bus master, fast devsel, latency 0, IRQ 27
 	Memory at f7800000 (64-bit, non-prefetchable) [size=4M]
 	Memory at e0000000 (64-bit, prefetchable) [size=256M]
 	I/O ports at f000 [size=64]
@@ -16,11 +16,10 @@
 	Capabilities: [d0] Power Management version 2
 	Capabilities: [a4] PCI Advanced Features
 	Kernel driver in use: i915
-	Kernel modules: i915
 
 00:03.0 Audio device: Intel Corporation Xeon E3-1200 v3/4th Gen Core Processor HD Audio Controller (rev 06)
 	Subsystem: Intel Corporation Xeon E3-1200 v3/4th Gen Core Processor HD Audio Controller
-	Flags: bus master, fast devsel, latency 0, IRQ 30
+	Flags: bus master, fast devsel, latency 0, IRQ 31
 	Memory at f7d14000 (64-bit, non-prefetchable) [size=16K]
 	Capabilities: [50] Power Management version 2
 	Capabilities: [60] MSI: Enable+ Count=1/1 Maskable- 64bit-
@@ -30,7 +29,7 @@
 
 00:14.0 USB controller: Intel Corporation 8 Series/C220 Series Chipset Family USB xHCI (rev 05) (prog-if 30 [XHCI])
 	Subsystem: Intel Corporation 8 Series/C220 Series Chipset Family USB xHCI
-	Flags: bus master, medium devsel, latency 0, IRQ 27
+	Flags: bus master, medium devsel, latency 0, IRQ 29
 	Memory at f7d00000 (64-bit, non-prefetchable) [size=64K]
 	Capabilities: [70] Power Management version 2
 	Capabilities: [80] MSI: Enable+ Count=1/8 Maskable- 64bit+
@@ -39,7 +38,7 @@
 
 00:16.0 Communication controller: Intel Corporation 8 Series/C220 Series Chipset Family MEI Controller #1 (rev 04)
 	Subsystem: Intel Corporation 8 Series/C220 Series Chipset Family MEI Controller
-	Flags: bus master, fast devsel, latency 0, IRQ 29
+	Flags: bus master, fast devsel, latency 0, IRQ 30
 	Memory at f7d1e000 (64-bit, non-prefetchable) [size=16]
 	Capabilities: [50] Power Management version 3
 	Capabilities: [8c] MSI: Enable+ Count=1/1 Maskable- 64bit+
@@ -57,7 +56,7 @@
 
 00:1b.0 Audio device: Intel Corporation 8 Series/C220 Series Chipset High Definition Audio Controller (rev 05)
 	Subsystem: Intel Corporation 8 Series/C220 Series Chipset High Definition Audio Controller
-	Flags: bus master, fast devsel, latency 0, IRQ 31
+	Flags: bus master, fast devsel, latency 0, IRQ 32
 	Memory at f7d10000 (64-bit, non-prefetchable) [size=16K]
 	Capabilities: [50] Power Management version 2
 	Capabilities: [60] MSI: Enable+ Count=1/1 Maskable- 64bit+
@@ -146,5 +145,4 @@
 	Capabilities: [170] Latency Tolerance Reporting
 	Capabilities: [178] L1 PM Substates
 	Kernel driver in use: r8169
-	Kernel modules: r8169
 

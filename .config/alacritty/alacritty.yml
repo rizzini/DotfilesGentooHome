@@ -1,4 +1,3 @@
-
 font:
   normal:
     family: Source Code Pro
@@ -35,8 +34,8 @@ selection:
 
 scrolling:
   multiplier: 4
+  history: 99999
 
 key_bindings:
   - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
   - { key: H, mods: Control, action: SearchBackward }
-

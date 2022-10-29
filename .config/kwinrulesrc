@@ -330,7 +330,7 @@ title=Prime Video - Google Chrome
 titlematch=1
 wmclass=google-chrome google-chrome
 wmclasscomplete=true
-wmclassmatch=1
+wmclassmatch=2
 
 [7c6478c2-3c65-4ecc-a8ce-a2459d421437]
 Description=Configurações de janela para Dark Devotion

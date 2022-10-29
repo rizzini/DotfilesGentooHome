@@ -77,7 +77,7 @@ videowallEnabled=false
 
 [TabBox]
 BorderActivate=9
-LayoutName=MediumRoundedDark
+LayoutName=thumbnails
 MoveMinimizedWindowsToEndOfTabBoxFocusChain=true
 
 [Windows]

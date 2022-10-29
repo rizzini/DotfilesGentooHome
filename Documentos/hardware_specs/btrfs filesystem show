@@ -1,9 +1,9 @@
 Label: none  uuid: b413892e-b35c-44e1-b243-dffcf494dde0
-	Total devices 1 FS bytes used 44.54GiB
+	Total devices 1 FS bytes used 47.78GiB
 	devid    1 size 103.66GiB used 89.65GiB path /dev/sda2
 
 Label: none  uuid: 9d5fe8e4-453d-488c-a57b-13e19e2b18d0
-	Total devices 1 FS bytes used 25.62GiB
+	Total devices 1 FS bytes used 25.34GiB
 	devid    1 size 41.56GiB used 26.52GiB path /dev/sdb5
 
 Label: 'Dados'  uuid: 6ee778f7-20da-46e3-a472-180bdbde037b

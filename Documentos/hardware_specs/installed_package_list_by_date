@@ -1045,7 +1045,6 @@ dev-qt/qtnetworkauth-5.15.5                 19/10/2022  14:57:12
 dev-python/numpy-1.23.4                     19/10/2022  15:03:41
 media-libs/libass-0.16.0                    19/10/2022  15:04:07
 media-plugins/frei0r-plugins-1.7.0-r2       19/10/2022  15:28:29
-media-video/ffmpeg-4.4.3                    19/10/2022  15:38:55
 media-video/movit-1.6.3-r1                  19/10/2022  15:40:31
 media-libs/sdl2-image-2.0.5_p20210328       19/10/2022  15:40:45
 media-video/mediainfo-22.03                 19/10/2022  15:41:15
@@ -1119,7 +1118,6 @@ kde-plasma/layer-shell-qt-5.26.2            26/10/2022  21:24:41
 kde-plasma/libkscreen-5.26.2                26/10/2022  21:26:01
 kde-plasma/polkit-kde-agent-5.26.2          26/10/2022  21:26:20
 sys-apps/portage-3.0.38.1-r2                26/10/2022  21:26:37
-www-client/firefox-bin-106.0.2              26/10/2022  21:27:03
 kde-plasma/kactivitymanagerd-5.26.2         26/10/2022  21:28:19
 kde-plasma/libksysguard-5.26.2              26/10/2022  21:30:04
 kde-plasma/plasma-pa-5.26.2                 26/10/2022  21:30:52
@@ -1164,3 +1162,13 @@ media-libs/alsa-lib-1.2.8                   27/10/2022  10:13:34
 media-sound/alsa-utils-1.2.8                27/10/2022  10:14:00
 media-libs/fontconfig-2.14.1                27/10/2022  10:14:30
 net-fs/samba-4.16.6                         27/10/2022  10:22:12
+app-arch/zip-3.0-r5                         27/10/2022  18:57:40
+dev-libs/libevent-2.1.12                    27/10/2022  18:58:07
+sys-devel/autoconf-2.13-r3                  27/10/2022  18:58:18
+net-libs/nodejs-18.11.0                     27/10/2022  20:03:32
+media-libs/libaom-3.5.0                     27/10/2022  20:05:42
+dev-util/cbindgen-0.24.3                    27/10/2022  20:08:19
+media-libs/openh264-2.3.1-r1                27/10/2022  23:01:28
+www-client/firefox-bin-106.0.2              27/10/2022  23:10:43
+www-client/firefox-106.0.2                  27/10/2022  23:40:55
+media-video/ffmpeg-4.4.2                    28/10/2022  00:19:07

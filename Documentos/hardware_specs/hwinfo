@@ -3,11 +3,11 @@ libhd version 22.1 (x86-64) [7688]
 using /var/lib/hardware
 kernel version is 6.0
 ----- /proc/cmdline -----
-  root=PARTUUID=b71f1a8d-32c3-474a-a92d-bb32ca009b32 rw rootflags=subvol=ROOT initrd=ROOT\boot\early_ucode.cpio audit=off intel_pstate=passive nowatchdog mitigations=off systemd.unified_cgroup_hierarchy=0 initrd=\ROOT\boot\initramfs-6.0.3-tkg-cfs.img
+  root=PARTUUID=b71f1a8d-32c3-474a-a92d-bb32ca009b32 rw rootflags=subvol=ROOT initrd=ROOT\boot\early_ucode.cpio audit=off intel_pstate=passive nowatchdog mitigations=off systemd.unified_cgroup_hierarchy=0 initrd=\ROOT\boot\initramfs-6.0.5-tkg-cfs.img
 ----- /proc/cmdline end -----
 debug = 0xff7ffff7
 probe = 0x15938fcdaa17fcf9fffe (+memory +pci +isapnp +net +floppy +misc +misc.serial +misc.par +misc.floppy +serial +cpu +bios +monitor +mouse +scsi +usb -usb.mods +modem +modem.usb +parallel +parallel.lp +parallel.zip -isa -isa.isdn +isdn +kbd +prom +sbus +int +braille +braille.alva +braille.fhp +braille.ht -ignx11 +sys -bios.vbe -isapnp.old -isapnp.new -isapnp.mod +braille.baum -manual +fb +pppoe -scan +pcmcia +fork -parallel.imm +s390 +cpuemu -sysfs -s390disks +udev +block +block.cdrom +block.part +edd +edd.mod -bios.ddc -bios.fb -bios.mode +input +block.mods +bios.vesa -cpuemu.debug -scsi.noserial +wlan -bios.crc -hal +bios.vram +bios.acpi -bios.ddc.ports=0 +modules.pata -net.eeprom +x86emu=dump -max -lxrc)
-shm: attached segment 98355 at 0x7feb45e1e000
+shm: attached segment 262206 at 0x7fc4173ca000
 >> hal.1: read hal data
 >> floppy.1: get nvram
 ----- /proc/nvram -----
@@ -554,9 +554,9 @@ shm: attached segment 98355 at 0x7feb45e1e000
   410  26 00 00 76 02 80 00 20 00 00 1e 00 1e 00 00 00  "&..v... ........"
   420  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
   430  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
-  440  fa 00 00 00 00 00 00 00 00 52 64 00 ff ff 00 00  ".........Rd....."
+  440  fb 00 00 00 00 00 00 00 00 52 64 00 ff ff 00 00  ".........Rd....."
   450  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
-  460  00 00 00 d4 03 00 00 00 00 00 00 00 05 00 00 00  "................"
+  460  00 00 00 d4 03 00 00 00 00 00 00 00 04 00 00 00  "................"
   470  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
   480  1e 00 3e 00 24 10 00 60 09 11 08 00 00 00 00 00  "..>.$..`........"
   490  07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  "................"
@@ -1016,10 +1016,10 @@ video bios: entry 0xc000:0x0014
 >> misc.1.1: open serial
 >> misc.1.2: open parallel
 ----- exec: "/sbin/modprobe parport " -----
-  modprobe: FATAL: Module parport not found in directory /lib/modules/6.0.3-tkg-cfs
+  modprobe: FATAL: Module parport not found in directory /lib/modules/6.0.5-tkg-cfs
 ----- return code: ? -----
 ----- exec: "/sbin/modprobe parport_pc " -----
-  modprobe: FATAL: Module parport_pc not found in directory /lib/modules/6.0.3-tkg-cfs
+  modprobe: FATAL: Module parport_pc not found in directory /lib/modules/6.0.5-tkg-cfs
 ----- return code: ? -----
 >> misc.2.1: io
 >> misc.2.2: dma
@@ -1077,34 +1077,34 @@ video bios: entry 0xc000:0x0014
         ffff-ffff : pnp 00:01
 ----- /proc/ioports end -----
 ----- /proc/interrupts -----
-    0:         16          0          0          0   IO-APIC   2-edge      timer
+    0:         17          0          0          0   IO-APIC   2-edge      timer
     8:          0          0          0          0   IO-APIC   8-edge      rtc0
     9:          0          4          0          0   IO-APIC   9-fasteoi   acpi
-   16:          0         44          0          0   IO-APIC  16-fasteoi   ehci_hcd:usb1
-   18:          0          0          0          5   IO-APIC  18-fasteoi   i801_smbus
-   23:          0          0         52          0   IO-APIC  23-fasteoi   ehci_hcd:usb2
+   16:          0          0         27          0   IO-APIC  16-fasteoi   ehci_hcd:usb1
+   18:          0          0          5          0   IO-APIC  18-fasteoi   i801_smbus
+   23:          0          0          0         29   IO-APIC  23-fasteoi   ehci_hcd:usb2
    24:          0          0          0          0   PCI-MSI 458752-edge      PCIe PME, pciehp
    25:          0          0          0          0   PCI-MSI 462848-edge      PCIe PME
-   26:     916002          0          0          0   PCI-MSI 512000-edge      ahci[0000:00:1f.2]
-   27:     254077          0          0          0   PCI-MSI 327680-edge      xhci_hcd
-   28:          0    2710183          0          0   PCI-MSI 32768-edge      i915
-   29:          0          0         24          0   PCI-MSI 360448-edge      mei_me
-   30:       2308          0          0          0   PCI-MSI 49152-edge      snd_hda_intel:card0
-   31:          0        529          0          0   PCI-MSI 442368-edge      snd_hda_intel:card1
-   32:          0          0    6467021          0   PCI-MSI 1048576-edge      enp2s0
+   26:    3829986          0          0          0   PCI-MSI 512000-edge      ahci[0000:00:1f.2]
+   27:          0    4237460          0          0   PCI-MSI 32768-edge      i915
+   28:          0          0    6665368          0   PCI-MSI 1048576-edge      enp2s0
+   29:          0     548376          0          0   PCI-MSI 327680-edge      xhci_hcd
+   30:          0          0          0         24   PCI-MSI 360448-edge      mei_me
+   31:       8368          0          0          0   PCI-MSI 49152-edge      snd_hda_intel:card0
+   32:          0        657          0          0   PCI-MSI 442368-edge      snd_hda_intel:card1
   NMI:          0          0          0          0   Non-maskable interrupts
-  LOC:   15063910   15174842   15202215   14885266   Local timer interrupts
+  LOC:   21645032   21645026   21645025   21645017   Local timer interrupts
   SPU:          0          0          0          0   Spurious interrupts
   PMI:          0          0          0          0   Performance monitoring interrupts
-  IWI:     248506    2041575     252267     222976   IRQ work interrupts
-  RTR:          1          0          0          0   APIC ICR read retries
-  RES:    1540979    1502713    1809927    1295375   Rescheduling interrupts
-  CAL:    1905700    1769035    2066025    1676057   Function call interrupts
-  TLB:     854493     798547     861972     838397   TLB shootdowns
+  IWI:     376681    3771289     370586     492692   IRQ work interrupts
+  RTR:          2          0          0          0   APIC ICR read retries
+  RES:    2924933    4546344    3126651    4836321   Rescheduling interrupts
+  CAL:   13298179   15307760   13485637   14573042   Function call interrupts
+  TLB:    6744130    7475205    7038222    7784481   TLB shootdowns
   TRM:          0          0          0          0   Thermal event interrupts
   THR:          0          0          0          0   Threshold APIC interrupts
   MCE:          0          0          0          0   Machine check exceptions
-  MCP:         62         63         63         63   Machine check polls
+  MCP:         95         96         96         96   Machine check polls
   ERR:          0
   MIS:          0
   PIN:          0          0          0          0   Posted-interrupt notification event
@@ -1128,7 +1128,7 @@ video bios: entry 0xc000:0x0014
   model name	: Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz
   stepping	: 3
   microcode	: 0x28
-  cpu MHz		: 3693.512
+  cpu MHz		: 3687.239
   cache size	: 3072 KB
   physical id	: 0
   siblings	: 4
@@ -1143,7 +1143,7 @@ video bios: entry 0xc000:0x0014
   flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
   vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple
   bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
-  bogomips	: 7390.75
+  bogomips	: 7390.21
   clflush size	: 64
   cache_alignment	: 64
   address sizes	: 39 bits physical, 48 bits virtual
@@ -1156,7 +1156,7 @@ video bios: entry 0xc000:0x0014
   model name	: Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz
   stepping	: 3
   microcode	: 0x28
-  cpu MHz		: 3692.056
+  cpu MHz		: 3692.336
   cache size	: 3072 KB
   physical id	: 0
   siblings	: 4
@@ -1171,7 +1171,7 @@ video bios: entry 0xc000:0x0014
   flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
   vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple
   bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
-  bogomips	: 7390.75
+  bogomips	: 7390.21
   clflush size	: 64
   cache_alignment	: 64
   address sizes	: 39 bits physical, 48 bits virtual
@@ -1184,7 +1184,7 @@ video bios: entry 0xc000:0x0014
   model name	: Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz
   stepping	: 3
   microcode	: 0x28
-  cpu MHz		: 3694.372
+  cpu MHz		: 3691.448
   cache size	: 3072 KB
   physical id	: 0
   siblings	: 4
@@ -1199,7 +1199,7 @@ video bios: entry 0xc000:0x0014
   flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
   vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple
   bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
-  bogomips	: 7390.75
+  bogomips	: 7390.21
   clflush size	: 64
   cache_alignment	: 64
   address sizes	: 39 bits physical, 48 bits virtual
@@ -1212,7 +1212,7 @@ video bios: entry 0xc000:0x0014
   model name	: Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz
   stepping	: 3
   microcode	: 0x28
-  cpu MHz		: 3693.478
+  cpu MHz		: 3694.157
   cache size	: 3072 KB
   physical id	: 0
   siblings	: 4
@@ -1227,7 +1227,7 @@ video bios: entry 0xc000:0x0014
   flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
   vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple
   bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
-  bogomips	: 7390.75
+  bogomips	: 7390.21
   clflush size	: 64
   cache_alignment	: 64
   address sizes	: 39 bits physical, 48 bits virtual
@@ -1240,10 +1240,10 @@ video bios: entry 0xc000:0x0014
   klog mem 1: 0x0
   klog mem:   0x0
   bios mem:   0x0
-  meminfo:    0x1ec3d5000
+  meminfo:    0x1ec0f1000
   xen balloon:    0x0
 >> pci.1: sysfs drivers
------ sysfs driver list (id 0x1a58fe112610337d) -----
+----- sysfs driver list (id 0x007fcdb1c6c115ab) -----
 snd_hda_codec_generic: module = snd_hda_codec_generic
 snd_hda_codec_hdmi: /devices/pci0000:00/0000:00:03.0/hdaudioC0D0
 snd_hda_codec_hdmi: module = snd_hda_codec_hdmi
@@ -1259,16 +1259,11 @@ snd_hda_codec_realtek: module = snd_hda_codec_realtek
         acpi-fan: /devices/platform/PNP0C0B:00
   intel_rapl_msr: /devices/platform/intel_rapl_msr.0
   intel_rapl_msr: module = intel_rapl_msr
-         vboxdrv: module = vboxdrv
-         vboxdrv: /devices/platform/vboxdrv.0
       alarmtimer: /devices/pnp0/00:02/rtc/rtc0/alarmtimer.0.auto
       serial8250: /devices/platform/serial8250
-          pcspkr: module = pcspkr
-          pcspkr: /devices/platform/pcspkr
        intel-spi: module = spi_intel_platform
        intel-spi: /devices/pci0000:00/0000:00:1f.0/intel-spi
            r8169: /devices/pci0000:00/0000:00:1c.2/0000:02:00.0
-           r8169: module = r8169
         ehci-pci: /devices/pci0000:00/0000:00:1a.0
         ehci-pci: /devices/pci0000:00/0000:00:1d.0
         xhci_hcd: module = xhci_pci
@@ -1304,28 +1299,7 @@ snd_hda_codec_realtek: module = snd_hda_codec_realtek
               sr: module = sr_mod
               sd: /devices/pci0000:00/0000:00:1f.2/ata5/host4/target4:0:0/4:0:0:0
               sd: /devices/pci0000:00/0000:00:1f.2/ata1/host0/target0:0:0/0:0:0:0
-RTL8226B_RTL8221B 2.5Gbps PHY: module = realtek
-RTL8221B-VM-CG 2.5Gbps PHY: module = realtek
-RTL8208 Fast Ethernet: module = realtek
-RTL8221B-VB-CG 2.5Gbps PHY: module = realtek
-RTL8201CP Ethernet: module = realtek
-RTL8366RB Gigabit Ethernet: module = realtek
-     Generic PHY: module = libphy
-RTL8211F Gigabit Ethernet: module = realtek
-RTL8211B Gigabit Ethernet: module = realtek
-RTL8226B-CG_RTL8221B-CG 2.5Gbps PHY: module = realtek
-RTL8211DN Gigabit Ethernet: module = realtek
-RTL8211 Gigabit Ethernet: module = realtek
-RTL8226-CG 2.5Gbps PHY: module = realtek
-RTL8226 2.5Gbps PHY: module = realtek
 Generic FE-GE Realtek PHY: /devices/pci0000:00/0000:00:1c.2/0000:02:00.0/mdio_bus/r8169-0-200/r8169-0-200:00
-Generic FE-GE Realtek PHY: module = realtek
-RTL8365MB-VC Gigabit Ethernet: module = realtek
-RTL8211E Gigabit Ethernet: module = realtek
-Generic Clause 45 PHY: module = libphy
-RTL8201F Fast Ethernet: module = realtek
-RTL8211C Gigabit Ethernet: module = realtek
-RTL9000AA_RTL9000AN Ethernet: module = realtek
          spi-nor: /devices/pci0000:00/0000:00:1f.0/intel-spi/spi_master/spi0/spi0.0
          spi-nor: module = spi_nor
      hid-generic: /devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004
@@ -1444,7 +1418,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
     device = 0x8c3a
     subvendor = 0x8086
     subdevice = 0x8c3a
-    irq = 29
+    irq = 30
     res[0] = 0xf7d1e000 0xf7d1e00f 0x140204
     config[64]
   pci device: name = 0000:00:1b.0
@@ -1455,7 +1429,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
     device = 0x8c20
     subvendor = 0x8086
     subdevice = 0x8c20
-    irq = 31
+    irq = 32
     res[0] = 0xf7d10000 0xf7d13fff 0x140204
     config[64]
   pci device: name = 0000:00:1f.3
@@ -1488,7 +1462,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
     device = 0xc0c
     subvendor = 0x8086
     subdevice = 0xc0c
-    irq = 30
+    irq = 31
     res[0] = 0xf7d14000 0xf7d17fff 0x140204
     config[64]
   pci device: name = 0000:00:1a.0
@@ -1521,7 +1495,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
     device = 0x41e
     subvendor = 0x8086
     subdevice = 0x41e
-    irq = 28
+    irq = 27
     label = "Onboard IGD"
     res[0] = 0xf7800000 0xf7bfffff 0x140204
     res[2] = 0xe0000000 0xefffffff 0x14220c
@@ -1546,7 +1520,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
     device = 0x8c31
     subvendor = 0x8086
     subdevice = 0x8c31
-    irq = 27
+    irq = 29
     res[0] = 0xf7d00000 0xf7d0ffff 0x140204
     config[64]
   pci device: name = 0000:00:1c.2
@@ -1624,7 +1598,7 @@ class 02, sub_class 00 prog_if 00, hdr 0, flags <pm>, irq 18
   b0: 11 00  ".."
 
 bus 00, slot 16, func 0, vend:dev:s_vend:s_dev:rev 8086:8c3a:8086:8c3a:04
-class 07, sub_class 80 prog_if 00, hdr 0, flags <pm>, irq 29
+class 07, sub_class 80 prog_if 00, hdr 0, flags <pm>, irq 30
   addr0 f7d1e000, size 00000010
   00: 86 80 3a 8c 06 04 10 00 04 00 80 07 00 00 80 00  "..:............."
   10: 04 e0 d1 f7 00 00 00 00 00 00 00 00 00 00 00 00  "................"
@@ -1637,7 +1611,7 @@ class 07, sub_class 80 prog_if 00, hdr 0, flags <pm>, irq 29
   80: 00 00 00 00 00 00 00 00 00 00 00 00 05 00  ".............."
 
 bus 00, slot 1b, func 0, vend:dev:s_vend:s_dev:rev 8086:8c20:8086:8c20:05
-class 04, sub_class 03 prog_if 00, hdr 0, flags <pm>, irq 31
+class 04, sub_class 03 prog_if 00, hdr 0, flags <pm>, irq 32
   addr0 f7d10000, size 00004000
   00: 86 80 20 8c 06 04 10 00 05 00 03 04 10 00 00 00  ".. ............."
   10: 04 00 d1 f7 00 00 00 00 00 00 00 00 00 00 00 00  "................"
@@ -1676,7 +1650,7 @@ class 06, sub_class 00 prog_if 00, hdr 0, flags <>, irq 0
   e0: 09 00  ".."
 
 bus 00, slot 03, func 0, vend:dev:s_vend:s_dev:rev 8086:0c0c:8086:0c0c:06
-class 04, sub_class 03 prog_if 00, hdr 0, flags <pm>, irq 30
+class 04, sub_class 03 prog_if 00, hdr 0, flags <pm>, irq 31
   addr0 f7d14000, size 00004000
   00: 86 80 0c 0c 06 04 10 00 06 00 03 04 10 00 00 00  "................"
   10: 04 40 d1 f7 00 00 00 00 00 00 00 00 00 00 00 00  ".@.............."
@@ -1716,7 +1690,7 @@ class 0c, sub_class 03 prog_if 20, hdr 0, flags <pm>, irq 23
   90: 00 00 00 00 00 00 00 00 13 00  ".........."
 
 bus 00, slot 02, func 0, vend:dev:s_vend:s_dev:rev 8086:041e:8086:041e:06
-class 03, sub_class 00 prog_if 00, hdr 0, flags <pm>, irq 28
+class 03, sub_class 00 prog_if 00, hdr 0, flags <pm>, irq 27
   addr0 f7800000, size 00400000
   addr2 e0000000, size 10000000
   addr4 0000f000, size 00000040
@@ -1736,7 +1710,7 @@ class 03, sub_class 00 prog_if 00, hdr 0, flags <pm>, irq 28
   d0: 01 a4  ".."
 
 bus 00, slot 14, func 0, vend:dev:s_vend:s_dev:rev 8086:8c31:8086:8c31:05
-class 0c, sub_class 03 prog_if 30, hdr 0, flags <pm>, irq 27
+class 0c, sub_class 03 prog_if 30, hdr 0, flags <pm>, irq 29
   addr0 f7d00000, size 00010000
   00: 86 80 31 8c 06 04 90 02 05 30 03 0c 00 00 00 00  "..1......0......"
   10: 04 00 d0 f7 00 00 00 00 00 00 00 00 00 00 00 00  "................"
@@ -1783,6 +1757,9 @@ sysfs: no such bus: ps3_system_bus
   platform device: name = intel_rapl_msr.0
     path = /devices/platform/intel_rapl_msr.0
     type = "", modalias = "platform:intel_rapl_msr", driver = "intel_rapl_msr"
+  platform device: name = Fixed MDIO bus.0
+    path = /devices/platform/Fixed MDIO bus.0
+    type = "", modalias = "platform:Fixed MDIO bus", driver = ""
   platform device: name = PNP0C0C:00
     path = /devices/platform/PNP0C0C:00
     type = "", modalias = "acpi:PNP0C0C:", driver = ""
@@ -1821,10 +1798,7 @@ sysfs: no such bus: ps3_system_bus
     type = "", modalias = "platform:iTCO_wdt", driver = ""
   platform device: name = pcspkr
     path = /devices/platform/pcspkr
-    type = "", modalias = "platform:pcspkr", driver = "pcspkr"
-  platform device: name = vboxdrv.0
-    path = /devices/platform/vboxdrv.0
-    type = "", modalias = "platform:vboxdrv", driver = "vboxdrv"
+    type = "", modalias = "platform:pcspkr", driver = ""
   platform device: name = intel-spi
     path = /devices/pci0000:00/0000:00:1f.0/intel-spi
     type = "", modalias = "platform:intel-spi", driver = "intel-spi"
@@ -1957,29 +1931,29 @@ i/o:0 0xf0b0 - 0xf0b7 (0x08) "ahci"
 i/o:0 0xffff - 0xffff (0x01) "pnp 00:01"
 i/o:0 0xffff - 0xffff (0x01) "pnp 00:01"
 i/o:0 0xffff - 0xffff (0x01) "pnp 00:01"
-irq:0  0 (       16) "2-edge      timer"
+irq:0  0 (       17) "2-edge      timer"
 irq:0  8 (        0) "8-edge      rtc0"
 irq:0  9 (        4) "9-fasteoi   acpi"
-irq:0 16 (       44) "16-fasteoi   ehci_hcd:usb1"
+irq:0 16 (       27) "16-fasteoi   ehci_hcd:usb1"
 irq:0 18 (        5) "18-fasteoi   i801_smbus"
-irq:0 23 (       52) "23-fasteoi   ehci_hcd:usb2"
+irq:0 23 (       29) "23-fasteoi   ehci_hcd:usb2"
 irq:0 24 (        0) "458752-edge      PCIe PME" "pciehp"
 irq:0 25 (        0) "462848-edge      PCIe PME"
-irq:0 26 (   916002) "512000-edge      ahci[0000:00:1f.2]"
-irq:0 27 (   254077) "327680-edge      xhci_hcd"
-irq:0 28 (  2710183) "32768-edge      i915"
-irq:0 29 (       24) "360448-edge      mei_me"
-irq:0 30 (     2308) "49152-edge      snd_hda_intel:card0"
-irq:0 31 (      529) "442368-edge      snd_hda_intel:card1"
-irq:0 32 (  6467021) "1048576-edge      enp2s0"
+irq:0 26 (  3829986) "512000-edge      ahci[0000:00:1f.2]"
+irq:0 27 (  4237460) "32768-edge      i915"
+irq:0 28 (  6665368) "1048576-edge      enp2s0"
+irq:0 29 (   548376) "327680-edge      xhci_hcd"
+irq:0 30 (       24) "360448-edge      mei_me"
+irq:0 31 (     8368) "49152-edge      snd_hda_intel:card0"
+irq:0 32 (      657) "442368-edge      snd_hda_intel:card1"
 dma:1 4 "cascade"
 ----- misc resources end -----
 >> parallel.1: pp mod
 ----- exec: "/sbin/modprobe parport_pc" -----
-  modprobe: FATAL: Module parport_pc not found in directory /lib/modules/6.0.3-tkg-cfs
+  modprobe: FATAL: Module parport_pc not found in directory /lib/modules/6.0.5-tkg-cfs
 ----- return code: ? -----
 ----- exec: "/sbin/modprobe lp" -----
-  modprobe: FATAL: Module lp not found in directory /lib/modules/6.0.3-tkg-cfs
+  modprobe: FATAL: Module lp not found in directory /lib/modules/6.0.5-tkg-cfs
 ----- return code: ? -----
 >> parallel.2.1: lp read info
 >> parallel.2.2: lp read info
@@ -1988,15 +1962,15 @@ dma:1 4 "cascade"
 ----- parallel info end -----
 >> block.1: block modules
 ----- exec: "/sbin/modprobe ide-cd_mod " -----
-  modprobe: FATAL: Module ide-cd_mod not found in directory /lib/modules/6.0.3-tkg-cfs
+  modprobe: FATAL: Module ide-cd_mod not found in directory /lib/modules/6.0.5-tkg-cfs
 ----- return code: ? -----
 ----- exec: "/sbin/modprobe ide-disk " -----
-  modprobe: FATAL: Module ide-disk not found in directory /lib/modules/6.0.3-tkg-cfs
+  modprobe: FATAL: Module ide-disk not found in directory /lib/modules/6.0.5-tkg-cfs
 ----- return code: ? -----
 ----- exec: "/sbin/modprobe sd_mod " -----
 ----- return code: ? -----
 ----- exec: "/sbin/modprobe st " -----
-  modprobe: FATAL: Module st not found in directory /lib/modules/6.0.3-tkg-cfs
+  modprobe: FATAL: Module st not found in directory /lib/modules/6.0.5-tkg-cfs
 ----- return code: ? -----
 >> block.2: sysfs drivers
 >> block.3: cdrom
@@ -2036,8 +2010,8 @@ Can write RAM:		1
      8       21   43577344 sdb5
      8       22    5120000 sdb6
      8       23  156584960 sdb7
-    11        0    1048575 sr0
    254        0    4194304 zram0
+    11        0    1048575 sr0
 ----- /proc/partitions end -----
 disks:
   sda
@@ -2174,7 +2148,7 @@ partitions:
     dev = 8:22
 >> scsi.1: scsi modules
 ----- exec: "/sbin/modprobe sg " -----
-  modprobe: FATAL: Module sg not found in directory /lib/modules/6.0.3-tkg-cfs
+  modprobe: FATAL: Module sg not found in directory /lib/modules/6.0.5-tkg-cfs
 ----- return code: ? -----
 >> scsi.2: scsi tape
 sysfs: no such class: scsi_tape
@@ -2246,7 +2220,7 @@ sysfs: no such class: scsi_generic
     bDeviceProtocol = 1
     idVendor = 0x1d6b
     idProduct = 0x0002
-    manufacturer = "Linux 6.0.3-tkg-cfs xhci-hcd"
+    manufacturer = "Linux 6.0.5-tkg-cfs xhci-hcd"
     product = "xHCI Host Controller"
     serial = "0000:00:14.0"
     bcdDevice = 0600
@@ -2305,7 +2279,7 @@ sysfs: no such class: scsi_generic
     bDeviceProtocol = 3
     idVendor = 0x1d6b
     idProduct = 0x0003
-    manufacturer = "Linux 6.0.3-tkg-cfs xhci-hcd"
+    manufacturer = "Linux 6.0.5-tkg-cfs xhci-hcd"
     product = "xHCI Host Controller"
     serial = "0000:00:14.0"
     bcdDevice = 0600
@@ -2361,7 +2335,7 @@ sysfs: no such class: scsi_generic
     bDeviceProtocol = 0
     idVendor = 0x1d6b
     idProduct = 0x0002
-    manufacturer = "Linux 6.0.3-tkg-cfs ehci_hcd"
+    manufacturer = "Linux 6.0.5-tkg-cfs ehci_hcd"
     product = "EHCI Host Controller"
     serial = "0000:00:1a.0"
     bcdDevice = 0600
@@ -2465,7 +2439,7 @@ sysfs: no such class: scsi_generic
     bDeviceProtocol = 0
     idVendor = 0x1d6b
     idProduct = 0x0002
-    manufacturer = "Linux 6.0.3-tkg-cfs ehci_hcd"
+    manufacturer = "Linux 6.0.5-tkg-cfs ehci_hcd"
     product = "EHCI Host Controller"
     serial = "0000:00:1d.0"
     bcdDevice = 0600
@@ -2492,135 +2466,132 @@ removed: /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.0
 removed: /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.3
 removed: /devices/pci0000:00/0000:00:14.0/usb3/3-1/3-1:1.1
 >> usb.3.1: joydev mod
+----- exec: "/sbin/modprobe joydev " -----
+  modprobe: FATAL: Module joydev not found in directory /lib/modules/6.0.5-tkg-cfs
+----- return code: ? -----
 >> usb.3.2: evdev mod
 ----- exec: "/sbin/modprobe evdev " -----
 ----- return code: ? -----
 >> usb.3.3: input
-  input: name = input9, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input9
+  input: name = input9, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input9
     no dev - ignored
-  input: name = event17, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input17/event17
+  input: name = event17, path = /devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004/input/input17/event17
     dev = 13:81
-    input device: bus = sound, bus_id = card1 driver = (null)
-      path = /devices/pci0000:00/0000:00:1b.0/sound/card1
-  input: name = input14, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input14
-    no dev - ignored
-  input: name = event9, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input9/event9
-    dev = 13:73
-    input device: bus = sound, bus_id = card0 driver = (null)
-      path = /devices/pci0000:00/0000:00:03.0/sound/card0
-  input: name = input7, path = /devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004/input/input7
-    no dev - ignored
-  input: name = event15, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input15/event15
-    dev = 13:79
-    input device: bus = sound, bus_id = card1 driver = (null)
-      path = /devices/pci0000:00/0000:00:1b.0/sound/card1
-  input: name = mice, path = /devices/virtual/input/mice
-    dev = 13:63
-  input: name = input12, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input12
-    no dev - ignored
-  input: name = event7, path = /devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004/input/input7/event7
-    dev = 13:71
     input device: bus = hid, bus_id = 0003:1BCF:0005.0004 driver = hid-generic
       path = /devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004
-  input: name = input5, path = /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:045E:0750.0002/input/input5
+  input: name = input14, path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input14
     no dev - ignored
-  input: name = event13, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input13/event13
-    dev = 13:77
-    input device: bus = sound, bus_id = card0 driver = (null)
-      path = /devices/pci0000:00/0000:00:03.0/sound/card0
-  input: name = input10, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input10
+  input: name = event9, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input9/event9
+    dev = 13:73
+    input device: bus = sound, bus_id = card1 driver = (null)
+      path = /devices/pci0000:00/0000:00:1b.0/sound/card1
+  input: name = input7, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input7
     no dev - ignored
-  input: name = event5, path = /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:045E:0750.0002/input/input5/event5
-    dev = 13:69
+  input: name = event15, path = /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:045E:0750.0002/input/input15/event15
+    dev = 13:79
     input device: bus = hid, bus_id = 0003:045E:0750.0002 driver = microsoft
       path = /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:045E:0750.0002
-  input: name = input3, path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input3
+  input: name = mice, path = /devices/virtual/input/mice
+    dev = 13:63
+  input: name = input22, path = /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.0/input/input22
     no dev - ignored
-  input: name = event11, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input11/event11
-    dev = 13:75
+  input: name = input12, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input12
+    no dev - ignored
+  input: name = event7, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input7/event7
+    dev = 13:71
     input device: bus = sound, bus_id = card0 driver = (null)
       path = /devices/pci0000:00/0000:00:03.0/sound/card0
-  input: name = input19, path = /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.0/input/input19
+  input: name = input5, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input5
     no dev - ignored
-  input: name = event3, path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input3/event3
-    dev = 13:67
+  input: name = event13, path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input13/event13
+    dev = 13:77
     input device: bus = hid, bus_id = 0003:1EA7:0064.0001 driver = hid-generic
       path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001
+  input: name = input10, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input10
+    no dev - ignored
+  input: name = event5, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input5/event5
+    dev = 13:69
+    input device: bus = sound, bus_id = card0 driver = (null)
+      path = /devices/pci0000:00/0000:00:03.0/sound/card0
+  input: name = input3, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input3
+    no dev - ignored
+  input: name = event11, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input11/event11
+    dev = 13:75
+    input device: bus = sound, bus_id = card1 driver = (null)
+      path = /devices/pci0000:00/0000:00:1b.0/sound/card1
+  input: name = event3, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input3/event3
+    dev = 13:67
+    input device: bus = sound, bus_id = card0 driver = (null)
+      path = /devices/pci0000:00/0000:00:03.0/sound/card0
   input: name = input1, path = /devices/LNXSYSTM:00/LNXPWRBN:00/input/input1
     no dev - ignored
-  input: name = input17, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input17
+  input: name = input17, path = /devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004/input/input17
     no dev - ignored
   input: name = event1, path = /devices/LNXSYSTM:00/LNXPWRBN:00/input/input1/event1
     dev = 13:65
     input device: bus = acpi, bus_id = LNXPWRBN:00 driver = button
       path = /devices/LNXSYSTM:00/LNXPWRBN:00
-  input: name = mouse0, path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input4/mouse0
+  input: name = mouse0, path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input14/mouse0
     dev = 13:32
     input device: bus = hid, bus_id = 0003:1EA7:0064.0001 driver = hid-generic
       path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001
-  input: name = event18, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input18/event18
+  input: name = event18, path = /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.0/input/input22/event18
     dev = 13:82
-    input device: bus = sound, bus_id = card1 driver = (null)
-      path = /devices/pci0000:00/0000:00:1b.0/sound/card1
-  input: name = input15, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input15
+    input device: bus = usb, bus_id = 3-9:1.0 driver = uvcvideo
+      path = /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.0
+  input: name = input15, path = /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:045E:0750.0002/input/input15
     no dev - ignored
-  input: name = input8, path = /devices/platform/pcspkr/input/input8
+  input: name = input8, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input8
     no dev - ignored
-  input: name = event16, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input16/event16
+  input: name = event16, path = /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:045E:0750.0003/input/input16/event16
     dev = 13:80
-    input device: bus = sound, bus_id = card1 driver = (null)
-      path = /devices/pci0000:00/0000:00:1b.0/sound/card1
-  input: name = input13, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input13
-    no dev - ignored
-  input: name = event8, path = /devices/platform/pcspkr/input/input8/event8
-    dev = 13:72
-    input device: bus = platform, bus_id = pcspkr driver = pcspkr
-      path = /devices/platform/pcspkr
-  input: name = input6, path = /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:045E:0750.0003/input/input6
-    no dev - ignored
-  input: name = event14, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input14/event14
-    dev = 13:78
-    input device: bus = sound, bus_id = card1 driver = (null)
-      path = /devices/pci0000:00/0000:00:1b.0/sound/card1
-  input: name = input11, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input11
-    no dev - ignored
-  input: name = event6, path = /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:045E:0750.0003/input/input6/event6
-    dev = 13:70
     input device: bus = hid, bus_id = 0003:045E:0750.0003 driver = microsoft
       path = /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:045E:0750.0003
-  input: name = input4, path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input4
+  input: name = input13, path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input13
     no dev - ignored
-  input: name = event12, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input12/event12
-    dev = 13:76
-    input device: bus = sound, bus_id = card0 driver = (null)
-      path = /devices/pci0000:00/0000:00:03.0/sound/card0
-  input: name = event4, path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input4/event4
-    dev = 13:68
+  input: name = event8, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input8/event8
+    dev = 13:72
+    input device: bus = sound, bus_id = card1 driver = (null)
+      path = /devices/pci0000:00/0000:00:1b.0/sound/card1
+  input: name = input6, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input6
+    no dev - ignored
+  input: name = event14, path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input14/event14
+    dev = 13:78
     input device: bus = hid, bus_id = 0003:1EA7:0064.0001 driver = hid-generic
       path = /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001
-  input: name = input2, path = /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/LNXVIDEO:00/input/input2
+  input: name = input11, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input11
     no dev - ignored
-  input: name = event10, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input10/event10
-    dev = 13:74
+  input: name = event6, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input6/event6
+    dev = 13:70
     input device: bus = sound, bus_id = card0 driver = (null)
       path = /devices/pci0000:00/0000:00:03.0/sound/card0
-  input: name = input18, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input18
+  input: name = input4, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input4
     no dev - ignored
+  input: name = event12, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input12/event12
+    dev = 13:76
+    input device: bus = sound, bus_id = card1 driver = (null)
+      path = /devices/pci0000:00/0000:00:1b.0/sound/card1
+  input: name = event4, path = /devices/pci0000:00/0000:00:03.0/sound/card0/input4/event4
+    dev = 13:68
+    input device: bus = sound, bus_id = card0 driver = (null)
+      path = /devices/pci0000:00/0000:00:03.0/sound/card0
+  input: name = input2, path = /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/LNXVIDEO:00/input/input2
+    no dev - ignored
+  input: name = event10, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input10/event10
+    dev = 13:74
+    input device: bus = sound, bus_id = card1 driver = (null)
+      path = /devices/pci0000:00/0000:00:1b.0/sound/card1
   input: name = event2, path = /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/LNXVIDEO:00/input/input2/event2
     dev = 13:66
     input device: bus = acpi, bus_id = LNXVIDEO:00 driver = video
       path = /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/LNXVIDEO:00
-  input: name = mouse1, path = /devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004/input/input7/mouse1
+  input: name = mouse1, path = /devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004/input/input17/mouse1
     dev = 13:33
     input device: bus = hid, bus_id = 0003:1BCF:0005.0004 driver = hid-generic
       path = /devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004
-  input: name = event19, path = /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.0/input/input19/event19
-    dev = 13:83
-    input device: bus = usb, bus_id = 3-9:1.0 driver = uvcvideo
-      path = /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.0
   input: name = input0, path = /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input0
     no dev - ignored
-  input: name = input16, path = /devices/pci0000:00/0000:00:1b.0/sound/card1/input16
+  input: name = input16, path = /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:045E:0750.0003/input/input16
     no dev - ignored
   input: name = event0, path = /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input0/event0
     dev = 13:64
@@ -2631,16 +2602,19 @@ sysfs: no such class: usb
 >> usb.3.5: serial
 >> edd.1: edd mod
 ----- exec: "/sbin/modprobe edd " -----
-  modprobe: FATAL: Module edd not found in directory /lib/modules/6.0.3-tkg-cfs
+  modprobe: FATAL: Module edd not found in directory /lib/modules/6.0.5-tkg-cfs
 ----- return code: ? -----
 >> edd.2: edd info
 >> modem.1: serial
-******  started child process 619996 (15s/120s)  ******
-******  stopped child process 619996 (120s)  ******
+******  started child process 1102898 (15s/120s)  ******
+******  stopped child process 1102898 (120s)  ******
 >> mouse.2: serial
-******  started child process 619997 (20s/20s)  ******
-******  stopped child process 619997 (20s)  ******
+******  started child process 1102899 (20s/20s)  ******
+******  stopped child process 1102899 (20s)  ******
 >> input.1: joydev mod
+----- exec: "/sbin/modprobe joydev " -----
+  modprobe: FATAL: Module joydev not found in directory /lib/modules/6.0.5-tkg-cfs
+----- return code: ? -----
 >> input.1.1: evdev mod
 ----- exec: "/sbin/modprobe evdev " -----
 ----- return code: ? -----
@@ -2676,12 +2650,112 @@ sysfs: no such class: usb
   B: EV=3
   B: KEY=3e000b00000000 0 0 0
   
+  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+  N: Name="HDA Intel HDMI HDMI/DP,pcm=3"
+  P: Phys=ALSA
+  S: Sysfs=/devices/pci0000:00/0000:00:03.0/sound/card0/input3
+  U: Uniq=
+  H: Handlers=event3 
+  B: PROP=0
+  B: EV=21
+  B: SW=140
+  
+  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+  N: Name="HDA Intel HDMI HDMI/DP,pcm=7"
+  P: Phys=ALSA
+  S: Sysfs=/devices/pci0000:00/0000:00:03.0/sound/card0/input4
+  U: Uniq=
+  H: Handlers=event4 
+  B: PROP=0
+  B: EV=21
+  B: SW=140
+  
+  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+  N: Name="HDA Intel HDMI HDMI/DP,pcm=8"
+  P: Phys=ALSA
+  S: Sysfs=/devices/pci0000:00/0000:00:03.0/sound/card0/input5
+  U: Uniq=
+  H: Handlers=event5 
+  B: PROP=0
+  B: EV=21
+  B: SW=140
+  
+  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+  N: Name="HDA Intel HDMI HDMI/DP,pcm=9"
+  P: Phys=ALSA
+  S: Sysfs=/devices/pci0000:00/0000:00:03.0/sound/card0/input6
+  U: Uniq=
+  H: Handlers=event6 
+  B: PROP=0
+  B: EV=21
+  B: SW=140
+  
+  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+  N: Name="HDA Intel HDMI HDMI/DP,pcm=10"
+  P: Phys=ALSA
+  S: Sysfs=/devices/pci0000:00/0000:00:03.0/sound/card0/input7
+  U: Uniq=
+  H: Handlers=event7 
+  B: PROP=0
+  B: EV=21
+  B: SW=140
+  
+  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+  N: Name="HDA Intel PCH Front Mic"
+  P: Phys=ALSA
+  S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card1/input8
+  U: Uniq=
+  H: Handlers=event8 
+  B: PROP=0
+  B: EV=21
+  B: SW=10
+  
+  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+  N: Name="HDA Intel PCH Rear Mic"
+  P: Phys=ALSA
+  S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card1/input9
+  U: Uniq=
+  H: Handlers=event9 
+  B: PROP=0
+  B: EV=21
+  B: SW=10
+  
+  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+  N: Name="HDA Intel PCH Line"
+  P: Phys=ALSA
+  S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card1/input10
+  U: Uniq=
+  H: Handlers=event10 
+  B: PROP=0
+  B: EV=21
+  B: SW=2000
+  
+  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+  N: Name="HDA Intel PCH Line Out"
+  P: Phys=ALSA
+  S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card1/input11
+  U: Uniq=
+  H: Handlers=event11 
+  B: PROP=0
+  B: EV=21
+  B: SW=40
+  
+  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+  N: Name="HDA Intel PCH Front Headphone"
+  P: Phys=ALSA
+  S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card1/input12
+  U: Uniq=
+  H: Handlers=event12 
+  B: PROP=0
+  B: EV=21
+  B: SW=4
+  
   I: Bus=0003 Vendor=1ea7 Product=0064 Version=0110
   N: Name="2.4G Mouse"
   P: Phys=usb-0000:00:14.0-2/input0
-  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input3
+  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input13
   U: Uniq=
-  H: Handlers=event3 
+  H: Handlers=event13 
   B: PROP=0
   B: EV=9
   B: ABS=10000000000
@@ -2689,9 +2763,9 @@ sysfs: no such class: usb
   I: Bus=0003 Vendor=1ea7 Product=0064 Version=0110
   N: Name="2.4G Mouse"
   P: Phys=usb-0000:00:14.0-2/input0
-  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input4
+  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001/input/input14
   U: Uniq=
-  H: Handlers=event4 mouse0 
+  H: Handlers=event14 mouse0 
   B: PROP=0
   B: EV=17
   B: KEY=ff0000 0 0 0 0
@@ -2701,9 +2775,9 @@ sysfs: no such class: usb
   I: Bus=0003 Vendor=045e Product=0750 Version=0111
   N: Name="Microsoft Wired Keyboard 600"
   P: Phys=usb-0000:00:14.0-5/input0
-  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:045E:0750.0002/input/input5
+  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:045E:0750.0002/input/input15
   U: Uniq=
-  H: Handlers=sysrq kbd leds event5 
+  H: Handlers=sysrq kbd leds event15 
   B: PROP=0
   B: EV=120013
   B: KEY=1000000000007 ff9f207ac14057ff febeffdfffefffff fffffffffffffffe
@@ -2713,9 +2787,9 @@ sysfs: no such class: usb
   I: Bus=0003 Vendor=045e Product=0750 Version=0111
   N: Name="Microsoft Wired Keyboard 600"
   P: Phys=usb-0000:00:14.0-5/input1
-  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:045E:0750.0003/input/input6
+  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:045E:0750.0003/input/input16
   U: Uniq=
-  H: Handlers=sysrq kbd event6 
+  H: Handlers=sysrq kbd event16 
   B: PROP=0
   B: EV=10001f
   B: KEY=3f000306ff 0 0 4c3ffff17aff32d bfd4445600000000 1 130ffb8b17d007 ffff7bfad971dfff ffbeffdfffefffff fffffffffffffffe
@@ -2726,131 +2800,21 @@ sysfs: no such class: usb
   I: Bus=0003 Vendor=1bcf Product=0005 Version=0110
   N: Name="USB Optical Mouse"
   P: Phys=usb-0000:00:14.0-6/input0
-  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004/input/input7
+  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004/input/input17
   U: Uniq=
-  H: Handlers=event7 mouse1 
+  H: Handlers=event17 mouse1 
   B: PROP=0
   B: EV=17
   B: KEY=1f0000 0 0 0 0
   B: REL=1943
   B: MSC=10
   
-  I: Bus=0010 Vendor=001f Product=0001 Version=0100
-  N: Name="PC Speaker"
-  P: Phys=isa0061/input0
-  S: Sysfs=/devices/platform/pcspkr/input/input8
-  U: Uniq=
-  H: Handlers=kbd event8 
-  B: PROP=0
-  B: EV=40001
-  B: SND=6
-  
-  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
-  N: Name="HDA Intel HDMI HDMI/DP,pcm=3"
-  P: Phys=ALSA
-  S: Sysfs=/devices/pci0000:00/0000:00:03.0/sound/card0/input9
-  U: Uniq=
-  H: Handlers=event9 
-  B: PROP=0
-  B: EV=21
-  B: SW=140
-  
-  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
-  N: Name="HDA Intel HDMI HDMI/DP,pcm=7"
-  P: Phys=ALSA
-  S: Sysfs=/devices/pci0000:00/0000:00:03.0/sound/card0/input10
-  U: Uniq=
-  H: Handlers=event10 
-  B: PROP=0
-  B: EV=21
-  B: SW=140
-  
-  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
-  N: Name="HDA Intel HDMI HDMI/DP,pcm=8"
-  P: Phys=ALSA
-  S: Sysfs=/devices/pci0000:00/0000:00:03.0/sound/card0/input11
-  U: Uniq=
-  H: Handlers=event11 
-  B: PROP=0
-  B: EV=21
-  B: SW=140
-  
-  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
-  N: Name="HDA Intel HDMI HDMI/DP,pcm=9"
-  P: Phys=ALSA
-  S: Sysfs=/devices/pci0000:00/0000:00:03.0/sound/card0/input12
-  U: Uniq=
-  H: Handlers=event12 
-  B: PROP=0
-  B: EV=21
-  B: SW=140
-  
-  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
-  N: Name="HDA Intel HDMI HDMI/DP,pcm=10"
-  P: Phys=ALSA
-  S: Sysfs=/devices/pci0000:00/0000:00:03.0/sound/card0/input13
-  U: Uniq=
-  H: Handlers=event13 
-  B: PROP=0
-  B: EV=21
-  B: SW=140
-  
-  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
-  N: Name="HDA Intel PCH Front Mic"
-  P: Phys=ALSA
-  S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card1/input14
-  U: Uniq=
-  H: Handlers=event14 
-  B: PROP=0
-  B: EV=21
-  B: SW=10
-  
-  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
-  N: Name="HDA Intel PCH Rear Mic"
-  P: Phys=ALSA
-  S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card1/input15
-  U: Uniq=
-  H: Handlers=event15 
-  B: PROP=0
-  B: EV=21
-  B: SW=10
-  
-  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
-  N: Name="HDA Intel PCH Line"
-  P: Phys=ALSA
-  S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card1/input16
-  U: Uniq=
-  H: Handlers=event16 
-  B: PROP=0
-  B: EV=21
-  B: SW=2000
-  
-  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
-  N: Name="HDA Intel PCH Line Out"
-  P: Phys=ALSA
-  S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card1/input17
-  U: Uniq=
-  H: Handlers=event17 
-  B: PROP=0
-  B: EV=21
-  B: SW=40
-  
-  I: Bus=0000 Vendor=0000 Product=0000 Version=0000
-  N: Name="HDA Intel PCH Front Headphone"
-  P: Phys=ALSA
-  S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card1/input18
-  U: Uniq=
-  H: Handlers=event18 
-  B: PROP=0
-  B: EV=21
-  B: SW=4
-  
   I: Bus=0003 Vendor=1908 Product=2310 Version=0100
   N: Name="USB2.0 PC CAMERA: USB2.0 PC CAM"
   P: Phys=usb-0000:00:14.0-9/button
-  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.0/input/input19
+  S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.0/input/input22
   U: Uniq=
-  H: Handlers=kbd event19 
+  H: Handlers=kbd event18 
   B: PROP=0
   B: EV=3
   B: KEY=100000 0 0 0
@@ -2880,15 +2844,85 @@ bus = 25, name = Video Bus
   is_mouse = 0
   is_joystick = 0
 unknown non-USB input device
-bus = 3, name = 2.4G Mouse
+bus = 0, name = HDA Intel HDMI HDMI/DP,pcm=3
   handlers = event3
+  mouse buttons = 0
+  mouse wheels = 0
+  is_mouse = 0
+  is_joystick = 0
+unknown non-USB input device
+bus = 0, name = HDA Intel HDMI HDMI/DP,pcm=7
+  handlers = event4
+  mouse buttons = 0
+  mouse wheels = 0
+  is_mouse = 0
+  is_joystick = 0
+unknown non-USB input device
+bus = 0, name = HDA Intel HDMI HDMI/DP,pcm=8
+  handlers = event5
+  mouse buttons = 0
+  mouse wheels = 0
+  is_mouse = 0
+  is_joystick = 0
+unknown non-USB input device
+bus = 0, name = HDA Intel HDMI HDMI/DP,pcm=9
+  handlers = event6
+  mouse buttons = 0
+  mouse wheels = 0
+  is_mouse = 0
+  is_joystick = 0
+unknown non-USB input device
+bus = 0, name = HDA Intel HDMI HDMI/DP,pcm=10
+  handlers = event7
+  mouse buttons = 0
+  mouse wheels = 0
+  is_mouse = 0
+  is_joystick = 0
+unknown non-USB input device
+bus = 0, name = HDA Intel PCH Front Mic
+  handlers = event8
+  mouse buttons = 0
+  mouse wheels = 0
+  is_mouse = 0
+  is_joystick = 0
+unknown non-USB input device
+bus = 0, name = HDA Intel PCH Rear Mic
+  handlers = event9
+  mouse buttons = 0
+  mouse wheels = 0
+  is_mouse = 0
+  is_joystick = 0
+unknown non-USB input device
+bus = 0, name = HDA Intel PCH Line
+  handlers = event10
+  mouse buttons = 0
+  mouse wheels = 0
+  is_mouse = 0
+  is_joystick = 0
+unknown non-USB input device
+bus = 0, name = HDA Intel PCH Line Out
+  handlers = event11
+  mouse buttons = 0
+  mouse wheels = 0
+  is_mouse = 0
+  is_joystick = 0
+unknown non-USB input device
+bus = 0, name = HDA Intel PCH Front Headphone
+  handlers = event12
+  mouse buttons = 0
+  mouse wheels = 0
+  is_mouse = 0
+  is_joystick = 0
+unknown non-USB input device
+bus = 3, name = 2.4G Mouse
+  handlers = event13
   abs = 0000010000000000
   mouse buttons = 0
   mouse wheels = 0
   is_mouse = 0
   is_joystick = 0
 bus = 3, name = 2.4G Mouse
-  handlers = event4 mouse0
+  handlers = event14 mouse0
   key = 0000000000ff00000000000000000000000000000000000000000000000000000000000000000000
   rel = 0000000000001943
   mouse buttons = 8
@@ -2896,14 +2930,14 @@ bus = 3, name = 2.4G Mouse
   is_mouse = 1
   is_joystick = 0
 bus = 3, name = Microsoft Wired Keyboard 600
-  handlers = sysrq kbd leds event5
+  handlers = sysrq kbd leds event15
   key = 0001000000000007ff9f207ac14057fffebeffdfffeffffffffffffffffffffe
   mouse buttons = 0
   mouse wheels = 0
   is_mouse = 0
   is_joystick = 0
 bus = 3, name = Microsoft Wired Keyboard 600
-  handlers = sysrq kbd event6
+  handlers = sysrq kbd event16
   key = 0000003f000306ff0000000000000000000000000000000004c3ffff17aff32dbfd4445600000000000000000000000100130ffb8b17d007ffff7bfad971dfffffbeffdfffeffffffffffffffffffffe
   rel = 0000000000001040
   abs = 0000010100000000
@@ -2912,92 +2946,15 @@ bus = 3, name = Microsoft Wired Keyboard 600
   is_mouse = 0
   is_joystick = 0
 bus = 3, name = USB Optical Mouse
-  handlers = event7 mouse1
+  handlers = event17 mouse1
   key = 00000000001f00000000000000000000000000000000000000000000000000000000000000000000
   rel = 0000000000001943
   mouse buttons = 5
   mouse wheels = 4
   is_mouse = 1
   is_joystick = 0
-bus = 16, name = PC Speaker
-  handlers = kbd event8
-  mouse buttons = 0
-  mouse wheels = 0
-  is_mouse = 0
-  is_joystick = 0
-unknown non-USB input device
-bus = 0, name = HDA Intel HDMI HDMI/DP,pcm=3
-  handlers = event9
-  mouse buttons = 0
-  mouse wheels = 0
-  is_mouse = 0
-  is_joystick = 0
-unknown non-USB input device
-bus = 0, name = HDA Intel HDMI HDMI/DP,pcm=7
-  handlers = event10
-  mouse buttons = 0
-  mouse wheels = 0
-  is_mouse = 0
-  is_joystick = 0
-unknown non-USB input device
-bus = 0, name = HDA Intel HDMI HDMI/DP,pcm=8
-  handlers = event11
-  mouse buttons = 0
-  mouse wheels = 0
-  is_mouse = 0
-  is_joystick = 0
-unknown non-USB input device
-bus = 0, name = HDA Intel HDMI HDMI/DP,pcm=9
-  handlers = event12
-  mouse buttons = 0
-  mouse wheels = 0
-  is_mouse = 0
-  is_joystick = 0
-unknown non-USB input device
-bus = 0, name = HDA Intel HDMI HDMI/DP,pcm=10
-  handlers = event13
-  mouse buttons = 0
-  mouse wheels = 0
-  is_mouse = 0
-  is_joystick = 0
-unknown non-USB input device
-bus = 0, name = HDA Intel PCH Front Mic
-  handlers = event14
-  mouse buttons = 0
-  mouse wheels = 0
-  is_mouse = 0
-  is_joystick = 0
-unknown non-USB input device
-bus = 0, name = HDA Intel PCH Rear Mic
-  handlers = event15
-  mouse buttons = 0
-  mouse wheels = 0
-  is_mouse = 0
-  is_joystick = 0
-unknown non-USB input device
-bus = 0, name = HDA Intel PCH Line
-  handlers = event16
-  mouse buttons = 0
-  mouse wheels = 0
-  is_mouse = 0
-  is_joystick = 0
-unknown non-USB input device
-bus = 0, name = HDA Intel PCH Line Out
-  handlers = event17
-  mouse buttons = 0
-  mouse wheels = 0
-  is_mouse = 0
-  is_joystick = 0
-unknown non-USB input device
-bus = 0, name = HDA Intel PCH Front Headphone
-  handlers = event18
-  mouse buttons = 0
-  mouse wheels = 0
-  is_mouse = 0
-  is_joystick = 0
-unknown non-USB input device
 bus = 3, name = USB2.0 PC CAMERA: USB2.0 PC CAM
-  handlers = kbd event19
+  handlers = kbd event18
   key = 0000000000100000000000000000000000000000000000000000000000000000
   mouse buttons = 0
   mouse wheels = 0
@@ -3013,7 +2970,7 @@ bus = 3, name = USB2.0 PC CAMERA: USB2.0 PC CAM
   model name	: Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz
   stepping	: 3
   microcode	: 0x28
-  cpu MHz		: 3691.709
+  cpu MHz		: 3691.463
   cache size	: 3072 KB
   physical id	: 0
   siblings	: 4
@@ -3028,7 +2985,7 @@ bus = 3, name = USB2.0 PC CAMERA: USB2.0 PC CAM
   flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
   vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple
   bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
-  bogomips	: 7390.75
+  bogomips	: 7390.21
   clflush size	: 64
   cache_alignment	: 64
   address sizes	: 39 bits physical, 48 bits virtual
@@ -3041,7 +2998,7 @@ bus = 3, name = USB2.0 PC CAMERA: USB2.0 PC CAM
   model name	: Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz
   stepping	: 3
   microcode	: 0x28
-  cpu MHz		: 3691.676
+  cpu MHz		: 3691.479
   cache size	: 3072 KB
   physical id	: 0
   siblings	: 4
@@ -3056,7 +3013,7 @@ bus = 3, name = USB2.0 PC CAMERA: USB2.0 PC CAM
   flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
   vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple
   bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
-  bogomips	: 7390.75
+  bogomips	: 7390.21
   clflush size	: 64
   cache_alignment	: 64
   address sizes	: 39 bits physical, 48 bits virtual
@@ -3069,7 +3026,7 @@ bus = 3, name = USB2.0 PC CAMERA: USB2.0 PC CAM
   model name	: Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz
   stepping	: 3
   microcode	: 0x28
-  cpu MHz		: 3691.772
+  cpu MHz		: 3691.752
   cache size	: 3072 KB
   physical id	: 0
   siblings	: 4
@@ -3084,7 +3041,7 @@ bus = 3, name = USB2.0 PC CAMERA: USB2.0 PC CAM
   flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
   vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple
   bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
-  bogomips	: 7390.75
+  bogomips	: 7390.21
   clflush size	: 64
   cache_alignment	: 64
   address sizes	: 39 bits physical, 48 bits virtual
@@ -3097,7 +3054,7 @@ bus = 3, name = USB2.0 PC CAMERA: USB2.0 PC CAM
   model name	: Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz
   stepping	: 3
   microcode	: 0x28
-  cpu MHz		: 3691.690
+  cpu MHz		: 3691.850
   cache size	: 3072 KB
   physical id	: 0
   siblings	: 4
@@ -3112,7 +3069,7 @@ bus = 3, name = USB2.0 PC CAMERA: USB2.0 PC CAM
   flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
   vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple
   bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
-  bogomips	: 7390.75
+  bogomips	: 7390.21
   clflush size	: 64
   cache_alignment	: 64
   address sizes	: 39 bits physical, 48 bits virtual
@@ -3123,13 +3080,6 @@ bus = 3, name = USB2.0 PC CAMERA: USB2.0 PC CAM
 /dev/console: major 4, minor 1, name tty1
 >> fb.1: read info
 >> net.1: get network data
-  net interface: name = lo, path = /class/net/lo
-    type = 772
-    carrier = 1
-    hw_addr = 00:00:00:00:00:00
-  lo: ethtool permanent hw address[6]: 00:00:00:00:00:00
-    GDRVINFO ethtool error: Operation not supported
-    ethtool private flags: 0
   net interface: name = enp2s0, path = /class/net/enp2s0
     type = 1
     carrier = 1
@@ -3137,6 +3087,13 @@ bus = 3, name = USB2.0 PC CAMERA: USB2.0 PC CAM
     net device: path = /devices/pci0000:00/0000:00:1c.2/0000:02:00.0
     net driver: name = r8169, path = /bus/pci/drivers/r8169
   enp2s0: ethtool permanent hw address[6]: 00:e0:4c:f5:51:d8
+    ethtool private flags: 0
+  net interface: name = lo, path = /class/net/lo
+    type = 772
+    carrier = 1
+    hw_addr = 00:00:00:00:00:00
+  lo: ethtool permanent hw address[6]: 00:00:00:00:00:00
+    GDRVINFO ethtool error: Operation not supported
     ethtool private flags: 0
 >> pppoe.1: looking for pppoe
 >> pppoe.2: discovery
@@ -3158,7 +3115,7 @@ Timeout waiting for PADO packets
   read_block0: 512 bytes (4s, 999999us)
   mbr sig: 0x8449901c
 >> int.4.3: /dev/zram0
-  read_block0: 512 bytes (4s, 999999us)
+  read_block0: 512 bytes (4s, 999998us)
   mbr sig: 0x00000000
 >> int.4: floppy
 >> int.5: edd
@@ -3166,149 +3123,6 @@ Timeout waiting for PADO packets
   bios ctrl 0: 14
   bios ctrl 1: 0
 >> int.6: mouse
------ sysfs driver list (id 0x7c9855b20889e29a) -----
-snd_hda_codec_generic: module = snd_hda_codec_generic
-snd_hda_codec_hdmi: /devices/pci0000:00/0000:00:03.0/hdaudioC0D0
-snd_hda_codec_hdmi: module = snd_hda_codec_hdmi
-snd_hda_codec_realtek: /devices/pci0000:00/0000:00:1b.0/hdaudioC1D0
-snd_hda_codec_realtek: module = snd_hda_codec_realtek
-        coretemp: /devices/platform/coretemp.0
-        coretemp: module = coretemp
-       reg-dummy: /devices/platform/reg-dummy
-        acpi-fan: /devices/platform/PNP0C0B:03
-        acpi-fan: /devices/platform/PNP0C0B:01
-        acpi-fan: /devices/platform/PNP0C0B:04
-        acpi-fan: /devices/platform/PNP0C0B:02
-        acpi-fan: /devices/platform/PNP0C0B:00
-  intel_rapl_msr: /devices/platform/intel_rapl_msr.0
-  intel_rapl_msr: module = intel_rapl_msr
-         vboxdrv: module = vboxdrv
-         vboxdrv: /devices/platform/vboxdrv.0
-      alarmtimer: /devices/pnp0/00:02/rtc/rtc0/alarmtimer.0.auto
-      serial8250: /devices/platform/serial8250
-          pcspkr: module = pcspkr
-          pcspkr: /devices/platform/pcspkr
-       intel-spi: module = spi_intel_platform
-       intel-spi: /devices/pci0000:00/0000:00:1f.0/intel-spi
-           r8169: /devices/pci0000:00/0000:00:1c.2/0000:02:00.0
-           r8169: module = r8169
-        ehci-pci: /devices/pci0000:00/0000:00:1a.0
-        ehci-pci: /devices/pci0000:00/0000:00:1d.0
-        xhci_hcd: module = xhci_pci
-        xhci_hcd: /devices/pci0000:00/0000:00:14.0
-          shpchp: module = shpchp
-   snd_hda_intel: /devices/pci0000:00/0000:00:1b.0
-   snd_hda_intel: /devices/pci0000:00/0000:00:03.0
-   snd_hda_intel: module = snd_hda_intel
-            ahci: /devices/pci0000:00/0000:00:1f.2
-            ahci: module = ahci
-        pcieport: /devices/pci0000:00/0000:00:1c.0
-        pcieport: /devices/pci0000:00/0000:00:1c.2
-         lpc_ich: /devices/pci0000:00/0000:00:1f.0
-         lpc_ich: module = lpc_ich
-          mei_me: /devices/pci0000:00/0000:00:16.0
-          mei_me: module = mei_me
-      i801_smbus: /devices/pci0000:00/0000:00:1f.3
-      i801_smbus: module = i2c_i801
-      hsw_uncore: /devices/pci0000:00/0000:00:00.0
-      hsw_uncore: module = intel_uncore
-            i915: /devices/pci0000:00/0000:00:02.0
-            i915: module = i915
-        uhci_hcd: module = uhci_hcd
-       processor: /devices/system/cpu/cpu3
-       processor: /devices/system/cpu/cpu1
-       processor: /devices/system/cpu/cpu2
-       processor: /devices/system/cpu/cpu0
-        mei_hdcp: /devices/pci0000:00/0000:00:16.0/0000:00:16.0-b638ab7e-94e2-4ea2-a552-d1c54b627f04
-        mei_hdcp: module = mei_hdcp
-         mei_pxp: /devices/pci0000:00/0000:00:16.0/0000:00:16.0-fbf6fcf1-96cf-4e2e-a6a6-1bab8cbe36b1
-         mei_pxp: module = mei_pxp
-              sr: /devices/pci0000:00/0000:00:1f.2/ata6/host5/target5:0:0/5:0:0:0
-              sr: module = sr_mod
-              sd: /devices/pci0000:00/0000:00:1f.2/ata5/host4/target4:0:0/4:0:0:0
-              sd: /devices/pci0000:00/0000:00:1f.2/ata1/host0/target0:0:0/0:0:0:0
-RTL8226B_RTL8221B 2.5Gbps PHY: module = realtek
-RTL8221B-VM-CG 2.5Gbps PHY: module = realtek
-RTL8208 Fast Ethernet: module = realtek
-RTL8221B-VB-CG 2.5Gbps PHY: module = realtek
-RTL8201CP Ethernet: module = realtek
-RTL8366RB Gigabit Ethernet: module = realtek
-     Generic PHY: module = libphy
-RTL8211F Gigabit Ethernet: module = realtek
-RTL8211B Gigabit Ethernet: module = realtek
-RTL8226B-CG_RTL8221B-CG 2.5Gbps PHY: module = realtek
-RTL8211DN Gigabit Ethernet: module = realtek
-RTL8211 Gigabit Ethernet: module = realtek
-RTL8226-CG 2.5Gbps PHY: module = realtek
-RTL8226 2.5Gbps PHY: module = realtek
-Generic FE-GE Realtek PHY: /devices/pci0000:00/0000:00:1c.2/0000:02:00.0/mdio_bus/r8169-0-200/r8169-0-200:00
-Generic FE-GE Realtek PHY: module = realtek
-RTL8365MB-VC Gigabit Ethernet: module = realtek
-RTL8211E Gigabit Ethernet: module = realtek
-Generic Clause 45 PHY: module = libphy
-RTL8201F Fast Ethernet: module = realtek
-RTL8211C Gigabit Ethernet: module = realtek
-RTL9000AA_RTL9000AN Ethernet: module = realtek
-         spi-nor: /devices/pci0000:00/0000:00:1f.0/intel-spi/spi_master/spi0/spi0.0
-         spi-nor: module = spi_nor
-     hid-generic: /devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0/0003:1BCF:0005.0004
-     hid-generic: /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/0003:1EA7:0064.0001
-       microsoft: /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:045E:0750.0002
-       microsoft: module = hid_microsoft
-       microsoft: /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:045E:0750.0003
-          pciehp: /devices/pci0000:00/0000:00:1c.0/0000:00:1c.0:pcie004
-        pcie_pme: /devices/pci0000:00/0000:00:1c.0/0000:00:1c.0:pcie001
-        pcie_pme: /devices/pci0000:00/0000:00:1c.2/0000:00:1c.2:pcie001
-        rtc_cmos: /devices/pnp0/00:02
-          system: /devices/pnp0/00:05
-          system: /devices/pnp0/00:03
-          system: /devices/pnp0/00:01
-          system: /devices/pnp0/00:04
-          system: /devices/pnp0/00:00
-   snd-usb-audio: /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.2
-   snd-usb-audio: module = snd_usb_audio
-   snd-usb-audio: /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.3
-          usbhid: /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0
-          usbhid: /devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0
-          usbhid: /devices/pci0000:00/0000:00:14.0/usb3/3-6/3-6:1.0
-          usbhid: module = usbhid
-          usbhid: /devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1
-     usb-storage: module = usb_storage
-        uvcvideo: /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.1
-        uvcvideo: /devices/pci0000:00/0000:00:14.0/usb3/3-9/3-9:1.0
-        uvcvideo: module = uvcvideo
-             usb: /devices/pci0000:00/0000:00:14.0/usb3
-             usb: /devices/pci0000:00/0000:00:14.0/usb3/3-6
-             usb: /devices/pci0000:00/0000:00:1d.0/usb2/2-1
-             usb: /devices/pci0000:00/0000:00:1a.0/usb1
-             usb: /devices/pci0000:00/0000:00:14.0/usb3/3-2
-             usb: /devices/pci0000:00/0000:00:1a.0/usb1/1-1
-             usb: /devices/pci0000:00/0000:00:14.0/usb3/3-9
-             usb: /devices/pci0000:00/0000:00:14.0/usb4
-             usb: /devices/pci0000:00/0000:00:1d.0/usb2
-             usb: /devices/pci0000:00/0000:00:14.0/usb3/3-5
-             usb: /devices/pci0000:00/0000:00:14.0/usb3/3-1
-           btusb: /devices/pci0000:00/0000:00:14.0/usb3/3-1/3-1:1.0
-           btusb: module = btusb
-           btusb: /devices/pci0000:00/0000:00:14.0/usb3/3-1/3-1:1.1
-             hub: /devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1:1.0
-             hub: /devices/pci0000:00/0000:00:14.0/usb3/3-0:1.0
-             hub: /devices/pci0000:00/0000:00:14.0/usb4/4-0:1.0
-             hub: /devices/pci0000:00/0000:00:1a.0/usb1/1-0:1.0
-             hub: module = usbcore
-             hub: /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1:1.0
-             hub: /devices/pci0000:00/0000:00:1d.0/usb2/2-0:1.0
-           usbfs: module = usbcore
-         thermal: /devices/LNXSYSTM:00/LNXSYBUS:01/LNXTHERM:01
-         thermal: /devices/LNXSYSTM:00/LNXSYBUS:01/LNXTHERM:00
-           video: /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/LNXVIDEO:00
-          button: /devices/LNXSYSTM:00/LNXPWRBN:00
-          button: /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00
-            at24: /devices/pci0000:00/0000:00:1f.3/i2c-6/6-0052
-            at24: /devices/pci0000:00/0000:00:1f.3/i2c-6/6-0050
-            at24: module = at24
-     smbus_alert: module = i2c_smbus
------ sysfs driver list end -----
 >> int.15: system info
   system type:
   acpi: 1
@@ -3437,131 +3251,134 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   old prop read: 4zLr.j8NaKXDZtZ6 (failed)
   prop read: _Szn.5lXXuQkv_C5 (failed)
   old prop read: _Szn.5lXXuQkv_C5 (failed)
-  prop read: ZsBS.GQNx7L4uPNA (failed)
-  old prop read: ZsBS.GQNx7L4uPNA (failed)
   prop read: Ij4C.ndpeucax6V1 (failed)
   old prop read: Ij4C.ndpeucax6V1 (failed)
+  prop read: ZsBS.GQNx7L4uPNA (failed)
+  old prop read: ZsBS.GQNx7L4uPNA (failed)
 ----- kernel log -----
-  <4>[18064.677346] [UFW BLOCK] IN=enp2s0 OUT= MAC=01:00:5e:00:00:01:6a:02:b8:a3:c1:8c:08:00 SRC=192.168.0.1 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0xC0 TTL=1 ID=0 PROTO=2 
-  <4>[18081.530299] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=212.83.144.11 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=48763 PROTO=TCP SPT=60000 DPT=62822 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18081.887659] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=64.62.197.128 DST=192.168.0.202 LEN=34 TOS=0x00 PREC=0x00 TTL=48 ID=10112 DF PROTO=UDP SPT=37157 DPT=10074 LEN=14 
-  <4>[18103.848628] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=221.201.112.42 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=43 ID=18131 PROTO=TCP SPT=49211 DPT=23 WINDOW=46601 RES=0x00 SYN URGP=0 
-  <4>[18112.773698] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=162.214.98.181 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=236 ID=19581 PROTO=TCP SPT=46227 DPT=1433 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18147.522849] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=94.102.61.53 DST=192.168.0.202 LEN=44 TOS=0x00 PREC=0x00 TTL=244 ID=54321 PROTO=TCP SPT=35112 DPT=7548 WINDOW=65535 RES=0x00 SYN URGP=0 
-  <4>[18153.394511] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=79.124.62.78 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=26616 PROTO=TCP SPT=42676 DPT=10823 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18176.114016] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=192.241.217.189 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=54321 PROTO=TCP SPT=42476 DPT=50000 WINDOW=65535 RES=0x00 SYN URGP=0 
-  <4>[18196.416330] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=162.142.125.87 DST=192.168.0.202 LEN=44 TOS=0x00 PREC=0x00 TTL=38 ID=2711 PROTO=TCP SPT=18189 DPT=10081 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18235.792361] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=185.216.71.151 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=238 ID=61169 PROTO=TCP SPT=43861 DPT=13173 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18252.700229] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=159.65.51.19 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=242 ID=18153 PROTO=TCP SPT=45380 DPT=60095 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18306.769560] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=178.128.88.244 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=234 ID=17124 PROTO=TCP SPT=46334 DPT=25772 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18309.840046] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=185.156.73.122 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=7076 PROTO=TCP SPT=49885 DPT=8880 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18314.593178] [UFW BLOCK] IN=enp2s0 OUT= MAC=01:00:5e:00:00:01:6a:02:b8:a3:c1:8c:08:00 SRC=192.168.0.1 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0xC0 TTL=1 ID=0 PROTO=2 
-  <4>[18323.550757] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=176.31.207.148 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=237 ID=56013 PROTO=TCP SPT=55704 DPT=100 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18340.298892] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=91.191.209.178 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=2703 PROTO=TCP SPT=55622 DPT=5938 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18363.989428] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=78.128.113.250 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=11583 PROTO=TCP SPT=59767 DPT=8665 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18374.953141] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=139.162.190.203 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=234 ID=42089 PROTO=TCP SPT=31063 DPT=6580 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18397.986322] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=185.224.128.3 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=235 ID=13458 PROTO=TCP SPT=55165 DPT=80 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18417.017538] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=95.5.51.121 DST=192.168.0.202 LEN=44 TOS=0x00 PREC=0x00 TTL=46 ID=34510 PROTO=TCP SPT=6559 DPT=2323 WINDOW=15807 RES=0x00 SYN URGP=0 
-  <4>[18432.609783] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=79.124.62.82 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=13066 PROTO=TCP SPT=51736 DPT=56116 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18460.474052] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=192.241.214.82 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=54321 PROTO=TCP SPT=49719 DPT=2323 WINDOW=65535 RES=0x00 SYN URGP=0 
-  <4>[18476.943911] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=89.248.165.52 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=64601 PROTO=TCP SPT=56520 DPT=808 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18505.596842] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=125.132.216.84 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=47 ID=0 DF PROTO=TCP SPT=6340 DPT=7547 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18519.577213] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=101.68.211.3 DST=192.168.0.202 LEN=44 TOS=0x00 PREC=0x00 TTL=102 ID=0 PROTO=TCP SPT=35112 DPT=6699 WINDOW=29200 RES=0x00 SYN URGP=0 
-  <4>[18540.892897] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=79.124.62.86 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=35298 PROTO=TCP SPT=42675 DPT=51327 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18557.671431] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=94.102.61.38 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=54321 PROTO=TCP SPT=57757 DPT=3910 WINDOW=65535 RES=0x00 SYN URGP=0 
-  <4>[18583.759841] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=85.209.134.161 DST=192.168.0.202 LEN=48 TOS=0x00 PREC=0x00 TTL=116 ID=20875 PROTO=TCP SPT=46836 DPT=34222 WINDOW=65535 RES=0x00 SYN URGP=0 
-  <4>[18600.732841] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=167.94.145.31 DST=192.168.0.202 LEN=44 TOS=0x00 PREC=0x00 TTL=36 ID=23583 PROTO=TCP SPT=60930 DPT=2077 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18620.401670] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=107.189.4.204 DST=192.168.0.202 LEN=127 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=UDP SPT=48193 DPT=1900 LEN=107 
-  <4>[18637.633424] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=45.143.200.102 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=53883 PROTO=TCP SPT=47306 DPT=13806 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18685.792926] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=46.32.163.194 DST=192.168.0.202 LEN=44 TOS=0x00 PREC=0x00 TTL=48 ID=7753 PROTO=TCP SPT=28959 DPT=23 WINDOW=33425 RES=0x00 SYN URGP=0 
-  <4>[18688.138969] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=89.248.165.118 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=17454 PROTO=TCP SPT=53540 DPT=4309 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18692.758899] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=46.32.163.194 DST=192.168.0.202 LEN=44 TOS=0x00 PREC=0x00 TTL=48 ID=7753 PROTO=TCP SPT=28959 DPT=23 WINDOW=33425 RES=0x00 SYN URGP=0 
-  <4>[18731.898613] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=194.26.29.195 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=36864 PROTO=TCP SPT=59933 DPT=33896 WINDOW=1024 RES=0x00 SYN URGP=0 
-  <4>[18734.792198] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=91.191.209.198 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=43996 PROTO=TCP SPT=58125 DPT=33886 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28161.278970] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=111.105.49.71 DST=192.168.0.202 LEN=58 TOS=0x00 PREC=0x00 TTL=112 ID=10321 PROTO=UDP SPT=58924 DPT=3452 LEN=38 
+  <4>[28182.070494] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=45.143.203.95 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=234 ID=58034 PROTO=TCP SPT=56456 DPT=5963 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28211.161540] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=91.240.118.77 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=35301 PROTO=TCP SPT=40017 DPT=10007 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28214.315271] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=182.240.9.184 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=48 ID=46747 PROTO=TCP SPT=16560 DPT=23 WINDOW=30336 RES=0x00 SYN URGP=0 
+  <4>[28262.966622] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=114.228.247.57 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=48 ID=11073 PROTO=TCP SPT=22228 DPT=23 WINDOW=18995 RES=0x00 SYN URGP=0 
+  <4>[28279.339557] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=78.128.113.158 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=22631 PROTO=TCP SPT=45521 DPT=52151 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28283.571681] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=64.31.35.226 DST=192.168.0.202 LEN=435 TOS=0x00 PREC=0x00 TTL=45 ID=45462 DF PROTO=UDP SPT=5067 DPT=5060 LEN=415 
+  <4>[28306.728422] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=192.241.219.128 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=237 ID=54321 PROTO=TCP SPT=60634 DPT=443 WINDOW=65535 RES=0x00 SYN URGP=0 
+  <4>[28323.811274] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=162.142.125.131 DST=192.168.0.202 LEN=44 TOS=0x00 PREC=0x00 TTL=36 ID=43539 PROTO=TCP SPT=16713 DPT=2086 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28337.439671] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=45.143.203.95 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=234 ID=27924 PROTO=TCP SPT=56456 DPT=5967 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28356.055160] [UFW BLOCK] IN=enp2s0 OUT= MAC=01:00:5e:00:00:01:6a:02:b8:a3:c1:8c:08:00 SRC=192.168.0.1 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0xC0 TTL=1 ID=0 PROTO=2 
+  <4>[28372.981534] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=208.115.219.2 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=5559 PROTO=TCP SPT=41676 DPT=8222 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28409.762004] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=139.162.99.58 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=237 ID=54321 PROTO=TCP SPT=43579 DPT=808 WINDOW=65535 RES=0x00 SYN URGP=0 
+  <4>[28418.801190] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=89.248.163.200 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=243 ID=46837 PROTO=TCP SPT=44998 DPT=9443 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28455.173437] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=192.241.220.43 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=237 ID=54321 PROTO=TCP SPT=41869 DPT=443 WINDOW=65535 RES=0x00 SYN URGP=0 
+  <4>[28469.210414] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=45.134.144.203 DST=192.168.0.202 LEN=445 TOS=0x00 PREC=0x00 TTL=53 ID=19543 DF PROTO=UDP SPT=5101 DPT=5060 LEN=425 
+  <4>[28473.697339] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=79.124.62.130 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=238 ID=24967 PROTO=TCP SPT=45591 DPT=63426 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28506.522436] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=107.173.157.106 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=238 ID=4917 PROTO=TCP SPT=43844 DPT=5903 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28535.150737] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=171.113.111.227 DST=192.168.0.202 LEN=44 TOS=0x00 PREC=0x00 TTL=46 ID=49461 PROTO=TCP SPT=25277 DPT=23 WINDOW=65248 RES=0x00 SYN URGP=0 
+  <4>[28544.041890] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=193.57.40.49 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=244 ID=27139 PROTO=TCP SPT=59821 DPT=5619 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28566.768915] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=91.191.209.210 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=19960 PROTO=TCP SPT=46558 DPT=1626 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28602.962880] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=45.143.203.95 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=234 ID=40812 PROTO=TCP SPT=56456 DPT=1919 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28605.985666] [UFW BLOCK] IN=enp2s0 OUT= MAC=01:00:5e:00:00:01:6a:02:b8:a3:c1:8c:08:00 SRC=192.168.0.1 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0xC0 TTL=1 ID=0 PROTO=2 
+  <4>[28624.666847] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=110.181.233.45 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=48 ID=63778 PROTO=TCP SPT=54958 DPT=23 WINDOW=59798 RES=0x00 SYN URGP=0 
+  <4>[28648.915543] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=94.102.61.25 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=243 ID=54321 PROTO=TCP SPT=54094 DPT=5986 WINDOW=65535 RES=0x00 SYN URGP=0 
+  <4>[28675.504309] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=194.55.186.227 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=237 ID=37214 PROTO=TCP SPT=51238 DPT=34322 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28675.806688] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=35.216.244.6 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=238 ID=54321 PROTO=TCP SPT=39759 DPT=80 WINDOW=65535 RES=0x00 SYN URGP=0 
+  <4>[28697.725239] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=192.241.219.99 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=237 ID=54321 PROTO=TCP SPT=60095 DPT=55554 WINDOW=65535 RES=0x00 SYN URGP=0 
+  <4>[28719.666523] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=218.159.194.141 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=47 ID=49414 PROTO=TCP SPT=32665 DPT=23 WINDOW=62663 RES=0x00 SYN URGP=0 
+  <4>[28738.374386] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=79.124.62.78 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=64750 PROTO=TCP SPT=45590 DPT=10619 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28754.759634] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=167.94.138.80 DST=192.168.0.202 LEN=44 TOS=0x00 PREC=0x00 TTL=35 ID=26095 PROTO=TCP SPT=34015 DPT=20151 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28781.279398] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=137.184.168.169 DST=192.168.0.202 LEN=44 TOS=0x00 PREC=0x00 TTL=241 ID=54321 PROTO=TCP SPT=55729 DPT=8000 WINDOW=65535 RES=0x00 SYN URGP=0 
+  <4>[28794.298339] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=45.143.203.95 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=234 ID=21938 PROTO=TCP SPT=56456 DPT=5999 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28824.945821] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=62.210.113.25 DST=192.168.0.202 LEN=441 TOS=0x00 PREC=0x00 TTL=50 ID=14205 DF PROTO=UDP SPT=5368 DPT=7565 LEN=421 
+  <4>[28839.937340] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=45.143.203.95 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=234 ID=6983 PROTO=TCP SPT=56456 DPT=5995 WINDOW=1024 RES=0x00 SYN URGP=0 
+  <4>[28855.518223] [UFW BLOCK] IN=enp2s0 OUT= MAC=00:e0:4c:f5:51:d8:6a:02:b8:a3:c1:8c:08:00 SRC=79.124.62.78 DST=192.168.0.202 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=36088 PROTO=TCP SPT=45590 DPT=7809 WINDOW=1024 RES=0x00 SYN URGP=0 
 ----- kernel log end -----
 ----- /proc/modules -----
-  udp_diag 16384 0 - Live 0x0000000000000000
-  tcp_diag 16384 0 - Live 0x0000000000000000
-  inet_diag 24576 2 udp_diag,tcp_diag, Live 0x0000000000000000
+  udp_diag 16384 0 - Live 0x0000000000000000 (E)
+  tcp_diag 16384 0 - Live 0x0000000000000000 (E)
+  inet_diag 24576 2 udp_diag,tcp_diag, Live 0x0000000000000000 (E)
   rfcomm 94208 16 - Live 0x0000000000000000
   snd_seq_dummy 16384 0 - Live 0x0000000000000000
-  snd_hrtimer 16384 1 - Live 0x0000000000000000
   snd_seq 94208 7 snd_seq_dummy, Live 0x0000000000000000
   cmac 16384 3 - Live 0x0000000000000000
   algif_hash 16384 1 - Live 0x0000000000000000
   algif_skcipher 16384 1 - Live 0x0000000000000000
   af_alg 36864 6 algif_hash,algif_skcipher, Live 0x0000000000000000
   bnep 28672 2 - Live 0x0000000000000000
+  uvcvideo 159744 0 - Live 0x0000000000000000
+  videobuf2_vmalloc 20480 1 uvcvideo, Live 0x0000000000000000
+  videobuf2_memops 20480 1 videobuf2_vmalloc, Live 0x0000000000000000
+  snd_usb_audio 397312 1 - Live 0x0000000000000000
+  videobuf2_v4l2 40960 1 uvcvideo, Live 0x0000000000000000
+  videobuf2_common 86016 4 uvcvideo,videobuf2_vmalloc,videobuf2_memops,videobuf2_v4l2, Live 0x0000000000000000
+  videodev 303104 3 uvcvideo,videobuf2_v4l2,videobuf2_common, Live 0x0000000000000000
+  snd_usbmidi_lib 45056 1 snd_usb_audio, Live 0x0000000000000000
+  snd_rawmidi 45056 1 snd_usbmidi_lib, Live 0x0000000000000000
+  snd_seq_device 16384 2 snd_seq,snd_rawmidi, Live 0x0000000000000000
+  mc 69632 5 uvcvideo,snd_usb_audio,videobuf2_v4l2,videobuf2_common,videodev, Live 0x0000000000000000
+  hid_microsoft 16384 0 - Live 0x0000000000000000
+  ff_memless 20480 1 hid_microsoft, Live 0x0000000000000000
+  mousedev 24576 0 - Live 0x0000000000000000
+  usbhid 73728 0 - Live 0x0000000000000000
+  btusb 65536 0 - Live 0x0000000000000000
+  btrtl 28672 1 btusb, Live 0x0000000000000000
+  btbcm 24576 1 btusb, Live 0x0000000000000000
+  btintel 45056 1 btusb, Live 0x0000000000000000
+  btmtk 16384 1 btusb, Live 0x0000000000000000
+  bluetooth 929792 46 rfcomm,bnep,btusb,btrtl,btbcm,btintel,btmtk, Live 0x0000000000000000
+  rfkill 32768 6 bluetooth, Live 0x0000000000000000
+  ecdh_generic 16384 2 bluetooth, Live 0x0000000000000000
+  crc16 16384 1 bluetooth, Live 0x0000000000000000
   intel_rapl_msr 20480 0 - Live 0x0000000000000000
-  spi_nor 118784 0 - Live 0x0000000000000000
   intel_rapl_common 32768 1 intel_rapl_msr, Live 0x0000000000000000
   x86_pkg_temp_thermal 20480 0 - Live 0x0000000000000000
-  btusb 65536 0 - Live 0x0000000000000000
-  snd_usb_audio 397312 1 - Live 0x0000000000000000
   intel_powerclamp 20480 0 - Live 0x0000000000000000
-  mtd 90112 3 spi_nor, Live 0x0000000000000000
-  btrtl 28672 1 btusb, Live 0x0000000000000000
-  coretemp 20480 0 - Live 0x0000000000000000
-  btbcm 24576 1 btusb, Live 0x0000000000000000
-  kvm_intel 331776 0 - Live 0x0000000000000000
-  uvcvideo 159744 0 - Live 0x0000000000000000
-  snd_usbmidi_lib 45056 1 snd_usb_audio, Live 0x0000000000000000
-  spi_intel_platform 16384 0 - Live 0x0000000000000000
-  btintel 45056 1 btusb, Live 0x0000000000000000
-  videobuf2_vmalloc 20480 1 uvcvideo, Live 0x0000000000000000
-  kvm 1122304 1 kvm_intel, Live 0x0000000000000000
-  at24 28672 0 - Live 0x0000000000000000
-  mei_pxp 20480 0 - Live 0x0000000000000000
-  btmtk 16384 1 btusb, Live 0x0000000000000000
-  spi_intel 28672 1 spi_intel_platform, Live 0x0000000000000000
-  videobuf2_memops 20480 1 videobuf2_vmalloc, Live 0x0000000000000000
-  mei_hdcp 24576 0 - Live 0x0000000000000000
-  vfat 24576 1 - Live 0x0000000000000000
   snd_hda_codec_realtek 172032 1 - Live 0x0000000000000000
-  snd_rawmidi 45056 1 snd_usbmidi_lib, Live 0x0000000000000000
-  videobuf2_v4l2 40960 1 uvcvideo, Live 0x0000000000000000
+  coretemp 20480 0 - Live 0x0000000000000000
   snd_hda_codec_generic 98304 1 snd_hda_codec_realtek, Live 0x0000000000000000
-  snd_hda_codec_hdmi 86016 1 - Live 0x0000000000000000
-  irqbypass 16384 1 kvm, Live 0x0000000000000000
-  videobuf2_common 86016 4 uvcvideo,videobuf2_vmalloc,videobuf2_memops,videobuf2_v4l2, Live 0x0000000000000000
-  fat 94208 1 vfat, Live 0x0000000000000000
-  bluetooth 929792 46 rfcomm,bnep,btusb,btrtl,btbcm,btintel,btmtk, Live 0x0000000000000000
-  rapl 16384 0 - Live 0x0000000000000000
-  videodev 303104 3 uvcvideo,videobuf2_v4l2,videobuf2_common, Live 0x0000000000000000
+  crct10dif_pclmul 16384 1 - Live 0x0000000000000000
   ledtrig_audio 16384 1 snd_hda_codec_generic, Live 0x0000000000000000
-  snd_seq_device 16384 2 snd_seq,snd_rawmidi, Live 0x0000000000000000
-  snd_hda_intel 61440 6 - Live 0x0000000000000000
-  mc 69632 5 snd_usb_audio,uvcvideo,videobuf2_v4l2,videobuf2_common,videodev, Live 0x0000000000000000
-  intel_cstate 20480 0 - Live 0x0000000000000000
-  rfkill 32768 6 bluetooth, Live 0x0000000000000000
-  joydev 28672 0 - Live 0x0000000000000000
-  r8169 102400 0 - Live 0x0000000000000000
+  snd_hda_codec_hdmi 86016 1 - Live 0x0000000000000000
+  crc32_pclmul 16384 0 - Live 0x0000000000000000
+  spi_nor 118784 0 - Live 0x0000000000000000
+  crc32c_intel 24576 2 - Live 0x0000000000000000
+  snd_hda_intel 53248 6 - Live 0x0000000000000000
+  ghash_clmulni_intel 16384 0 - Live 0x0000000000000000
+  vfat 24576 1 - Live 0x0000000000000000
   snd_intel_dspcfg 20480 1 snd_hda_intel, Live 0x0000000000000000
-  ecdh_generic 16384 2 bluetooth, Live 0x0000000000000000
-  mousedev 24576 0 - Live 0x0000000000000000
-  realtek 36864 1 - Live 0x0000000000000000
-  i2c_i801 40960 0 - Live 0x0000000000000000
-  crc16 16384 1 bluetooth, Live 0x0000000000000000
-  intel_uncore 217088 0 - Live 0x0000000000000000
+  fat 94208 1 vfat, Live 0x0000000000000000
   snd_hda_codec 180224 4 snd_hda_codec_realtek,snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel, Live 0x0000000000000000
-  mdio_devres 16384 1 r8169, Live 0x0000000000000000
+  aesni_intel 393216 4 - Live 0x0000000000000000
+  crypto_simd 16384 1 aesni_intel, Live 0x0000000000000000
   snd_hwdep 16384 2 snd_usb_audio,snd_hda_codec, Live 0x0000000000000000
+  mtd 90112 3 spi_nor, Live 0x0000000000000000
+  cryptd 24576 3 ghash_clmulni_intel,crypto_simd, Live 0x0000000000000000
+  mei_hdcp 24576 0 - Live 0x0000000000000000
+  mei_pxp 20480 0 - Live 0x0000000000000000
   snd_hda_core 114688 5 snd_hda_codec_realtek,snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec, Live 0x0000000000000000
-  pcspkr 16384 0 - Live 0x0000000000000000
-  i2c_smbus 20480 1 i2c_i801, Live 0x0000000000000000
-  snd_pcm 159744 7 snd_usb_audio,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_core, Live 0x0000000000000000
-  lpc_ich 28672 0 - Live 0x0000000000000000
-  libphy 172032 3 r8169,realtek,mdio_devres, Live 0x0000000000000000
-  snd_timer 49152 3 snd_hrtimer,snd_seq,snd_pcm, Live 0x0000000000000000
-  snd 126976 27 snd_seq,snd_usb_audio,snd_usbmidi_lib,snd_hda_codec_realtek,snd_rawmidi,snd_hda_codec_generic,snd_hda_codec_hdmi,snd_seq_device,snd_hda_intel,snd_hda_codec,snd_hwdep,snd_pcm,snd_timer, Live 0x0000000000000000
+  rapl 20480 0 - Live 0x0000000000000000
   mei_me 53248 2 - Live 0x0000000000000000
-  mac_hid 16384 0 - Live 0x0000000000000000
-  soundcore 16384 1 snd, Live 0x0000000000000000
-  mei 167936 5 mei_pxp,mei_hdcp,mei_me, Live 0x0000000000000000
+  spi_intel_platform 16384 0 - Live 0x0000000000000000
+  at24 28672 0 - Live 0x0000000000000000
+  intel_cstate 24576 0 - Live 0x0000000000000000
+  snd_pcm 159744 7 snd_usb_audio,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_core, Live 0x0000000000000000
+  spi_intel 28672 1 spi_intel_platform, Live 0x0000000000000000
+  sr_mod 28672 0 - Live 0x0000000000000000
+  mei 167936 5 mei_hdcp,mei_pxp,mei_me, Live 0x0000000000000000
+  snd_timer 49152 2 snd_seq,snd_pcm, Live 0x0000000000000000
   ip6t_REJECT 16384 1 - Live 0x0000000000000000
   nf_reject_ipv6 20480 1 ip6t_REJECT, Live 0x0000000000000000
+  snd 126976 27 snd_seq,snd_usb_audio,snd_usbmidi_lib,snd_rawmidi,snd_seq_device,snd_hda_codec_realtek,snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hwdep,snd_pcm,snd_timer, Live 0x0000000000000000
+  i2c_i801 40960 0 - Live 0x0000000000000000
+  intel_uncore 225280 0 - Live 0x0000000000000000
+  xhci_pci 20480 0 - Live 0x0000000000000000
+  i2c_smbus 20480 1 i2c_i801, Live 0x0000000000000000
+  xhci_pci_renesas 24576 1 xhci_pci, Live 0x0000000000000000
+  lpc_ich 28672 0 - Live 0x0000000000000000
+  cdrom 77824 1 sr_mod, Live 0x0000000000000000
   xt_hl 16384 22 - Live 0x0000000000000000
   ip6t_rt 20480 3 - Live 0x0000000000000000
+  soundcore 16384 1 snd, Live 0x0000000000000000
   ipt_REJECT 16384 1 - Live 0x0000000000000000
   nf_reject_ipv4 16384 1 ipt_REJECT, Live 0x0000000000000000
   xt_LOG 20480 10 - Live 0x0000000000000000
@@ -3579,38 +3396,8 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   ip_tables 32768 9 iptable_filter, Live 0x0000000000000000
   x_tables 57344 13 ip6t_REJECT,xt_hl,ip6t_rt,ipt_REJECT,xt_LOG,xt_limit,xt_addrtype,xt_tcpudp,xt_conntrack,ip6table_filter,ip6_tables,iptable_filter,ip_tables, Live 0x0000000000000000
   sch_cake 40960 2 - Live 0x0000000000000000
-  vboxnetadp 28672 0 - Live 0x0000000000000000 (OE)
-  vboxnetflt 32768 0 - Live 0x0000000000000000 (OE)
   zram 45056 2 - Live 0x0000000000000000
-  vboxdrv 536576 2 vboxnetadp,vboxnetflt, Live 0x0000000000000000 (OE)
   fuse 155648 5 - Live 0x0000000000000000
-  hid_microsoft 16384 0 - Live 0x0000000000000000
-  ff_memless 20480 1 hid_microsoft, Live 0x0000000000000000
-  usbhid 73728 0 - Live 0x0000000000000000
-  i915 3076096 264 - Live 0x0000000000000000
-  crct10dif_pclmul 16384 1 - Live 0x0000000000000000
-  crc32_pclmul 16384 0 - Live 0x0000000000000000
-  ghash_clmulni_intel 16384 0 - Live 0x0000000000000000
-  aesni_intel 393216 4 - Live 0x0000000000000000
-  drm_buddy 20480 1 i915, Live 0x0000000000000000
-  xhci_pci 20480 0 - Live 0x0000000000000000
-  crypto_simd 16384 1 aesni_intel, Live 0x0000000000000000
-  intel_gtt 28672 1 i915, Live 0x0000000000000000
-  sr_mod 28672 0 - Live 0x0000000000000000
-  drm_display_helper 176128 1 i915, Live 0x0000000000000000
-  cryptd 24576 3 ghash_clmulni_intel,crypto_simd, Live 0x0000000000000000
-  cec 61440 2 i915,drm_display_helper, Live 0x0000000000000000
-  cdrom 77824 1 sr_mod, Live 0x0000000000000000
-  ttm 94208 1 i915, Live 0x0000000000000000
-  xhci_pci_renesas 24576 1 xhci_pci, Live 0x0000000000000000
-  video 61440 1 i915, Live 0x0000000000000000
-  btrfs 1888256 3 - Live 0x0000000000000000
-  blake2b_generic 24576 0 - Live 0x0000000000000000
-  libcrc32c 16384 2 nf_conntrack,btrfs, Live 0x0000000000000000
-  crc32c_generic 16384 0 - Live 0x0000000000000000
-  crc32c_intel 24576 4 - Live 0x0000000000000000
-  xor 24576 1 btrfs, Live 0x0000000000000000
-  raid6_pq 122880 1 btrfs, Live 0x0000000000000000
 ----- /proc/modules end -----
   used irqs: 0,8,9,16,18,23,24,25,26,27,28,29,30,31,32
 =========== end debug info ============
@@ -4128,7 +3915,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Unique ID: rdCR.CxwsZFjVASF
   Hardware Class: memory
   Model: "Main Memory"
-  Memory Range: 0x00000000-0x1ec3d4fff (rw)
+  Memory Range: 0x00000000-0x1ec0f0fff (rw)
   Memory Size: 7 GB + 512 MB
   Config Status: cfg=new, avail=yes, need=no, active=unknown
 
@@ -4152,7 +3939,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   I/O Ports: 0xf080-0xf083 (rw)
   I/O Ports: 0xf060-0xf07f (rw)
   Memory Range: 0xf7d1a000-0xf7d1a7ff (rw,non-prefetchable)
-  IRQ: 26 (916002 events)
+  IRQ: 26 (3829986 events)
   Module Alias: "pci:v00008086d00008C02sv00008086sd00008C02bc01sc06i01"
   Config Status: cfg=new, avail=yes, need=no, active=unknown
 
@@ -4207,7 +3994,6 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   SubDevice: pci 0x0123 
   Revision: 0x15
   Driver: "r8169"
-  Driver Modules: "r8169"
   Device File: enp2s0
   I/O Ports: 0xe000-0xefff (rw)
   Memory Range: 0xf7c04000-0xf7c04fff (rw,non-prefetchable)
@@ -4217,9 +4003,6 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Permanent HW Address: 00:e0:4c:f5:51:d8
   Link detected: yes
   Module Alias: "pci:v000010ECd00008168sv000010ECsd00000123bc02sc00i00"
-  Driver Info #0:
-    Driver Status: r8169 is active
-    Driver Activation Cmd: "modprobe r8169"
   Config Status: cfg=new, avail=yes, need=no, active=unknown
   Attached to: #27 (PCI bridge)
 
@@ -4238,7 +4021,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Driver: "mei_me"
   Driver Modules: "mei_me"
   Memory Range: 0xf7d1e000-0xf7d1e00f (rw,non-prefetchable)
-  IRQ: 29 (24 events)
+  IRQ: 30 (24 events)
   Module Alias: "pci:v00008086d00008C3Asv00008086sd00008C3Abc07sc80i00"
   Driver Info #0:
     Driver Status: mei_me is active
@@ -4260,7 +4043,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Driver: "snd_hda_intel"
   Driver Modules: "snd_hda_intel"
   Memory Range: 0xf7d10000-0xf7d13fff (rw,non-prefetchable)
-  IRQ: 31 (529 events)
+  IRQ: 32 (657 events)
   Module Alias: "pci:v00008086d00008C20sv00008086sd00008C20bc04sc03i00"
   Driver Info #0:
     Driver Status: snd_hda_intel is active
@@ -4322,7 +4105,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Driver: "snd_hda_intel"
   Driver Modules: "snd_hda_intel"
   Memory Range: 0xf7d14000-0xf7d17fff (rw,non-prefetchable)
-  IRQ: 30 (2308 events)
+  IRQ: 31 (8368 events)
   Module Alias: "pci:v00008086d00000C0Csv00008086sd00000C0Cbc04sc03i00"
   Driver Info #0:
     Driver Status: snd_hda_intel is active
@@ -4343,7 +4126,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Revision: 0x05
   Driver: "ehci-pci"
   Memory Range: 0xf7d1c000-0xf7d1c3ff (rw,non-prefetchable)
-  IRQ: 16 (44 events)
+  IRQ: 16 (27 events)
   Module Alias: "pci:v00008086d00008C2Dsv00008086sd00008C2Dbc0Csc03i20"
   Driver Info #0:
     Driver Status: ehci-hcd is not active
@@ -4364,7 +4147,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Revision: 0x05
   Driver: "ehci-pci"
   Memory Range: 0xf7d1b000-0xf7d1b3ff (rw,non-prefetchable)
-  IRQ: 23 (52 events)
+  IRQ: 23 (29 events)
   Module Alias: "pci:v00008086d00008C26sv00008086sd00008C26bc0Csc03i20"
   Driver Info #0:
     Driver Status: ehci-hcd is not active
@@ -4390,11 +4173,8 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Memory Range: 0xe0000000-0xefffffff (ro,non-prefetchable)
   I/O Ports: 0xf000-0xf03f (rw)
   Memory Range: 0x000c0000-0x000dffff (rw,non-prefetchable,disabled)
-  IRQ: 28 (2710183 events)
+  IRQ: 27 (4237460 events)
   Module Alias: "pci:v00008086d0000041Esv00008086sd0000041Ebc03sc00i00"
-  Driver Info #0:
-    Driver Status: i915 is active
-    Driver Activation Cmd: "modprobe i915"
   Config Status: cfg=new, avail=yes, need=no, active=unknown
 
 26: PCI 14.0: 0c03 USB Controller (XHCI)
@@ -4412,7 +4192,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Driver: "xhci_hcd"
   Driver Modules: "xhci_pci"
   Memory Range: 0xf7d00000-0xf7d0ffff (rw,non-prefetchable)
-  IRQ: 27 (254077 events)
+  IRQ: 29 (548376 events)
   Module Alias: "pci:v00008086d00008C31sv00008086sd00008C31bc0Csc03i30"
   Driver Info #0:
     Driver Status: xhci_pci is active
@@ -4779,8 +4559,8 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Revision: "1.10"
   Driver: "usbhid"
   Driver Modules: "usbhid"
-  Device File: /dev/input/event5
-  Device Number: char 13:69
+  Device File: /dev/input/event15
+  Device Number: char 13:79
   Speed: 1.5 Mbps
   Module Alias: "usb:v045Ep0750d0110dc00dsc00dp00ic03isc01ip01in00"
   Driver Info #0:
@@ -4825,7 +4605,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Driver: "usbhid"
   Driver Modules: "usbhid"
   Device File: /dev/input/mice (/dev/input/mouse0)
-  Device Files: /dev/input/mice, /dev/input/mouse0, /dev/input/event4
+  Device Files: /dev/input/mice, /dev/input/mouse0, /dev/input/event14
   Device Number: char 13:63 (char 13:32)
   Speed: 12 Mbps
   Module Alias: "usb:v1EA7p0064d0200dc00dsc00dp00ic03isc01ip02in00"
@@ -4853,7 +4633,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Driver: "usbhid"
   Driver Modules: "usbhid"
   Device File: /dev/input/mice (/dev/input/mouse1)
-  Device Files: /dev/input/mice, /dev/input/mouse1, /dev/input/event7
+  Device Files: /dev/input/mice, /dev/input/mouse1, /dev/input/event17
   Device Number: char 13:63 (char 13:33)
   Speed: 1.5 Mbps
   Module Alias: "usb:v1BCFp0005d0090dc00dsc00dp00ic03isc01ip02in00"
@@ -4918,8 +4698,8 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Revision: "1.10"
   Driver: "usbhid"
   Driver Modules: "usbhid"
-  Device File: /dev/input/event6
-  Device Number: char 13:70
+  Device File: /dev/input/event16
+  Device Number: char 13:80
   Speed: 1.5 Mbps
   Module Alias: "usb:v045Ep0750d0110dc00dsc00dp00ic03isc00ip00in01"
   Driver Info #0:
@@ -4937,7 +4717,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Model: 6.60.3 "Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz"
   Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,cpuid_fault,epb,invpcid_single,ssbd,ibrs,ibpb,stibp,tpr_shadow,vnmi,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,xsaveopt,dtherm,arat,pln,pts,md_clear,flush_l1d
   Clock: 3691 MHz
-  BogoMips: 7390.75
+  BogoMips: 7390.21
   Cache: 3072 kb
   Units/Processor: 16
   Config Status: cfg=new, avail=yes, need=no, active=unknown
@@ -4951,7 +4731,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Model: 6.60.3 "Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz"
   Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,cpuid_fault,epb,invpcid_single,ssbd,ibrs,ibpb,stibp,tpr_shadow,vnmi,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,xsaveopt,dtherm,arat,pln,pts,md_clear,flush_l1d
   Clock: 3691 MHz
-  BogoMips: 7390.75
+  BogoMips: 7390.21
   Cache: 3072 kb
   Units/Processor: 16
   Config Status: cfg=new, avail=yes, need=no, active=unknown
@@ -4965,7 +4745,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Model: 6.60.3 "Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz"
   Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,cpuid_fault,epb,invpcid_single,ssbd,ibrs,ibpb,stibp,tpr_shadow,vnmi,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,xsaveopt,dtherm,arat,pln,pts,md_clear,flush_l1d
   Clock: 3691 MHz
-  BogoMips: 7390.75
+  BogoMips: 7390.21
   Cache: 3072 kb
   Units/Processor: 16
   Config Status: cfg=new, avail=yes, need=no, active=unknown
@@ -4979,7 +4759,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Model: 6.60.3 "Intel(R) Core(TM) i3-4170 CPU @ 3.70GHz"
   Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,cpuid_fault,epb,invpcid_single,ssbd,ibrs,ibpb,stibp,tpr_shadow,vnmi,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,xsaveopt,dtherm,arat,pln,pts,md_clear,flush_l1d
   Clock: 3691 MHz
-  BogoMips: 7390.75
+  BogoMips: 7390.21
   Cache: 3072 kb
   Units/Processor: 16
   Config Status: cfg=new, avail=yes, need=no, active=unknown
@@ -4993,17 +4773,7 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Device File: /dev/tty1
   Config Status: cfg=new, avail=yes, need=no, active=unknown
 
-64: None 00.0: 10700 Loopback
-  [Created at net.126]
-  Unique ID: ZsBS.GQNx7L4uPNA
-  SysFS ID: /class/net/lo
-  Hardware Class: network interface
-  Model: "Loopback network interface"
-  Device File: lo
-  Link detected: yes
-  Config Status: cfg=new, avail=yes, need=no, active=unknown
-
-65: None 00.0: 10701 Ethernet
+64: None 00.0: 10701 Ethernet
   [Created at net.126]
   Unique ID: Ij4C.ndpeucax6V1
   Parent ID: c3qJ.m7pjCDtNwYF
@@ -5012,10 +4782,19 @@ RTL9000AA_RTL9000AN Ethernet: module = realtek
   Hardware Class: network interface
   Model: "Ethernet network interface"
   Driver: "r8169"
-  Driver Modules: "r8169"
   Device File: enp2s0
   HW Address: 00:e0:4c:f5:51:d8
   Permanent HW Address: 00:e0:4c:f5:51:d8
   Link detected: yes
   Config Status: cfg=new, avail=yes, need=no, active=unknown
   Attached to: #17 (Ethernet controller)
+
+65: None 00.0: 10700 Loopback
+  [Created at net.126]
+  Unique ID: ZsBS.GQNx7L4uPNA
+  SysFS ID: /class/net/lo
+  Hardware Class: network interface
+  Model: "Loopback network interface"
+  Device File: lo
+  Link detected: yes
+  Config Status: cfg=new, avail=yes, need=no, active=unknown

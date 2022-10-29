@@ -30,7 +30,7 @@ size () {
     echo "${whole}${decimal}${units[$unit]}"
 }
 command='/usr/bin/alacritty -o window.dimensions.lines=13 window.dimensions.columns=55 -e /usr/bin/sudo /usr/bin/intel_gpu_top'
-threshold=65
+threshold=70
 while :;do
     mem_stats=()
     mem_stats+=($(/bin/grep -e "MemTotal" -e "MemAvailable" -e 'SwapTotal' -e 'SwapFree' /proc/meminfo))
@@ -41,7 +41,7 @@ while :;do
         DATA='| C | Firewall <b>desativado</b> \| RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | CPU temp: <b>'$cpu_temp'ºc</b> | '$command' |';
     elif [ "$(/usr/bin/pgrep easyeffects)" ]; then
         if [ $mem_used -ge 6000000 ];then
-            DATA='| C | EasyEffects <b>ligado</b> \| RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | CPU temp: <b>'$cpu_temp'ºc</b> | '$command' |'
+            DATA='| B | EasyEffects <b>ligado</b> \| RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | CPU temp: <b>'$cpu_temp'ºc</b> | '$command' |'
         elif [ $cpu_temp -ge $threshold ]; then
             DATA='| C | EasyEffects <b>ligado</b> \| CPU <b>'$cpu_temp'ºc</b> | Consumo RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | '$command' |'
         else
@@ -51,7 +51,7 @@ while :;do
         if [ $cpu_temp -ge $threshold ]; then
             DATA='| C | CPU <b>'$cpu_temp'ºc</b> \| Consumo RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | | '$command' |'
         elif [ $mem_used -ge 6000000 ];then
-            DATA='| C | Consumo RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | CPU temp: <b>'$cpu_temp'ºc</b> | '$command' |'
+            DATA='| B | Consumo RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | CPU temp: <b>'$cpu_temp'ºc</b> | '$command' |'
         else
             DATA='| A | Consumo RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | CPU temp: <b>'$cpu_temp'ºc</b> | '$command' |'
         fi
