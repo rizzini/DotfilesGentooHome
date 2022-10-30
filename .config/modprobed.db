@@ -44,6 +44,7 @@ fat
 ff_memless
 fuse
 ghash_clmulni_intel
+grace
 hid_microsoft
 i2c_i801
 i2c_smbus
@@ -135,6 +136,7 @@ spi_intel_platform
 spi_nor
 sr_mod
 stp
+sunrpc
 tcp_diag
 tee
 tpm
