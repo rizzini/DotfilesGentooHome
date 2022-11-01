@@ -102,6 +102,8 @@ nf_reject_ipv6
 ntfs3
 option
 pcspkr
+polyval_clmulni
+polyval_generic
 qrtr
 r8169
 raid6_pq

@@ -3,7 +3,7 @@ Categories=Development;Emulator;
 Comment[pt_BR]=
 Comment=
 Encoding=UTF-8
-Exec=/opt/genymotion/player --vm-name='Custom Phone'
+Exec=/opt/genymobile/genymotion/player '--vm-name=Custom Phone'
 GenericName[pt_BR]=Android Emulator
 GenericName=Android Emulator
 GenericName[fr]=Emulateur Android
