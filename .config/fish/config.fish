@@ -11,10 +11,8 @@ alias plasmashell='/usr/bin/killall plasmashell &> /dev/null; /usr/bin/plasmashe
 alias ls='/usr/bin/exa -al --color=always --group-directories-first';
 alias l='/usr/bin/exa -al --color=always --group-directories-first';
 alias grep='/bin/grep --color=auto';
-alias big="/usr/bin/expac -H M '%m\t%n' | /usr/bin/sort -h | nl";
-alias gitpkg='/usr/bin/pacman -Q | grep -i "\-git" ';
+# alias gitpkg='/usr/bin/pacman -Q | grep -i "\-git" ';
 alias syadm="/usr/bin/sudo /usr/bin/yadm -Y /etc/yadm";
-alias rip="/usr/bin/expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | /usr/bin/sort | /usr/bin/tail -200 | /usr/bin/nl";
 #alias cat='/usr/bin/bat -p ';
 # alias cat="highlight -O ansi --force"
 alias kmake='k /etc/portage/make.conf'

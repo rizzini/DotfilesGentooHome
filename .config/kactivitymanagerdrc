@@ -1,5 +1,11 @@
 [activities]
 406be1e9-749e-4bd4-90c9-209c40b1f810=Default
+63aed3ef-7b9b-40c4-abe5-e79aec80d66b=whatsapp
+
+[activities-icons]
+63aed3ef-7b9b-40c4-abe5-e79aec80d66b=activities
 
 [main]
 currentActivity=406be1e9-749e-4bd4-90c9-209c40b1f810
+runningActivities=406be1e9-749e-4bd4-90c9-209c40b1f810
+stoppedActivities=63aed3ef-7b9b-40c4-abe5-e79aec80d66b

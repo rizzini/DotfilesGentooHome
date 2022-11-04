@@ -75,6 +75,10 @@ sticky-window-snappingEnabled=false
 synchronizeskipswitcherEnabled=false
 videowallEnabled=false
 
+[SubSession: 63aed3ef-7b9b-40c4-abe5-e79aec80d66b]
+active=-1
+count=0
+
 [TabBox]
 BorderActivate=9
 LayoutName=thumbnails
