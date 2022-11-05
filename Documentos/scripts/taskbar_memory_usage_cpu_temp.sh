@@ -29,7 +29,7 @@ size () {
     fi
     echo "${whole}${decimal}${units[$unit]}"
 }
-command='/usr/bin/alacritty -o window.dimensions.lines=13 window.dimensions.columns=55 -e /usr/bin/sudo /usr/bin/intel_gpu_top'
+command='if [ "$(pgrep "intel_gpu_top")" ];then /usr/bin/sudo /usr/bin/killall intel_gpu_top;else /usr/bin/alacritty -o window.dimensions.lines=13 window.dimensions.columns=55 -e /usr/bin/sudo /usr/bin/intel_gpu_top;fi'
 threshold=70
 while :;do
     mem_stats=()
