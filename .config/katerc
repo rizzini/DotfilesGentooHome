@@ -167,6 +167,12 @@ Virtual-1 Window-Maximized 1024x768=true
 [Notification Messages]
 Kate hide sidebars notification message=false
 
+[Shortcuts]
+kate_mdi_show_toolview_button_kate_plugin_katesearch=none
+kate_mdi_show_toolview_button_output=none
+kate_mdi_toolview_kate_plugin_katesearch=none
+kate_mdi_toolview_output=none
+
 [UiSettings]
 ColorScheme=
 
