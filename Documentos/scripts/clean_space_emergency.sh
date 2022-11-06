@@ -86,6 +86,5 @@ if [[ "$(/bin/df -B MB  "$(/bin/mount | /bin/grep  '/mnt/backup' | /usr/bin/awk 
     fi
 fi
 if [[ -n "$out_of_space" && "$1" != 'force' ]];then
-    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Script clean_space_emergency.sh executado. Checar logs em /tmp/clean_space_emergency.sh.log.";
-    exit;
+    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Script clean_space_emergency.sh executado. Checar logs em /tmp/clean_space_emergency.sh.log." &> /dev/null;
 fi
