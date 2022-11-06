@@ -31,11 +31,11 @@ gentoo
           bus info: cpu@0
           version: 6.60.3
           slot: SOCKET 0
-          size: 3691MHz
+          size: 3700MHz
           capacity: 3800MHz
           width: 64 bits
           clock: 100MHz
-          capabilities: lm fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d cpufreq
+          capabilities: lm fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
           configuration: cores=2 enabledcores=2 microcode=40 threads=4
         *-cache:0
              description: L2 cache
@@ -143,30 +143,30 @@ gentoo
              configuration: driver=snd_hda_intel latency=0
              resources: irq:31 memory:f7d14000-f7d17fff
            *-input:0
-                product: HDA Intel HDMI HDMI/DP,pcm=3
-                physical id: 0
-                logical name: input3
-                logical name: /dev/input/event3
-           *-input:1
                 product: HDA Intel HDMI HDMI/DP,pcm=7
-                physical id: 1
-                logical name: input4
-                logical name: /dev/input/event4
-           *-input:2
+                physical id: 0
+                logical name: input10
+                logical name: /dev/input/event10
+           *-input:1
                 product: HDA Intel HDMI HDMI/DP,pcm=8
-                physical id: 2
-                logical name: input5
-                logical name: /dev/input/event5
-           *-input:3
+                physical id: 1
+                logical name: input11
+                logical name: /dev/input/event11
+           *-input:2
                 product: HDA Intel HDMI HDMI/DP,pcm=9
-                physical id: 3
-                logical name: input6
-                logical name: /dev/input/event6
-           *-input:4
+                physical id: 2
+                logical name: input12
+                logical name: /dev/input/event12
+           *-input:3
                 product: HDA Intel HDMI HDMI/DP,pcm=10
+                physical id: 3
+                logical name: input13
+                logical name: /dev/input/event13
+           *-input:4
+                product: HDA Intel HDMI HDMI/DP,pcm=3
                 physical id: 4
-                logical name: input7
-                logical name: /dev/input/event7
+                logical name: input9
+                logical name: /dev/input/event9
         *-usb:0
              description: USB controller
              product: 8 Series/C220 Series Chipset Family USB xHCI
@@ -181,7 +181,7 @@ gentoo
              resources: irq:29 memory:f7d00000-f7d0ffff
            *-usbhost:0
                 product: xHCI Host Controller
-                vendor: Linux 6.0.5-tkg-cfs xhci-hcd
+                vendor: Linux 6.0.7-tkg-cfs xhci-hcd
                 physical id: 0
                 bus info: usb@3
                 logical name: usb3
@@ -204,10 +204,10 @@ gentoo
                    vendor: SHARKOON Technologies GmbH
                    physical id: 2
                    bus info: usb@3:2
-                   logical name: input13
-                   logical name: /dev/input/event13
-                   logical name: input14
-                   logical name: /dev/input/event14
+                   logical name: input3
+                   logical name: /dev/input/event3
+                   logical name: input4
+                   logical name: /dev/input/event4
                    logical name: /dev/input/mouse0
                    version: 2.00
                    capabilities: usb-1.10 usb
@@ -218,13 +218,13 @@ gentoo
                    vendor: Microsoft
                    physical id: 5
                    bus info: usb@3:5
-                   logical name: input15
-                   logical name: /dev/input/event15
-                   logical name: input15::capslock
-                   logical name: input15::numlock
-                   logical name: input15::scrolllock
-                   logical name: input16
-                   logical name: /dev/input/event16
+                   logical name: input5
+                   logical name: /dev/input/event5
+                   logical name: input5::capslock
+                   logical name: input5::numlock
+                   logical name: input5::scrolllock
+                   logical name: input6
+                   logical name: /dev/input/event6
                    version: 1.10
                    capabilities: usb-1.10 usb
                    configuration: driver=usbhid maxpower=100mA speed=1Mbit/s
@@ -234,8 +234,8 @@ gentoo
                    vendor: Sunplus Innovation Technology Inc.
                    physical id: 6
                    bus info: usb@3:6
-                   logical name: input17
-                   logical name: /dev/input/event17
+                   logical name: input7
+                   logical name: /dev/input/event7
                    logical name: /dev/input/mouse1
                    version: 0.90
                    capabilities: usb-2.00 usb
@@ -249,14 +249,14 @@ gentoo
                    logical name: card2
                    logical name: /dev/snd/controlC2
                    logical name: /dev/snd/pcmC2D0c
-                   logical name: input22
-                   logical name: /dev/input/event18
+                   logical name: input8
+                   logical name: /dev/input/event8
                    version: 1.00
                    capabilities: usb-2.00 usb
                    configuration: driver=snd-usb-audio maxpower=256mA speed=480Mbit/s
            *-usbhost:1
                 product: xHCI Host Controller
-                vendor: Linux 6.0.5-tkg-cfs xhci-hcd
+                vendor: Linux 6.0.7-tkg-cfs xhci-hcd
                 physical id: 1
                 bus info: usb@4
                 logical name: usb4
@@ -289,7 +289,7 @@ gentoo
              resources: irq:16 memory:f7d1c000-f7d1c3ff
            *-usbhost
                 product: EHCI Host Controller
-                vendor: Linux 6.0.5-tkg-cfs ehci_hcd
+                vendor: Linux 6.0.7-tkg-cfs ehci_hcd
                 physical id: 1
                 bus info: usb@1
                 logical name: usb1
@@ -325,30 +325,30 @@ gentoo
              configuration: driver=snd_hda_intel latency=0
              resources: irq:32 memory:f7d10000-f7d13fff
            *-input:0
-                product: HDA Intel PCH Line
-                physical id: 0
-                logical name: input10
-                logical name: /dev/input/event10
-           *-input:1
-                product: HDA Intel PCH Line Out
-                physical id: 1
-                logical name: input11
-                logical name: /dev/input/event11
-           *-input:2
-                product: HDA Intel PCH Front Headphone
-                physical id: 2
-                logical name: input12
-                logical name: /dev/input/event12
-           *-input:3
                 product: HDA Intel PCH Front Mic
-                physical id: 3
-                logical name: input8
-                logical name: /dev/input/event8
-           *-input:4
+                physical id: 0
+                logical name: input14
+                logical name: /dev/input/event14
+           *-input:1
                 product: HDA Intel PCH Rear Mic
+                physical id: 1
+                logical name: input15
+                logical name: /dev/input/event15
+           *-input:2
+                product: HDA Intel PCH Line
+                physical id: 2
+                logical name: input16
+                logical name: /dev/input/event16
+           *-input:3
+                product: HDA Intel PCH Line Out
+                physical id: 3
+                logical name: input17
+                logical name: /dev/input/event17
+           *-input:4
+                product: HDA Intel PCH Front Headphone
                 physical id: 4
-                logical name: input9
-                logical name: /dev/input/event9
+                logical name: input18
+                logical name: /dev/input/event18
         *-pci:0
              description: PCI bridge
              product: 8 Series/C220 Series Chipset Family PCI Express Root Port #1
@@ -387,7 +387,7 @@ gentoo
                 width: 64 bits
                 clock: 33MHz
                 capabilities: pm msi pciexpress msix bus_master cap_list ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
-                configuration: autonegotiation=on broadcast=yes driver=r8169 driverversion=6.0.5-tkg-cfs duplex=full firmware=rtl8168h-2_0.0.2 02/26/15 ip=192.168.0.202 latency=0 link=yes multicast=yes port=twisted pair speed=1Gbit/s
+                configuration: autonegotiation=on broadcast=yes driver=r8169 driverversion=6.0.7-tkg-cfs duplex=full firmware=rtl8168h-2_0.0.2 02/26/15 ip=192.168.0.202 latency=0 link=yes multicast=yes port=twisted pair speed=1Gbit/s
                 resources: irq:18 ioport:e000(size=256) memory:f7c04000-f7c04fff memory:f7c00000-f7c03fff
         *-usb:2
              description: USB controller
@@ -403,7 +403,7 @@ gentoo
              resources: irq:23 memory:f7d1b000-f7d1b3ff
            *-usbhost
                 product: EHCI Host Controller
-                vendor: Linux 6.0.5-tkg-cfs ehci_hcd
+                vendor: Linux 6.0.7-tkg-cfs ehci_hcd
                 physical id: 1
                 bus info: usb@2
                 logical name: usb2
@@ -511,3 +511,9 @@ gentoo
        logical name: input2
        logical name: /dev/input/event2
        capabilities: platform
+  *-input:3
+       product: Freedom 2 (AVRCP)
+       physical id: 5
+       logical name: input20
+       logical name: /dev/input/event19
+       capabilities: bluetooth

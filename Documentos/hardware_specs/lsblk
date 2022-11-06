@@ -2,10 +2,9 @@ NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda      8:0    0 111,8G  0 disk 
 ├─sda1   8:1    0   128M  0 part /boot/efi
 ├─sda2   8:2    0 103,7G  0 part /home/lucas/.cache
-│                                /var/tmp/portage
-│                                /var/db/repos
-│                                /home
 │                                /ccache
+│                                /var/tmp/portage
+│                                /home
 │                                /mnt/gentoo
 │                                /
 └─sda3   8:3    0     8G  0 part [SWAP]
@@ -18,6 +17,3 @@ sdb      8:16   0 232,9G  0 disk
 ├─sdb6   8:22   0   4,9G  0 part 
 └─sdb7   8:23   0 149,3G  0 part /mnt/dados
 sr0     11:0    1  1024M  0 rom  
-zram0  254:0    0     4G  0 disk [SWAP]
-zram1  254:1    0     0B  0 disk 
-zram2  254:2    0     0B  0 disk 

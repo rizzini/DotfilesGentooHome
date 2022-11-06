@@ -21,3 +21,4 @@ vainfo: Supported profile and entrypoints
       VAProfileVC1Advanced            :	VAEntrypointVLD
       VAProfileNone                   :	VAEntrypointVideoProc
       VAProfileJPEGBaseline           :	VAEntrypointVLD
+      VAProfileVP9Profile0            :	VAEntrypointVLD

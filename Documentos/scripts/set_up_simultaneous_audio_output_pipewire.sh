@@ -24,5 +24,5 @@ elif [ -h "/etc/wireplumber/main.lua.d/51-alsa-disable.lua" ]; then
 fi
 if [ $pulseeffects == 1 ];then
     /usr/bin/sleep 1
-    /home/lucas/Documentos/scripts/easy.effects_in_background.sh & disown $!
+    /home/lucas/Documentos/scripts/easy.effects_in_background.sh
 fi

@@ -89,7 +89,7 @@ Device Descriptor:
   idVendor           0x1d6b Linux Foundation
   idProduct          0x0002 2.0 root hub
   bcdDevice            6.00
-  iManufacturer           3 Linux 6.0.5-tkg-cfs ehci_hcd
+  iManufacturer           3 Linux 6.0.7-tkg-cfs ehci_hcd
   iProduct                2 EHCI Host Controller
   iSerial                 1 0000:00:1d.0
   bNumConfigurations      1
@@ -229,7 +229,7 @@ Device Descriptor:
   idVendor           0x1d6b Linux Foundation
   idProduct          0x0002 2.0 root hub
   bcdDevice            6.00
-  iManufacturer           3 Linux 6.0.5-tkg-cfs ehci_hcd
+  iManufacturer           3 Linux 6.0.7-tkg-cfs ehci_hcd
   iProduct                2 EHCI Host Controller
   iSerial                 1 0000:00:1a.0
   bNumConfigurations      1
@@ -293,7 +293,7 @@ Device Descriptor:
   idVendor           0x1d6b Linux Foundation
   idProduct          0x0003 3.0 root hub
   bcdDevice            6.00
-  iManufacturer           3 Linux 6.0.5-tkg-cfs xhci-hcd
+  iManufacturer           3 Linux 6.0.7-tkg-cfs xhci-hcd
   iProduct                2 xHCI Host Controller
   iSerial                 1 0000:00:14.0
   bNumConfigurations      1
@@ -364,7 +364,7 @@ Binary Object Store Descriptor:
 Device Status:     0x0001
   Self Powered
 
-Bus 003 Device 010: ID 1908:2310 GEMBIRD USB2.0 PC CAMERA
+Bus 003 Device 006: ID 1908:2310 GEMBIRD USB2.0 PC CAMERA
 Device Descriptor:
   bLength                18
   bDescriptorType         1
@@ -1229,7 +1229,7 @@ Device Descriptor:
   idVendor           0x1d6b Linux Foundation
   idProduct          0x0002 2.0 root hub
   bcdDevice            6.00
-  iManufacturer           3 Linux 6.0.5-tkg-cfs xhci-hcd
+  iManufacturer           3 Linux 6.0.7-tkg-cfs xhci-hcd
   iProduct                2 xHCI Host Controller
   iSerial                 1 0000:00:14.0
   bNumConfigurations      1
