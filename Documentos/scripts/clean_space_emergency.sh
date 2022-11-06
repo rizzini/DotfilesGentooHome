@@ -24,28 +24,28 @@ if [[ "$(/bin/df -B MB  /dev/sda2 --output=avail | /usr/bin/tail -1 | /usr/bin/t
         /sbin/btrfs sub del /mnt/gentoo/btrbk_snapshots/HOME/* | tee -a /tmp/clean_space_emergency.log;
         /sbin/btrfs sub del /mnt/gentoo/btrbk_snapshots/ROOT/* | tee -a /tmp/clean_space_emergency.log;
         /sbin/btrfs sub del /mnt/gentoo/btrbk_snapshots/BOOT_ESP/* | tee -a /tmp/clean_space_emergency.log;
-        /sbin/btrfs sub del /mnt/gentoo/refind_btrfs_rw_snapshots/* | tee -a /tmp/clean_space_emergency.log;
+        /sbin/btrfs sub del /mnt/gentoo/.refind_btrfs_rw_snapshots/* | tee -a /tmp/clean_space_emergency.log;
     else
         while IFS= read -r d;do
             if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list / | /bin/grep HOME | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
                 /sbin/btrfs sub del "$d";
             fi
-        done < <(/usr/bin/find /mnt/gentoo/btrbk_snapshots/HOME/* -prune -type d) | tee -a /tmp/clean_space_emergency.log
+        done < <(/usr/bin/find /mnt/gentoo/btrbk_snapshots/HOME/ -prune -type d) | tee -a /tmp/clean_space_emergency.log
         while IFS= read -r d;do
             if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list / | /bin/grep ROOT | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
                 /sbin/btrfs sub del "$d";
             fi
-        done < <(/usr/bin/find /mnt/gentoo/btrbk_snapshots/ROOT/* -prune -type d) | tee -a /tmp/clean_space_emergency.log
+        done < <(/usr/bin/find /mnt/gentoo/btrbk_snapshots/ROOT/ -prune -type d) | tee -a /tmp/clean_space_emergency.log
         while IFS= read -r d;do
             if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list / | /bin/grep BOOT_ESP | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]];then
                 /sbin/btrfs sub del "$d";
             fi
-        done < <(/usr/bin/find /mnt/gentoo/btrbk_snapshots/BOOT_ESP/* -prune -type d) | tee -a /tmp/clean_space_emergency.log
+        done < <(/usr/bin/find /mnt/gentoo/btrbk_snapshots/BOOT_ESP/ -prune -type d) | tee -a /tmp/clean_space_emergency.log
         while IFS= read -r d;do
             if [[ -d "$d" && "$d" != *"$(/sbin/btrfs subvol list / | /bin/grep refind_btrfs_rw_snapshots | /usr/bin/awk '{print $9}' | /usr/bin/tail -1)"* ]]; then
                 /sbin/btrfs sub del "$d";
             fi
-        done < <(/usr/bin/find /mnt/gentoo/refind_btrfs_rw_snapshots/* -prune -type d) | tee -a /tmp/clean_space_emergency.log
+        done < <(/usr/bin/find /mnt/gentoo/.refind_btrfs_rw_snapshots/ -prune -type d) | tee -a /tmp/clean_space_emergency.log
         if [ "$1" == 'force' ]; then
             echo -e 'Pasta \033[1m/mnt/gentoo/temp_stuff\033[0m'
             ls -lah /mnt/gentoo/temp_stuff/
