@@ -18,6 +18,7 @@ counter_no_data_sdc=0
 show_sda=0
 show_sdb=0
 show_sdc=0
+show_data_seconds=7
 command='if [ "$(pgrep "systemmonitor")" ];then killall systemmonitor &> /dev/null;else /usr/bin/systemmonitor & disown $!;fi'
 while :; do
     data1_read_sda=$(/usr/bin/awk '/\<sda\>/{print $6}' /proc/diskstats);
@@ -92,17 +93,17 @@ while :; do
             counter_no_data_sdc=$((counter_no_data_sdc+1))
         fi
     fi
-    if [ $((counter_no_data_sda+7)) == $counter_sda ]; then
+    if [ $((counter_no_data_sda+show_data_seconds)) == $counter_sda ]; then
         show_sda=0
         counter_sda=0
         counter_no_data_sda=0
     fi
-    if [ $((counter_no_data_sdb+7)) == $counter_sdb ]; then
+    if [ $((counter_no_data_sdb+show_data_seconds)) == $counter_sdb ]; then
         show_sdb=0
         counter_sdb=0
         counter_no_data_sdb=0
     fi
-    if [ $((counter_no_data_sdc+7)) == $counter_sdc ]; then
+    if [ $((counter_no_data_sdc+show_data_seconds)) == $counter_sdc ]; then
         show_sdc=0
         counter_sdc=0
         counter_no_data_sdc=0
@@ -110,7 +111,9 @@ while :; do
     if [ "$DATA" != "$DATA_last" ];then
         /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[@]}"
         DATA_last="$DATA"
+        /usr/bin/sleep 0.5
+    else
+        /usr/bin/sleep 2
     fi
-    /bin/sleep 1
 done
 

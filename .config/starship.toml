@@ -28,6 +28,7 @@ ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
 deleted = "x"
+disabled = true
 
 
 # Last param in the first line/row
@@ -71,14 +72,14 @@ disabled = true
 [character]
 success_symbol = " [╰─\uf30d ]()"
 error_symbol = " [×](bold purple)"
-#use_symbol_for_status = true
 
 # SYMBOLS
 [status]
 symbol = "🔴"
 format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
 map_symbol = true
-disabled = false
+disabled = true
 
 [swift]
 symbol = "ﯣ "
+disabled = true

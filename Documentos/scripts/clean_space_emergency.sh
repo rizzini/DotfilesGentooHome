@@ -1,17 +1,17 @@
 #!/bin/bash
 /bin/rm -f /tmp/clean_space_emergency.log
 if [ "$EUID" -ne 0 ];then
-    /usr/bin/echo "Please run as root";
+    /usr/bin/echo "No root, no way.." | tee -a /tmp/clean_space_emergency.log;
     exit 1;
 fi
 if [ "$1" == 'force' ];then
     /bin/rm -f /tmp/clean_space_emergency.sh.lock;
     if [[ -n "$2" && "$2" != 'allhdd' && "$2" != 'allssd' ]];then
-        echo 'O segundo argumento, se existir, deve ser "allssd" ou "allhdd"';
+        echo 'O segundo argumento, se existir, deve ser "allssd" ou "allhdd"' | tee -a /tmp/clean_space_emergency.log;
         exit 1;
     fi
 elif [[ -n "$1" && "$1" != 'force' ]];then
-    echo 'O primeiro argumento, se existir, deve ser "force"';
+    echo 'O primeiro argumento, se existir, deve ser "force"' | tee -a /tmp/clean_space_emergency.log;
     exit 1;
 fi
 if test -e "/tmp/clean_space_emergency.sh.lock";then
