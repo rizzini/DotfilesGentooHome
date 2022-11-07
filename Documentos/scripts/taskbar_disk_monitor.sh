@@ -9,7 +9,7 @@ for disk in "${disk_list[@]}"; do
         threshold[$disk]=10;
     fi
 done
-show_data_seconds=7;
+show_data_seconds=5;
 command='if [ "$(pgrep "systemmonitor")" ];then killall systemmonitor &> /dev/null;else /usr/bin/systemmonitor & disown $!;fi';
 while :; do
     DATA=();
@@ -30,17 +30,16 @@ while :; do
             has_data+=("$disk");
         fi
     done
-    if [ ! "$has_data" ];then
-        DATA='| A | Sem atividade de disco | | '$command' |'
-    else
-        for disk in "${disk_list[@]}"; do
-            if [[ "${has_data[*]}" == *"$disk"* ]]; then
-                show[$disk]=1;
-            else
-                counter_no_data[$disk]=$((counter_no_data[$disk]+1));
-            fi
-        done
-    fi
+    for disk in "${disk_list[@]}"; do
+        if [ ! "$has_data" ];then
+            DATA='| A | Sem atividade de disco | | '$command' |'
+        fi
+        if [[ "${has_data[*]}" == *"$disk"* ]]; then
+            show[$disk]=1;
+        else
+            counter_no_data[$disk]=$((counter_no_data[$disk]+1));
+        fi
+    done
     for disk in "${disk_list[@]}"; do
         if [ $((counter_no_data[$disk]+show_data_seconds)) == ${counter[$disk]} ]; then
             show[$disk]=0;
