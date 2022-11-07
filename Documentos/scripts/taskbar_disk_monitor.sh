@@ -14,7 +14,7 @@ command='if [ "$(pgrep "systemmonitor")" ];then killall systemmonitor &> /dev/nu
 while :; do
     DATA=();
     has_data=();
-    for disk in "${disk_list[@]}"; do
+    for disk in "${disk_list[@]}"; do #todo -> get stats of all present block devices in a single loop iteration
         counter[$disk]=$((counter[$disk]+1));
         data1_read[$disk]=$(/usr/bin/awk '/\<'"$disk"'\>/{print $6}' /proc/diskstats);
         data1_write[$disk]=$(/usr/bin/awk '/\<'"$disk"'\>/{print $10}' /proc/diskstats);
