@@ -1,6 +1,9 @@
 [AC]
 icon=battery-charging
 
+[AC][DPMSControl]
+idleTime=60
+
 [AC][DimDisplay]
 idleTime=300000
 
