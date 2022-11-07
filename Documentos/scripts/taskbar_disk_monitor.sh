@@ -32,9 +32,6 @@ while :; do
     done
     if [ ! "$has_data" ];then
         DATA='| A | Sem atividade de disco | | '$command' |'
-            counter_no_data_sda=$((counter_no_data_sda+1));
-            counter_no_data_sdb=$((counter_no_data_sdb+1));
-            counter_no_data_sdc=$((counter_no_data_sdc+1));
     else
         for disk in "${disk_list[@]}"; do
             if [[ "${has_data[*]}" == *"$disk"* ]]; then
