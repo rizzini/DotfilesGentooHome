@@ -1,20 +1,20 @@
 #!/bin/bash
 export LANG=C LC_ALL=C;
-readarray -t disk_list < <(/bin/lsblk -d | /usr/bin/awk '/^sd/ {print $1}');
 declare -A data1_read data1_write read write threshold show counter counter_no_data;
-for disk in "${disk_list[@]}"; do
-    if [ "$disk" == "sdc" ]; then # eventually, change this to something that checks what type of storage device each block device corresponds to. The threshold highly depends on that type.
-        threshold[$disk]=2;
-    else
-        threshold[$disk]=10;
-    fi
-done
 show_data_seconds=5;
 command='if [ "$(pgrep "systemmonitor")" ];then killall systemmonitor &> /dev/null;else /usr/bin/systemmonitor & disown $!;fi';
 while :; do
+    readarray -t disk_list < <(/bin/lsblk -d | /usr/bin/awk '/^sd/ {print $1}');
+    for disk in "${disk_list[@]}"; do
+        if [[ "$(lsblk -do name,tran | grep "$disk")" == *"usb"* ]]; then
+            threshold[$disk]=1;
+        else
+            threshold[$disk]=10;
+        fi
+    done
     DATA=();
     has_data=();
-    for disk in "${disk_list[@]}"; do #todo -> get stats of all present block devices in a single loop iteration
+    for disk in "${disk_list[@]}"; do
         counter[$disk]=$((counter[$disk]+1));
         data1_read[$disk]=$(/usr/bin/awk '/\<'"$disk"'\>/{print $6}' /proc/diskstats);
         data1_write[$disk]=$(/usr/bin/awk '/\<'"$disk"'\>/{print $10}' /proc/diskstats);
