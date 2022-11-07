@@ -4,9 +4,9 @@ declare -A data1_read data1_write read write threshold show counter counter_no_d
 show_data_seconds=5;
 command='if [ "$(pgrep "systemmonitor")" ];then killall systemmonitor &> /dev/null;else /usr/bin/systemmonitor & disown $!;fi';
 while :; do
-    readarray -t disk_list < <(/bin/lsblk -d | /usr/bin/awk '/^sd/ {print $1}');
+    readarray -t disk_list < <(/usr/bin/awk '(!/[0-9]$/) && (NR>2) {print $4}' /proc/partitions);
     for disk in "${disk_list[@]}"; do
-        if [[ "$(lsblk -do name,tran | grep "$disk")" == *"usb"* ]]; then
+        if [[ "$(/bin/lsblk -do name,tran | /bin/grep "$disk")" == *"usb"* ]]; then
             threshold[$disk]=1;
         else
             threshold[$disk]=10;
