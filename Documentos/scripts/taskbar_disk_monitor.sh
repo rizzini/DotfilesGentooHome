@@ -31,7 +31,7 @@ while :; do
     done
     for disk in "${disk_list[@]}"; do
         if [ ! "$has_data" ];then
-            DATA='| A | Sem atividade de disco | | '$command' |'
+            DATA='| A | Sem atividade de disco | | '$command' |';
         fi
         if [[ "${has_data[*]}" == *"$disk"* ]]; then
             show[$disk]=1;
@@ -40,7 +40,7 @@ while :; do
         fi
     done
     for disk in "${disk_list[@]}"; do
-        if [ $((counter_no_data[$disk]+9)) == ${counter[$disk]} ]; then
+        if [ $((counter_no_data[$disk]+7)) == ${counter[$disk]} ]; then
             show[$disk]=0;
             counter[$disk]=0;
             counter_no_data[$disk]=0;
@@ -49,8 +49,6 @@ while :; do
     if [ "$DATA" != "$DATA_last" ];then
         /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[@]}";
         DATA_last="$DATA";
-        /usr/bin/sleep 0.3;
-    else
-        /usr/bin/sleep 2;
     fi
+    /usr/bin/sleep 1;
 done
