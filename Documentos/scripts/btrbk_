@@ -41,14 +41,20 @@ while :; do
 done
 /usr/bin/tree -d -L 2  -I 'CACHE|bin|boot|ccache|dev|etc|home|lib|lib64|lost+found|media|mnt|opt|proc|root|run|sbin|srv|sys|tmp|usr|var|rwsnap*|lucas' /mnt/gentoo/ | /usr/bin/tee /mnt/backup/btrfs_scheme.txt
 if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_home.conf -q run; then
-    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: HOME";
+    if ! btrbk  -c /etc/btrbk/btrbk_home.conf -v clean /mnt/backup/HOME; then
+        /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: HOME";
+    fi
 fi
 if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_root.conf -q run; then
-    /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: ROOT.";
+    if ! btrbk  -c /etc/btrbk/btrbk_root.conf -v clean /mnt/backup/ROOT; then
+        /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: ROOT.";
+    fi
 fi
 if /usr/bin/rsync -aAXvz /boot/efi/* /mnt/gentoo/BOOT_ESP/; then
     if ! /usr/bin/btrbk -c /etc/btrbk/btrbk_boot_esp.conf -q run; then
-        /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: BOOT_ESP.";
+        if ! btrbk  -c /etc/btrbk/btrbk_boot_esp.conf -v clean /mnt/backup/BOOT_ESP; then
+            /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro no BTRBK. Subvolume: BOOT_ESP.";
+        fi
     fi
 else
     /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao copiar dados da partição EFI para o subvolume BOOT_ESP.";
@@ -57,5 +63,3 @@ if ! /usr/bin/refind-btrfs --run-mode one-time; then
     /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao executar refind-btrfs.";
 fi
 /bin/rm /tmp/btrbk_.sh.lock;
-
-

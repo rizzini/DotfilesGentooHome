@@ -15,8 +15,9 @@ alias grep='/bin/grep --color=auto';
 alias syadm="/usr/bin/sudo /usr/bin/yadm -Y /etc/yadm";
 #alias cat='/usr/bin/bat -p ';
 # alias cat="highlight -O ansi --force"
-alias kmake='k /etc/portage/make.conf'
-alias kuse='k /etc/portage/package.use/package.use'
-alias kwords='k /etc/portage/package.accept_keywords/zz-autounmask'
-alias kmask='k /etc/portage/package.mask/package.mask'
+alias kmake='k /etc/portage/make.conf';
+alias kuse='k /etc/portage/package.use/package.use';
+alias kwords='k /etc/portage/package.accept_keywords/zz-autounmask';
+alias kmask='k /etc/portage/package.mask/package.mask';
+alias bv='yt-dlp (xclip -o)';
 

@@ -33,7 +33,7 @@ while :; do
         else
             counter_no_data[$disk]=$((counter_no_data[$disk]+1));
         fi
-        if [ $((counter_no_data[$disk]+4)) == ${counter[$disk]} ]; then
+        if [ $((counter_no_data[$disk]+7)) == ${counter[$disk]} ]; then
             show[$disk]=0;
             counter[$disk]=0;
             counter_no_data[$disk]=0;
