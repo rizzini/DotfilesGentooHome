@@ -28,24 +28,20 @@ while :; do
             DATA+='| A | '${disk}'\| R: <b>'${read[$disk]}'MB/s</b> W: <b>'${write[$disk]}'MB/s</b> | | '$command' |';
             has_data+=("$disk");
         fi
-    done
-    for disk in "${disk_list[@]}"; do
-        if [ ! "$has_data" ];then
-            DATA='| A | Sem atividade de disco | | '$command' |';
-        fi
         if [[ "${has_data[*]}" == *"$disk"* ]]; then
             show[$disk]=1;
         else
             counter_no_data[$disk]=$((counter_no_data[$disk]+1));
         fi
-    done
-    for disk in "${disk_list[@]}"; do
-        if [ $((counter_no_data[$disk]+7)) == ${counter[$disk]} ]; then
+        if [ $((counter_no_data[$disk]+4)) == ${counter[$disk]} ]; then
             show[$disk]=0;
             counter[$disk]=0;
             counter_no_data[$disk]=0;
         fi
     done
+    if [ ! "$has_data" ];then
+        DATA='| A | Sem atividade de disco | | '$command' |';
+    fi
     if [ "$DATA" != "$DATA_last" ];then
         /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_951 org.kde.plasma.doityourselfbar.pass "${DATA[@]}";
         DATA_last="$DATA";
