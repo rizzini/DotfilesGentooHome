@@ -1,7 +1,7 @@
 [Desktop Entry]
 Comment[pt_BR]=
 Comment=
-Exec='WINEPREFIX=/mnt/gentoo/Games/Need for Speed Most Wanted Black Edition/prefixo' MANGOHUD_CONFIG=fps_only mangohud --dlsym /opt/wine-tkg-staging-fsync-git-opt/bin/wine speed.exe -mod
+Exec=env 'WINEPREFIX=/mnt/gentoo/Games/Need for Speed Most Wanted Black Edition/' MANGOHUD_CONFIG=fps_only gamemoderun mangohud --dlsym wine speed.exe
 GenericName[pt_BR]=
 GenericName=
 Icon=/mnt/gentoo/Games/Need for Speed Most Wanted Black Edition/NFSMW_icon.ico

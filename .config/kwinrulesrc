@@ -486,8 +486,8 @@ wmclasscomplete=true
 wmclassmatch=1
 
 [General]
-count=9
-rules=1,2,3,4,5,6,7,8,9
+count=10
+rules=1,2,3,4,5,6,7,8,9,a76fdfc5-0f74-49e8-ada0-ef9d9a2db479
 
 [a0a0e2c0-fef1-4087-b006-bc4730991325]
 Description=Configurações de janela para Ion Fury
@@ -498,6 +498,21 @@ sizerule=2
 title=Ion Fury
 titlematch=1
 wmclass=fury_nodrm.bin fury_nodrm.bin
+wmclasscomplete=true
+wmclassmatch=1
+
+[a76fdfc5-0f74-49e8-ada0-ef9d9a2db479]
+Description=Configurações de janela para Moonscars
+blockcompositing=true
+blockcompositingrule=2
+ignoregeometry=true
+ignoregeometryrule=2
+position=24,238
+positionrule=3
+size=1364,795
+sizerule=3
+title=Moonscars
+wmclass=moonscars.exe moonscars.exe
 wmclasscomplete=true
 wmclassmatch=1
 
