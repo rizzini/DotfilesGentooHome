@@ -3,7 +3,7 @@ command='if [ "$(pgrep "htop")" ];then /usr/bin/killall htop;else /usr/bin/alacr
 threshold=70
 while :; do
     cpu_temp=$(/usr/bin/sensors | /bin/grep 'Package id 0:' | /usr/bin/tail -1 | /usr/bin/cut -c 17-18)
-    cpu_usage=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print ($2+$4-u1) * 100 / (t-t1); }' <(grep 'cpu ' /proc/stat) <(sleep 1;grep 'cpu ' /proc/stat))
+    cpu_usage=$(/usr/bin/awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print ($2+$4-u1) * 100 / (t-t1); }' <(/bin/grep 'cpu ' /proc/stat) <(/usr/bin/sleep 1;/bin/grep 'cpu ' /proc/stat))
     cpu_usage=${cpu_usage%.*}
     if [ $cpu_temp -ge $threshold ]; then
         DATA='| C | CPU: <b>'$cpu_usage'%</b> \| Temp: <b>'$cpu_temp'ºc</b> | | '$command' |'
@@ -14,5 +14,5 @@ while :; do
         /usr/bin/qdbus org.kde.plasma.doityourselfbar /id_954 org.kde.plasma.doityourselfbar.pass "$DATA"
         DATA_last="$DATA"
     fi
-    sleep 0.5
+    /usr/bin/sleep 0.5
 done

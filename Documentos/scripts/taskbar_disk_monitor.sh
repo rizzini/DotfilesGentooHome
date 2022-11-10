@@ -3,9 +3,10 @@ export LANG=C LC_ALL=C;
 declare -A data1_read data1_write read write threshold show counter counter_no_data;
 command='if [ "$(pgrep "systemmonitor")" ];then killall systemmonitor &> /dev/null;else /usr/bin/systemmonitor & disown $!;fi';
 while :; do
-    readarray -t disk_list < <(/usr/bin/awk '(!/[0-9]$/) && (NR>2) {print $4}' /proc/partitions);
+    readarray -t disk_list < <(/usr/bin/awk '(!/[0-9]$/)&&(NR>2){print $4}' /proc/partitions);
     DATA=();
     has_data=();
+
     for disk in "${disk_list[@]}"; do
         counter[$disk]=$((counter[$disk]+1));
         data1_read[$disk]=$(/usr/bin/awk '/\<'"$disk"'\>/{print $6}' /proc/diskstats);
