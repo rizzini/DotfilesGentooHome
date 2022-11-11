@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ "$EUID" -ne 0 ]; then
     /bin/echo "No root, no deal..";
-    exit;
+    exit 1;
 fi
 varrun="/run/meu_android"
 BRIDGE="android_bridge0"
@@ -37,7 +37,6 @@ ifup() {
 
 start() {
     [ ! -f "${varrun}/network_up" ] || [ "${1}" = "force" ] || { echo "android_bridge0 is already running"; exit 1; }
-
     if [ -d /sys/class/net/${BRIDGE} ]; then
         stop force 2>/dev/null || true
     fi
@@ -58,9 +57,7 @@ start() {
             restorecon "${varrun}"
         fi
     fi
-
     ifup "${BRIDGE}" "${IPV4_ADDR}" "${IPV4_NETMASK}"
-
     IPV4_ARG=""
     if [ -n "${IPV4_ADDR}" ] && [ -n "${IPV4_NETMASK}" ] && [ -n "${IPV4_NETWORK}" ]; then
         echo 1 > /proc/sys/net/ipv4/ip_forward
@@ -81,7 +78,6 @@ start() {
 
 stop() {
     [ -f "${varrun}/network_up" ] || [ "${1}" = "force" ] || { echo "android_bridge0 isn't running"; exit 1; }
-
     if [ -d /sys/class/net/${BRIDGE} ]; then
         ifdown ${BRIDGE}
         iptables ${use_iptables_lock} -D INPUT -i ${BRIDGE} -p udp --dport 67 -j ACCEPT -m comment --comment "android_bridge0 bridge do meu_android"
@@ -96,7 +92,6 @@ stop() {
         fi
         ls /sys/class/net/${BRIDGE}/brif/* > /dev/null 2>&1 || ip link delete "${BRIDGE}"
     fi
-
     rm -f "${varrun}/network_up"
 }
 
@@ -105,7 +100,7 @@ if ! pgrep -f -- 'qemu-system-x86_64 -name Android'; then
     for i in $(lsusb -d '1908:2310' | awk '{print $2}{print $4}' | tr -d ':'); do
         webcam+=("$i");
     done
-    if [[ ${webcam[0]} && ${webcam[1]} ]];then
+    if [[ ${webcam[0]} && ${webcam[1]} ]]; then
         /bin/chgrp qemu /dev/bus/usb/"${webcam[0]}"/"${webcam[1]}";
     else
         echo "Webcam não detectada..";
