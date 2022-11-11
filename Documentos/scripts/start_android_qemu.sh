@@ -5,9 +5,9 @@ if [ "$EUID" -ne 0 ]; then
 fi
 varrun="/run/meu_android"
 BRIDGE="android_bridge0"
-IPV4_ADDR="192.168.250.1"
-IPV4_NETMASK="255.255.255.0"
-IPV4_NETWORK="192.168.250.1/24"
+IPV4_ADDR="192.0.0.1"
+IPV4_NETMASK="255.255.255.252"
+IPV4_NETWORK="192.0.0.1/30"
 IPV4_BROADCAST="0.0.0.0"
 IPV4_NAT="true"
 use_iptables_lock="-w"
@@ -48,7 +48,7 @@ start() {
             stop force
         fi
     }
-    trap cleanup EXIT HUP INT TERM
+#     trap cleanup EXIT HUP INT TERM
     set -e
     [ ! -d "/sys/class/net/${BRIDGE}" ] && ip link add dev "${BRIDGE}" type bridge
     if [ ! -d "${varrun}" ]; then
@@ -120,13 +120,13 @@ if ! pgrep -f -- 'qemu-system-x86_64 -name Android'; then
                         -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
                         -device virtio-vga-gl \
                         -display gtk,gl=on \
-                        -hda /mnt/gentoo/temp_stuff/androidx86_hda.img' &> /dev/null & disown $!
+                        -hda /home/lucas/.android/androidx86_hda.img' &> /dev/null & disown $!
     sleep 10;
-    while ! ping 192.168.250.100 -w 1 -c 1; do
+    while ! ping 192.0.0.2 -w 1 -c 1; do
         echo 'Aguardando VM..';
         sleep 2;
     done
-    adb connect 192.168.250.100:5555 &
+    adb connect 192.0.0.2:5555 &
     while pgrep -f -- 'qemu-system-x86_64 -name Android'; do
         sleep 3;
     done
