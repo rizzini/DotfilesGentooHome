@@ -86,7 +86,7 @@ stop() {
     fi
     rm -f "${varrun}/network_up"
 }
-if ! pgrep -f -- 'qemu-system-x86_64 -name Android'; then
+if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
     start
     for i in $(lsusb -d '1908:2310' | awk '{print $2}{print $4}' | tr -d ':'); do
         webcam+=("$i");
@@ -102,7 +102,7 @@ if ! pgrep -f -- 'qemu-system-x86_64 -name Android'; then
                         -name Android \
                         -enable-kvm \
                         -m 2048 \
-                        -smp 3 \
+                        -smp 4 \
                         -cpu host \
                         -audiodev pa,id=pa -audio pa,model=es1370 \
                         -usbdevice tablet \
