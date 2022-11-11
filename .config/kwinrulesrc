@@ -41,20 +41,17 @@ wmclasscomplete=true
 wmclassmatch=1
 
 [11]
-Description=Valfaris
+Description=Configurações de janela para QEMU (Android)
 blockcompositing=true
-blockcompositingrule=2
 ignoregeometry=true
 ignoregeometryrule=2
 position=15,289
-positionrule=3
-size=1282,740
+size=388,695
 sizerule=3
-title=Valfaris
-titlematch=1
-wmclass=valfaris.exe valfaris.exe
+title=QEMU (Android)
+wmclass=qemu qemu-system-x86_64
 wmclasscomplete=true
-wmclassmatch=2
+wmclassmatch=1
 
 [15093030-2845-4cdf-875d-d88f92614b91]
 Description=Configurações de aplicativo para dolphin-emu
@@ -501,8 +498,8 @@ wmclasscomplete=true
 wmclassmatch=1
 
 [General]
-count=10
-rules=1,2,3,4,5,6,7,8,9,10
+count=11
+rules=1,2,3,4,5,6,7,8,9,10,11
 
 [a0a0e2c0-fef1-4087-b006-bc4730991325]
 Description=Configurações de janela para Ion Fury
@@ -528,6 +525,17 @@ size=1364,795
 sizerule=3
 title=Moonscars
 wmclass=moonscars.exe moonscars.exe
+wmclasscomplete=true
+wmclassmatch=1
+
+[af42e89e-e6db-4097-9668-44b6813a90cc]
+Description=Configurações de janela para QEMU (Android)
+ignoregeometry=true
+ignoregeometryrule=2
+size=388,695
+sizerule=3
+title=QEMU (Android)
+wmclass=qemu qemu-system-x86_64
 wmclasscomplete=true
 wmclassmatch=1
 

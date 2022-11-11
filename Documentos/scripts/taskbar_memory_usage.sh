@@ -38,13 +38,13 @@ while :;do
     if /bin/grep -q 'ENABLED=no' /etc/ufw/ufw.conf; then
         DATA='| C | Firewall <b>desativado</b> \| RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | | '$command' |';
     elif [ "$(/usr/bin/pgrep easyeffects)" ]; then
-        if [ $mem_used -ge 6000000 ];then
+        if [ $mem_used -ge 7000000 ];then
             DATA='| B | EasyEffects <b>ligado</b> \| RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | | '$command' |'
         else
             DATA='| A | EasyEffects <b>ligado</b> \| RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | | '$command' |'
         fi
     else
-        if [ $mem_used -ge 6000000 ];then
+        if [ $mem_used -ge 7000000 ];then
             DATA='| B | Consumo RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | | '$command' |'
         else
             DATA='| A | Consumo RAM: <b>'$(size $mem_used)'</b> \| Swap: <b>'$(size $swap_used)'</b> | | '$command' |'
