@@ -118,7 +118,13 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
         sleep 2;
     done
     adb connect 192.0.0.2:5555 &
-    while pgrep -f -- 'qemu-system-x86_64 -name Android'; do
+    sleep 1
+    while [ "$(adb shell dumpsys battery | awk '/\<'"level"'\>/{print $2}')" == "0" ]; do
+        adb shell dumpsys battery set level 80;
+        sleep 5;
+    done
+
+    while pgrep -f 'qemu-system-x86_64 -name Android'; do
         sleep 3;
     done
     stop
