@@ -118,7 +118,7 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
         stop
         exit 1;
     fi
-    sleep 10;
+    sleep 13;
     ok=0
     while pgrep -f 'qemu-system-x86_64 -name Android'; do
         counter=$((counter+1))
@@ -126,7 +126,9 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
             if ping 192.0.0.2 -w 1 -c 1; then
                 if [[ "$(timeout 5 adb connect 192.0.0.2:5555)" != *"offline"* ]]; then
                     if adb shell dumpsys battery set level 80; then
-                        ok=1
+                        if [ "$(adb shell dumpsys battery | awk '/\<'"level"'\>/{print $2}')" != '0' ]; then
+                            ok=1
+                        fi
                     fi
                 fi
             fi
