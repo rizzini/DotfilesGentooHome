@@ -107,7 +107,6 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
                         -nodefaults \
                         -audiodev pa,id=pa -audio pa,model=es1370 \
                         -usbdevice tablet \
-                        -serial mon:stdio \
                         -netdev bridge,id=hn0,br=android_bridge0 -device e1000,netdev=hn0,id=nic1 \
                         -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
                         -device virtio-vga-gl \
