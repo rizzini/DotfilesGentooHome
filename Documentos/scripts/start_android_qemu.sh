@@ -111,32 +111,32 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
                         -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
                         -device virtio-vga-gl \
                         -display gtk,gl=on,show-cursor=on,show-menubar=off \
-                        -hda /home/lucas/.android/androidx86_hda.img' &
+                        -hda /home/lucas/.android/androidx86_hda.img' &> /dev/null &
     if [ "$?" != '0' ];then
         /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao executar a VM..";
         stop
         exit 1;
     fi
     sleep 10;
-    while ! ping 192.0.0.2 -w 1 -c 1; do
-        if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
-            stop
-            exit;
-        fi
-        echo 'Aguardando VM..';
-        sleep 2;
-    done
-    adb connect 192.0.0.2:5555 &
-    sleep 3
-    while [ "$(adb shell dumpsys battery | awk '/\<'"level"'\>/{print $2}')" == "0" ]; do
-        if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
-            stop
-            exit;
-        fi
-        adb shell dumpsys battery set level 80;
-        sleep 5;
-    done
+    vm=0
+    adb=0
+    battery=0
     while pgrep -f 'qemu-system-x86_64 -name Android'; do
+        counter=$((counter+1))
+        if [[ $((counter%2)) -eq 0 && "$vm" == '0' || "$adb" == '0' || "$battery" == '0' ]]; then
+            if ping 192.0.0.2 -w 1 -c 1; then
+                vm=1
+                if [ "$adb" == '0' ] && timeout 3 adb connect 192.0.0.2:5555; then
+                    adb=1
+                    if [ "$battery" == '0' ] && adb shell dumpsys battery set level 80; then
+                        battery=1
+                    fi
+                fi
+            fi
+        fi
+        if [ $counter -eq 10 ];then
+            counter=0
+        fi
         sleep 3;
     done
     stop
