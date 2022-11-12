@@ -104,6 +104,7 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
                         -m 2048 \
                         -smp 4 \
                         -cpu host \
+                        -nodefaults \
                         -audiodev pa,id=pa -audio pa,model=es1370 \
                         -usbdevice tablet \
                         -serial mon:stdio \
@@ -118,12 +119,11 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
         sleep 2;
     done
     adb connect 192.0.0.2:5555 &
-    sleep 1
+    sleep 3
     while [ "$(adb shell dumpsys battery | awk '/\<'"level"'\>/{print $2}')" == "0" ]; do
         adb shell dumpsys battery set level 80;
         sleep 5;
     done
-
     while pgrep -f 'qemu-system-x86_64 -name Android'; do
         sleep 3;
     done
