@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 if [ "$EUID" -ne 0 ]; then
     /bin/echo "No root, no deal..";
     exit 1;
@@ -118,18 +119,14 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
         exit 1;
     fi
     sleep 10;
-    vm=0
-    adb=0
-    battery=0
+    ok=0
     while pgrep -f 'qemu-system-x86_64 -name Android'; do
         counter=$((counter+1))
-        if [[ $((counter%2)) -eq 0 && "$vm" == '0' || "$adb" == '0' || "$battery" == '0' ]]; then
+        if [[ $((counter%2)) -eq 0 && "$ok" == '0' ]]; then
             if ping 192.0.0.2 -w 1 -c 1; then
-                vm=1
-                if [ "$adb" == '0' ] && timeout 3 adb connect 192.0.0.2:5555; then
-                    adb=1
-                    if [ "$battery" == '0' ] && adb shell dumpsys battery set level 80; then
-                        battery=1
+                if [[ "$(timeout 5 adb connect 192.0.0.2:5555)" != *"offline"* ]]; then
+                    if adb shell dumpsys battery set level 80; then
+                        ok=1
                     fi
                 fi
             fi
