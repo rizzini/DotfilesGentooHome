@@ -110,7 +110,7 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
                         -netdev bridge,id=hn0,br=android_bridge0 -device e1000,netdev=hn0,id=nic1 \
                         -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
                         -device virtio-vga-gl \
-                        -display gtk,gl=on \
+                        -display gtk,gl=on,show-cursor=on,grab-on-hover=off \
                         -hda /home/lucas/.android/androidx86_hda.img' &> /dev/null & disown $!
     sleep 10;
     while ! ping 192.0.0.2 -w 1 -c 1; do
