@@ -98,7 +98,7 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
         /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "QEMU: Webcam não detectada..";
         exit 1;
     fi
-    su - lucas -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 qemu-system-x86_64 \
+    su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 qemu-system-x86_64 \
                         -name Android \
                         -enable-kvm \
                         -m 2048 \
@@ -110,16 +110,29 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
                         -netdev bridge,id=hn0,br=android_bridge0 -device e1000,netdev=hn0,id=nic1 \
                         -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
                         -device virtio-vga-gl \
-                        -display gtk,gl=on,show-cursor=on,grab-on-hover=off \
-                        -hda /home/lucas/.android/androidx86_hda.img' &> /dev/null & disown $!
+                        -display gtk,gl=on,show-cursor=on,show-menubar=off \
+                        -hda /home/lucas/.android/androidx86_hda.img' &
+    if [ "$?" != '0' ];then
+        /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao executar a VM..";
+        stop
+        exit 1;
+    fi
     sleep 10;
     while ! ping 192.0.0.2 -w 1 -c 1; do
+        if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
+            stop
+            exit;
+        fi
         echo 'Aguardando VM..';
         sleep 2;
     done
     adb connect 192.0.0.2:5555 &
     sleep 3
     while [ "$(adb shell dumpsys battery | awk '/\<'"level"'\>/{print $2}')" == "0" ]; do
+        if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
+            stop
+            exit;
+        fi
         adb shell dumpsys battery set level 80;
         sleep 5;
     done
@@ -129,5 +142,4 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
     stop
 else
     pkill -f 'qemu-system-x86_64 -name Android'
-    stop
 fi
