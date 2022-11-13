@@ -60,26 +60,16 @@ start() {
             iptables "${use_iptables_lock}" -t nat -A POSTROUTING -s "${IPV4_NETWORK}" ! -d "${IPV4_NETWORK}" -j MASQUERADE
         fi
     fi
-    iptables "${use_iptables_lock}" -I INPUT -i "${BRIDGE}" -p udp --dport 67 -j ACCEPT
-    iptables "${use_iptables_lock}" -I INPUT -i "${BRIDGE}" -p tcp --dport 67 -j ACCEPT
-    iptables "${use_iptables_lock}" -I INPUT -i "${BRIDGE}" -p udp --dport 53 -j ACCEPT
-    iptables "${use_iptables_lock}" -I INPUT -i "${BRIDGE}" -p tcp --dport 53 -j ACCEPT
     iptables "${use_iptables_lock}" -I FORWARD -i "${BRIDGE}" -j ACCEPT
     iptables "${use_iptables_lock}" -I FORWARD -o "${BRIDGE}" -j ACCEPT
-    iptables "${use_iptables_lock}" -t mangle -A POSTROUTING -o "${BRIDGE}" -p udp -m udp --dport 68 -j CHECKSUM --checksum-fill
     touch "${varrun}/network_up"
     FAILED=0
 }
 stop() {
     if [ -d /sys/class/net/${BRIDGE} ]; then
         ifdown ${BRIDGE}
-        iptables ${use_iptables_lock} -D INPUT -i ${BRIDGE} -p udp --dport 67 -j ACCEPT
-        iptables ${use_iptables_lock} -D INPUT -i ${BRIDGE} -p tcp --dport 67 -j ACCEPT
-        iptables ${use_iptables_lock} -D INPUT -i ${BRIDGE} -p udp --dport 53 -j ACCEPT
-        iptables ${use_iptables_lock} -D INPUT -i ${BRIDGE} -p tcp --dport 53 -j ACCEPT
         iptables ${use_iptables_lock} -D FORWARD -i ${BRIDGE} -j ACCEPT
         iptables ${use_iptables_lock} -D FORWARD -o ${BRIDGE} -j ACCEPT
-        iptables ${use_iptables_lock} -t mangle -D POSTROUTING -o ${BRIDGE} -p udp -m udp --dport 68 -j CHECKSUM --checksum-fill
         if [ -n "${IPV4_NETWORK}" ] && [ "${IPV4_NAT}" = "true" ]; then
             iptables ${use_iptables_lock} -t nat -D POSTROUTING -s ${IPV4_NETWORK} ! -d ${IPV4_NETWORK} -j MASQUERADE
         fi
@@ -87,8 +77,9 @@ stop() {
     fi
     rm -f "${varrun}/network_up"
 }
-if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
+if ! pgrep -f 'qemu-system-i386 -name Android'; then
     start
+    sleep 1
     for i in $(lsusb -d '1908:2310' | awk '{print $2}{print $4}' | tr -d ':'); do
         webcam+=("$i");
     done
@@ -99,7 +90,7 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
         /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "QEMU: Webcam não detectada..";
         exit 1;
     fi
-    su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 qemu-system-x86_64 \
+    su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 qemu-system-i386 \
                         -name Android \
                         -enable-kvm \
                         -m 2048 \
@@ -112,7 +103,7 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
                         -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
                         -device virtio-vga-gl \
                         -display gtk,gl=on,show-cursor=on,show-menubar=off \
-                        -hda /home/lucas/.android/androidx86_hda.img' &> /dev/null &
+                        -hda /home/lucas/.android/androidx86_hda.img' &
     if [ "$?" != '0' ];then
         /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao executar a VM..";
         stop
@@ -120,16 +111,12 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
     fi
     sleep 13;
     ok=0
-    while pgrep -f 'qemu-system-x86_64 -name Android'; do
+    while pgrep -f 'qemu-system-i386 -name Android'; do
         counter=$((counter+1))
         if [[ $((counter%2)) -eq 0 && "$ok" == '0' ]]; then
             if ping 192.0.0.2 -w 1 -c 1; then
-                if [[ "$(timeout 5 adb connect 192.0.0.2:5555)" != *"offline"* ]]; then
-                    if adb shell dumpsys battery set level 80; then
-                        if [ "$(adb shell dumpsys battery | awk '/\<'"level"'\>/{print $2}')" != '0' ]; then
-                            ok=1
-                        fi
-                    fi
+                if timeout 5 adb connect 192.0.0.2:5555; then
+                    ok=1
                 fi
             fi
         fi
@@ -140,5 +127,5 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
     done
     stop
 else
-    pkill -f 'qemu-system-x86_64 -name Android'
+    pkill -f 'qemu-system-i386 -name Android'
 fi

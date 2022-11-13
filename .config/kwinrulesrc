@@ -51,7 +51,7 @@ sizerule=2
 title=QEMU (Android)
 titlematch=1
 types=1
-wmclass=qemu qemu-system-x86_64
+wmclass=qemu qemu-system-i386
 wmclasscomplete=true
 wmclassmatch=1
 
