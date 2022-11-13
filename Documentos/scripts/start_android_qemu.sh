@@ -55,12 +55,12 @@ if ! pgrep -f 'qemu-system-i386 -name Android'; then
                         -nodefaults \
                         -machine vmport=off \
                         -audiodev pa,id=pa -audio pa,model=es1370 \
-                        -usbdevice tablet -usbdevice keyboard \
+                        -usbdevice tablet \
                         -netdev bridge,id=hn0,br=android_bridge0 -device virtio-net-pci,netdev=hn0,id=nic1 \
                         -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
                         -device virtio-vga-gl \
                         -display gtk,gl=on,show-cursor=on,show-menubar=off,zoom-to-fit=off \
-                        -drive file=/home/lucas/.android/androidx86_hda.img,if=virtio,cache=off' &
+                        -drive file=/mnt/gentoo/.android/androidx86_hda.img,if=virtio,cache=off' &
     sleep 13;
     ok=0
     while pgrep -f 'qemu-system-i386 -name Android'; do
