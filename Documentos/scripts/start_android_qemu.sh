@@ -4,17 +4,9 @@ if [ "$EUID" -ne 0 ]; then
     /bin/echo "No root, no deal..";
     exit 1;
 fi
-ifdown() {
-    ip addr flush dev "${1}"
-    ip link set dev "${1}" down
-}
-ifup() {
-	ip addr add "192.0.0.1/30" broadcast 0.0.0.0 dev "${1}"
-    ip link set dev "${1}" up
-}
-start() {
+start_bridge() {
     if [ -d /sys/class/net/android_bridge0 ]; then
-        stop 2>/dev/null || true
+        stop_bridge 2>/dev/null || true
     fi
     FAILED=1
     set -e
@@ -22,17 +14,19 @@ start() {
     if [ ! -d "/run/meu_android" ]; then
         mkdir -p "/run/meu_android"
     fi
-    ifup android_bridge0 192.0.0.1 255.255.255.252
+	ip addr add "192.0.0.1/30" broadcast 0.0.0.0 dev android_bridge0
+    ip link set dev android_bridge0 up
     echo 1 > /proc/sys/net/ipv4/ip_forward
     iptables -w -t nat -A POSTROUTING -s "192.0.0.1/30" ! -d "192.0.0.1/30" -j MASQUERADE
     iptables -w -I FORWARD -i android_bridge0 -j ACCEPT
     iptables -w -I FORWARD -o android_bridge0 -j ACCEPT
     touch "/run/meu_android/network_up"
-    FAILED=0;
+    FAILED=0
 }
-stop() {
+stop_bridge() {
     if [ -d /sys/class/net/android_bridge0 ]; then
-        ifdown android_bridge0
+        ip addr flush dev android_bridge0
+        ip link set dev android_bridge0 down
         iptables -w -D FORWARD -i android_bridge0 -j ACCEPT
         iptables -w -D FORWARD -o android_bridge0 -j ACCEPT
         iptables -w -t nat -D POSTROUTING -s 192.0.0.1/30 ! -d 192.0.0.1/30 -j MASQUERADE
@@ -41,7 +35,7 @@ stop() {
     rm -f "/run/meu_android/network_up"
 }
 if ! pgrep -f 'qemu-system-i386 -name Android'; then
-    start
+    start_bridge
     sleep 1
     for i in $(lsusb -d '1908:2310' | awk '{print $2}{print $4}' | tr -d ':'); do
         webcam+=("$i");
@@ -69,7 +63,7 @@ if ! pgrep -f 'qemu-system-i386 -name Android'; then
                         -hda /home/lucas/.android/androidx86_hda.img' &
     if [ "$?" != '0' ];then
         /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao executar a VM..";
-        stop
+        stop_bridge
         exit 1;
     fi
     sleep 13;
@@ -88,7 +82,7 @@ if ! pgrep -f 'qemu-system-i386 -name Android'; then
         fi
         sleep 3;
     done
-    stop
+    stop_bridge
 else
     pkill -f 'qemu-system-i386 -name Android'
 fi
