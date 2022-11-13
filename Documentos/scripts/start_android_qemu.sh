@@ -9,7 +9,7 @@ ifdown() {
     ip link set dev "${1}" down
 }
 ifup() {
-	ip addr add "192.0.0.1/30" broadcast "0.0.0.0" dev "${1}"
+	ip addr add "192.0.0.1/30" broadcast 0.0.0.0 dev "${1}"
     ip link set dev "${1}" up
 }
 start() {
@@ -25,19 +25,16 @@ start() {
         fi
     }
     set -e
-    [ ! -d "/sys/class/net/android_bridge0" ] && ip link add dev "android_bridge0" type bridge
+    [ ! -d "/sys/class/net/android_bridge0" ] && ip link add dev android_bridge0 type bridge
     if [ ! -d "/run/meu_android" ]; then
         mkdir -p "/run/meu_android"
-        if which restorecon >/dev/null 2>&1; then
-            restorecon "/run/meu_android"
-        fi
     fi
-    ifup "android_bridge0" "192.0.0.1" "255.255.255.252"
+    ifup android_bridge0 192.0.0.1 255.255.255.252
     IPV4_ARG=""
     echo 1 > /proc/sys/net/ipv4/ip_forward
     iptables -w -t nat -A POSTROUTING -s "192.0.0.1/30" ! -d "192.0.0.1/30" -j MASQUERADE
-    iptables -w -I FORWARD -i "android_bridge0" -j ACCEPT
-    iptables -w -I FORWARD -o "android_bridge0" -j ACCEPT
+    iptables -w -I FORWARD -i android_bridge0 -j ACCEPT
+    iptables -w -I FORWARD -o android_bridge0 -j ACCEPT
     touch "/run/meu_android/network_up"
     FAILED=0
 }
@@ -47,7 +44,7 @@ stop() {
         iptables -w -D FORWARD -i android_bridge0 -j ACCEPT
         iptables -w -D FORWARD -o android_bridge0 -j ACCEPT
         iptables -w -t nat -D POSTROUTING -s 192.0.0.1/30 ! -d 192.0.0.1/30 -j MASQUERADE
-        ls /sys/class/net/android_bridge0/brif/* > /dev/null 2>&1 || ip link delete "android_bridge0"
+        ls /sys/class/net/android_bridge0/brif/* > /dev/null 2>&1 || ip link delete android_bridge0
     fi
     rm -f "/run/meu_android/network_up"
 }
