@@ -4,6 +4,7 @@ if [ "$EUID" -ne 0 ]; then
     /bin/echo "No root, no deal..";
     exit 1;
 fi
+killall adb &> /dev/null
 start_bridge() {
     if [ -d /sys/class/net/android_bridge0 ]; then
         stop_bridge 2>/dev/null || true
@@ -12,7 +13,7 @@ start_bridge() {
     if [ ! -d "/run/meu_android" ]; then
         mkdir -p "/run/meu_android"
     fi
-	ip addr add "192.0.0.1/30" broadcast 0.0.0.0 dev android_bridge0
+	ip addr add "192.0.0.1/30" dev android_bridge0
     ip link set dev android_bridge0 up
     echo 1 > /proc/sys/net/ipv4/ip_forward
     iptables -w -t nat -A POSTROUTING -s "192.0.0.1/30" ! -d "192.0.0.1/30" -j MASQUERADE
@@ -47,17 +48,19 @@ if ! pgrep -f 'qemu-system-i386 -name Android'; then
     su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 qemu-system-i386 \
                         -name Android \
                         -enable-kvm \
+                        -machine q35 \
                         -m 2048 \
                         -smp 4 \
                         -cpu host \
                         -nodefaults \
+                        -machine vmport=off \
                         -audiodev pa,id=pa -audio pa,model=es1370 \
                         -usbdevice tablet \
-                        -netdev bridge,id=hn0,br=android_bridge0 -device e1000,netdev=hn0,id=nic1 \
+                        -netdev bridge,id=hn0,br=android_bridge0 -device virtio-net-pci,netdev=hn0,id=nic1 \
                         -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
                         -device virtio-vga-gl \
                         -display gtk,gl=on,show-cursor=on,show-menubar=off \
-                        -hda /home/lucas/.android/androidx86_hda.img' &
+                        -drive file=/home/lucas/.android/androidx86_hda.img,if=virtio' &
     if [ "$?" != '0' ];then
         /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "Erro ao executar a VM..";
         stop_bridge
