@@ -17,7 +17,6 @@ start() {
         stop 2>/dev/null || true
     fi
     FAILED=1
-    }
     set -e
     [ ! -d "/sys/class/net/android_bridge0" ] && ip link add dev android_bridge0 type bridge
     if [ ! -d "/run/meu_android" ]; then
@@ -29,7 +28,7 @@ start() {
     iptables -w -I FORWARD -i android_bridge0 -j ACCEPT
     iptables -w -I FORWARD -o android_bridge0 -j ACCEPT
     touch "/run/meu_android/network_up"
-    FAILED=0
+    FAILED=0;
 }
 stop() {
     if [ -d /sys/class/net/android_bridge0 ]; then
