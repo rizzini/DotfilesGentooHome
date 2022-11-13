@@ -4,36 +4,16 @@ if [ "$EUID" -ne 0 ]; then
     /bin/echo "No root, no deal..";
     exit 1;
 fi
-varrun="/run/meu_android"
-BRIDGE="android_bridge0"
-IPV4_ADDR="192.0.0.1"
-IPV4_NETMASK="255.255.255.252"
-IPV4_NETWORK="192.0.0.1/30"
-IPV4_BROADCAST="0.0.0.0"
-IPV4_NAT="true"
-use_iptables_lock="-w"
-iptables -w -L -n > /dev/null 2>&1 || use_iptables_lock=""
-_netmask2cidr () {
-    local x=${1##*255.}
-    set -- "0^^^128^192^224^240^248^252^254^" "$(( (${#1} - ${#x})*2 ))" "${x%%.*}"
-    x=${1%%${3}*}
-    echo $(( ${2} + (${#x}/4) ))
-}
 ifdown() {
     ip addr flush dev "${1}"
     ip link set dev "${1}" down
 }
 ifup() {
-    [ "${HAS_IPV6}" = "true" ] && [ "${IPV6_PROXY}" = "true" ] && ip addr add fe80::1/64 dev "${1}"
-    if [ -n "${IPV4_NETMASK}" ] && [ -n "${IPV4_ADDR}" ]; then
-        MASK=$(_netmask2cidr ${IPV4_NETMASK})
-        CIDR_ADDR="${IPV4_ADDR}/${MASK}"
-	ip addr add "${CIDR_ADDR}" broadcast "${IPV4_BROADCAST}" dev "${1}"
-    fi
+	ip addr add "192.0.0.1/30" broadcast "0.0.0.0" dev "${1}"
     ip link set dev "${1}" up
 }
 start() {
-    if [ -d /sys/class/net/${BRIDGE} ]; then
+    if [ -d /sys/class/net/android_bridge0 ]; then
         stop 2>/dev/null || true
     fi
     FAILED=1
@@ -45,37 +25,31 @@ start() {
         fi
     }
     set -e
-    [ ! -d "/sys/class/net/${BRIDGE}" ] && ip link add dev "${BRIDGE}" type bridge
-    if [ ! -d "${varrun}" ]; then
-        mkdir -p "${varrun}"
+    [ ! -d "/sys/class/net/android_bridge0" ] && ip link add dev "android_bridge0" type bridge
+    if [ ! -d "/run/meu_android" ]; then
+        mkdir -p "/run/meu_android"
         if which restorecon >/dev/null 2>&1; then
-            restorecon "${varrun}"
+            restorecon "/run/meu_android"
         fi
     fi
-    ifup "${BRIDGE}" "${IPV4_ADDR}" "${IPV4_NETMASK}"
+    ifup "android_bridge0" "192.0.0.1" "255.255.255.252"
     IPV4_ARG=""
-    if [ -n "${IPV4_ADDR}" ] && [ -n "${IPV4_NETMASK}" ] && [ -n "${IPV4_NETWORK}" ]; then
-        echo 1 > /proc/sys/net/ipv4/ip_forward
-        if [ "${IPV4_NAT}" = "true" ]; then
-            iptables "${use_iptables_lock}" -t nat -A POSTROUTING -s "${IPV4_NETWORK}" ! -d "${IPV4_NETWORK}" -j MASQUERADE
-        fi
-    fi
-    iptables "${use_iptables_lock}" -I FORWARD -i "${BRIDGE}" -j ACCEPT
-    iptables "${use_iptables_lock}" -I FORWARD -o "${BRIDGE}" -j ACCEPT
-    touch "${varrun}/network_up"
+    echo 1 > /proc/sys/net/ipv4/ip_forward
+    iptables -w -t nat -A POSTROUTING -s "192.0.0.1/30" ! -d "192.0.0.1/30" -j MASQUERADE
+    iptables -w -I FORWARD -i "android_bridge0" -j ACCEPT
+    iptables -w -I FORWARD -o "android_bridge0" -j ACCEPT
+    touch "/run/meu_android/network_up"
     FAILED=0
 }
 stop() {
-    if [ -d /sys/class/net/${BRIDGE} ]; then
-        ifdown ${BRIDGE}
-        iptables ${use_iptables_lock} -D FORWARD -i ${BRIDGE} -j ACCEPT
-        iptables ${use_iptables_lock} -D FORWARD -o ${BRIDGE} -j ACCEPT
-        if [ -n "${IPV4_NETWORK}" ] && [ "${IPV4_NAT}" = "true" ]; then
-            iptables ${use_iptables_lock} -t nat -D POSTROUTING -s ${IPV4_NETWORK} ! -d ${IPV4_NETWORK} -j MASQUERADE
-        fi
-        ls /sys/class/net/${BRIDGE}/brif/* > /dev/null 2>&1 || ip link delete "${BRIDGE}"
+    if [ -d /sys/class/net/android_bridge0 ]; then
+        ifdown android_bridge0
+        iptables -w -D FORWARD -i android_bridge0 -j ACCEPT
+        iptables -w -D FORWARD -o android_bridge0 -j ACCEPT
+        iptables -w -t nat -D POSTROUTING -s 192.0.0.1/30 ! -d 192.0.0.1/30 -j MASQUERADE
+        ls /sys/class/net/android_bridge0/brif/* > /dev/null 2>&1 || ip link delete "android_bridge0"
     fi
-    rm -f "${varrun}/network_up"
+    rm -f "/run/meu_android/network_up"
 }
 if ! pgrep -f 'qemu-system-i386 -name Android'; then
     start
