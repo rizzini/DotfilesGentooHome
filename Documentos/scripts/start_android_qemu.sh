@@ -17,12 +17,6 @@ start() {
         stop 2>/dev/null || true
     fi
     FAILED=1
-    cleanup() {
-        set +e
-        if [ "${FAILED}" = "1" ]; then
-            echo "Failed to setup android_bridge0." >&2
-            stop
-        fi
     }
     set -e
     [ ! -d "/sys/class/net/android_bridge0" ] && ip link add dev android_bridge0 type bridge
@@ -30,7 +24,6 @@ start() {
         mkdir -p "/run/meu_android"
     fi
     ifup android_bridge0 192.0.0.1 255.255.255.252
-    IPV4_ARG=""
     echo 1 > /proc/sys/net/ipv4/ip_forward
     iptables -w -t nat -A POSTROUTING -s "192.0.0.1/30" ! -d "192.0.0.1/30" -j MASQUERADE
     iptables -w -I FORWARD -i android_bridge0 -j ACCEPT
