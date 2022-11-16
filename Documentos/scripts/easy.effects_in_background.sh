@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ "$(/usr/bin/pgrep easyeffects)" ];then
-    /usr/bin/killall easyeffects;
+    /usr/bin/pkill easyeffects;
 else
     /usr/bin/easyeffects --gapplication-service &
     /usr/bin/sleep 1

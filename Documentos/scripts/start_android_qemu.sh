@@ -53,7 +53,6 @@ if ! pgrep -f 'qemu-system-i386 -name Android'; then
                         -smp 4 \
                         -cpu host \
                         -nodefaults \
-                        -machine vmport=off \
                         -audiodev pa,id=pa -audio pa,model=es1370 \
                         -usbdevice tablet \
                         -netdev bridge,id=hn0,br=android_bridge0 -device virtio-net-pci,netdev=hn0,id=nic1 \

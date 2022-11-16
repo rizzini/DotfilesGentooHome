@@ -1,8 +1,13 @@
 #!/bin/bash
 pulseeffects=0
+spotify=0
 if [ "$(/usr/bin/pgrep easyeffects)" ]; then
     pulseeffects=1
     /home/lucas/Documentos/scripts/easy.effects_in_background.sh
+fi
+if [ "$(/usr/bin/pgrep spotify)" ]; then
+    spotify=1
+    /usr/bin/pkill spotify
 fi
 if [ ! -h "/etc/wireplumber/main.lua.d/51-alsa-disable.lua" ];then
     get_current_volume="$(/usr/bin/pactl get-sink-volume "$(/usr/bin/pactl get-default-sink)" | /usr/bin/awk '{print $12}')";
@@ -24,6 +29,8 @@ elif [ -h "/etc/wireplumber/main.lua.d/51-alsa-disable.lua" ]; then
     /usr/bin/pactl set-default-source 'Echo Cancellation Source'
 fi
 if [ $pulseeffects == 1 ];then
-    /usr/bin/sleep 1
     /home/lucas/Documentos/scripts/easy.effects_in_background.sh
+fi
+if [ $spotify == 1 ];then
+    /usr/bin/spotify & disown
 fi
