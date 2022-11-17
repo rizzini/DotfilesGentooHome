@@ -1,4 +1,5 @@
 #!/bin/bash
+renice -n 19 -p $(pgrep  'taskbar_mem')
 /usr/bin/sleep 3
 size () {
     local -a units

@@ -59,7 +59,7 @@ if ! pgrep -f 'qemu-system-i386 -name Android'; then
                         -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
                         -device virtio-vga-gl \
                         -display gtk,gl=on,show-cursor=on,show-menubar=off,zoom-to-fit=off \
-                        -drive file=/mnt/gentoo/.android/androidx86_hda.img,if=virtio,cache=off' &
+                        -drive file=/mnt/gentoo/.android/androidx86_hda.img,format=raw,if=virtio,cache=off' &
     sleep 13;
     ok=0
     while pgrep -f 'qemu-system-i386 -name Android'; do

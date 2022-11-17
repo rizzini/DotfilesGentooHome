@@ -1,4 +1,5 @@
 #!/bin/bash
+renice -n 19 -p $(pgrep  'taskbar_cpu')
 command='if [ "$(pgrep "htop")" ];then /usr/bin/killall htop;else /usr/bin/alacritty -o window.dimensions.lines=33 window.dimensions.columns=120 -e /usr/bin/htop;fi'
 threshold=70
 while :; do

@@ -1,4 +1,5 @@
 #!/bin/bash
+renice -n 19 -p $(pgrep  'taskbar_disk')
 export LANG=C LC_ALL=C;
 declare -A data1_read data1_write read write threshold show counter counter_no_data;
 command='if [ "$(pgrep "systemmonitor")" ];then killall systemmonitor &> /dev/null;else /usr/bin/systemmonitor & disown $!;fi';

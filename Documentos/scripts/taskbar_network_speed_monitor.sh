@@ -1,4 +1,5 @@
 #!/bin/bash
+renice -n 19 -p $(pgrep  'taskbar_netw')
 export LANG=C LC_ALL=C
 size () {
     local -a units

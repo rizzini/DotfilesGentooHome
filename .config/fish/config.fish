@@ -20,4 +20,4 @@ alias kuse='k /etc/portage/package.use/package.use';
 alias kwords='k /etc/portage/package.accept_keywords/zz-autounmask';
 alias kmask='k /etc/portage/package.mask/package.mask';
 alias bv='/home/lucas/Documentos/scripts/download_videos_terminal.sh'
-
+alias dmesg='journalctl --dmesg --follow'
