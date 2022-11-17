@@ -114,6 +114,7 @@ x-scheme-handler/skype=skypeforlinux.desktop
 x-scheme-handler/tel=skypeforlinux.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-4BNRV1.desktop
 x-scheme-handler/unknown=google-chrome.desktop
+x-scheme-handler/msteams=teams.desktop
 
 [Removed Associations]
 application/pdf=org.kde.kate.desktop;wine-extension-pdf.desktop;
