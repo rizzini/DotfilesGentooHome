@@ -32,6 +32,13 @@ stop_bridge() {
     fi
     rm -f "/run/meu_android/network_up"
 }
+if [ "$1" == 'start_bridge' ]; then
+    start_bridge;
+    exit;
+elif [ "$1" == 'start_bridge' ]; then
+    stop_bridge;
+    exit;
+fi
 if ! pgrep -f 'qemu-system-i386 -name Android'; then
     start_bridge
     sleep 1
