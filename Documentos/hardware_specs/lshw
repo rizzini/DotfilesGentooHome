@@ -128,14 +128,14 @@ gentoo
              vendor: Intel Corporation
              physical id: 3
              bus info: pci@0000:00:03.0
-             logical name: card0
-             logical name: /dev/snd/controlC0
-             logical name: /dev/snd/hwC0D0
-             logical name: /dev/snd/pcmC0D10p
-             logical name: /dev/snd/pcmC0D3p
-             logical name: /dev/snd/pcmC0D7p
-             logical name: /dev/snd/pcmC0D8p
-             logical name: /dev/snd/pcmC0D9p
+             logical name: card1
+             logical name: /dev/snd/controlC1
+             logical name: /dev/snd/hwC1D0
+             logical name: /dev/snd/pcmC1D10p
+             logical name: /dev/snd/pcmC1D3p
+             logical name: /dev/snd/pcmC1D7p
+             logical name: /dev/snd/pcmC1D8p
+             logical name: /dev/snd/pcmC1D9p
              version: 06
              width: 64 bits
              clock: 33MHz
@@ -181,7 +181,7 @@ gentoo
              resources: irq:29 memory:f7d00000-f7d0ffff
            *-usbhost:0
                 product: xHCI Host Controller
-                vendor: Linux 6.0.7-tkg-cfs xhci-hcd
+                vendor: Linux 6.0.9-tkg-cfs xhci-hcd
                 physical id: 0
                 bus info: usb@3
                 logical name: usb3
@@ -246,9 +246,9 @@ gentoo
                    vendor: Generic
                    physical id: 9
                    bus info: usb@3:9
-                   logical name: card2
-                   logical name: /dev/snd/controlC2
-                   logical name: /dev/snd/pcmC2D0c
+                   logical name: card0
+                   logical name: /dev/snd/controlC0
+                   logical name: /dev/snd/pcmC0D0c
                    logical name: input8
                    logical name: /dev/input/event8
                    version: 1.00
@@ -256,7 +256,7 @@ gentoo
                    configuration: driver=snd-usb-audio maxpower=256mA speed=480Mbit/s
            *-usbhost:1
                 product: xHCI Host Controller
-                vendor: Linux 6.0.7-tkg-cfs xhci-hcd
+                vendor: Linux 6.0.9-tkg-cfs xhci-hcd
                 physical id: 1
                 bus info: usb@4
                 logical name: usb4
@@ -289,7 +289,7 @@ gentoo
              resources: irq:16 memory:f7d1c000-f7d1c3ff
            *-usbhost
                 product: EHCI Host Controller
-                vendor: Linux 6.0.7-tkg-cfs ehci_hcd
+                vendor: Linux 6.0.9-tkg-cfs ehci_hcd
                 physical id: 1
                 bus info: usb@1
                 logical name: usb1
@@ -311,13 +311,13 @@ gentoo
              vendor: Intel Corporation
              physical id: 1b
              bus info: pci@0000:00:1b.0
-             logical name: card1
-             logical name: /dev/snd/controlC1
-             logical name: /dev/snd/hwC1D0
-             logical name: /dev/snd/pcmC1D0c
-             logical name: /dev/snd/pcmC1D0p
-             logical name: /dev/snd/pcmC1D1p
-             logical name: /dev/snd/pcmC1D2c
+             logical name: card2
+             logical name: /dev/snd/controlC2
+             logical name: /dev/snd/hwC2D0
+             logical name: /dev/snd/pcmC2D0c
+             logical name: /dev/snd/pcmC2D0p
+             logical name: /dev/snd/pcmC2D1p
+             logical name: /dev/snd/pcmC2D2c
              version: 05
              width: 64 bits
              clock: 33MHz
@@ -387,7 +387,7 @@ gentoo
                 width: 64 bits
                 clock: 33MHz
                 capabilities: pm msi pciexpress msix bus_master cap_list ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
-                configuration: autonegotiation=on broadcast=yes driver=r8169 driverversion=6.0.7-tkg-cfs duplex=full firmware=rtl8168h-2_0.0.2 02/26/15 ip=192.168.0.202 latency=0 link=yes multicast=yes port=twisted pair speed=1Gbit/s
+                configuration: autonegotiation=on broadcast=yes driver=r8169 driverversion=6.0.9-tkg-cfs duplex=full firmware=rtl8168h-2_0.0.2 02/26/15 ip=192.168.0.202 latency=0 link=yes multicast=yes port=twisted pair speed=1Gbit/s
                 resources: irq:18 ioport:e000(size=256) memory:f7c04000-f7c04fff memory:f7c00000-f7c03fff
         *-usb:2
              description: USB controller
@@ -403,7 +403,7 @@ gentoo
              resources: irq:23 memory:f7d1b000-f7d1b3ff
            *-usbhost
                 product: EHCI Host Controller
-                vendor: Linux 6.0.7-tkg-cfs ehci_hcd
+                vendor: Linux 6.0.9-tkg-cfs ehci_hcd
                 physical id: 1
                 bus info: usb@2
                 logical name: usb2
@@ -511,9 +511,3 @@ gentoo
        logical name: input2
        logical name: /dev/input/event2
        capabilities: platform
-  *-input:3
-       product: Freedom 2 (AVRCP)
-       physical id: 5
-       logical name: input20
-       logical name: /dev/input/event19
-       capabilities: bluetooth
