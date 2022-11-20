@@ -56,7 +56,7 @@ if ! pgrep -f 'qemu-system-i386 -name Android'; then
                         -name Android \
                         -enable-kvm \
                         -machine q35 \
-                        -m 2048 \
+                        -m 4096 \
                         -smp 4 \
                         -cpu host \
                         -nodefaults \

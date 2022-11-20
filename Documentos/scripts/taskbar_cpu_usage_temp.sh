@@ -7,7 +7,7 @@ while :; do
     cpu_usage=$(/usr/bin/awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print ($2+$4-u1) * 100 / (t-t1); }' <(/bin/grep 'cpu ' /proc/stat) <(/usr/bin/sleep 1;/bin/grep 'cpu ' /proc/stat))
     cpu_usage=${cpu_usage%.*}
     if [ $cpu_temp -ge $threshold ]; then
-        DATA='| C | CPU: <b>'$cpu_usage'%</b> \| Temp: <b>'$cpu_temp'ºc</b> | | '$command' |'
+        DATA='| C | CPU: <b>'$cpu_usage'%</b> | Temp: <b>'$cpu_temp'ºc</b> | '$command' |'
     else
         DATA='| A | CPU: <b>'$cpu_usage'%</b> | Temp: <b>'$cpu_temp'ºc</b> | '$command' |'
     fi

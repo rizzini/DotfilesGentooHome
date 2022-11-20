@@ -88,6 +88,9 @@ MoveMinimizedWindowsToEndOfTabBoxFocusChain=true
 ElectricBorderMaximize=false
 MaximizeButtonRightClickCommand=Maximize (vertical only)
 
+[Xwayland]
+Scale=1
+
 [org.kde.kdecoration2]
 BorderSize=Tiny
 BorderSizeAuto=false

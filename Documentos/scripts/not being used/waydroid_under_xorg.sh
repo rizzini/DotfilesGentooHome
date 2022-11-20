@@ -6,14 +6,14 @@ if [ "$(systemctl is-active waydroid-container.service)" == 'active' ];then
 fi
 killall -9 weston &> /dev/null;
 sudo systemctl restart waydroid-container.service;
-if [ -z "$(pgrep weston)" ]; then
-    weston --xwayland &> /dev/null &
+if ! pgrep weston; then
+    weston &> /dev/null &
 fi
 sleep 2;
-export XDG_SESSION_TYPE='wayland';
-export DISPLAY=':1';
-alacritty -e '/usr/bin/waydroid show-full-ui' &> /dev/null &
-while [ -n "$(pgrep weston)" ];do
-    sleep 1;
+export DISPLAY=':1'
+export XDG_SESSION_TYPE="wayland";
+alacritty -e /bin/bash -c '/usr/bin/waydroid show-full-ui' &> /dev/null &
+while pgrep "weston";do
+    sleep 2;
 done
 sudo systemctl stop waydroid-container.service;
