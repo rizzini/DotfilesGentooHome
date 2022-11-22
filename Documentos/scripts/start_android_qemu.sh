@@ -41,7 +41,6 @@ elif [ "$1" == 'start_bridge' ]; then
 fi
 if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
     start_bridge
-    sleep 1
     for i in $(lsusb -d '1908:2310' | awk '{print $2}{print $4}' | tr -d ':'); do
         webcam+=("$i");
     done
@@ -66,25 +65,22 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
                         -netdev bridge,id=hn0,br=android_bridge0 -device virtio-net-pci,netdev=hn0,id=nic1 \
                         -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
                         -device virtio-vga-gl,xres=640,yres=480 \
-                        -display gtk,gl=on,show-cursor=on,show-menubar=off,zoom-to-fit=off \
+                        -display egl-headless -vnc :1 -k pt-br \
                         -drive file=/mnt/gentoo/.android/androidx86_hda.img,format=raw,if=virtio -object iothread,id=disk-iothread' &
-    sleep 13;
-    ok=0
-    while pgrep -f 'qemu-system-x86_64 -name Android'; do
-        counter=$((counter+1))
-        if [[ $((counter%2)) -eq 0 && "$ok" == '0' ]]; then
+    sleep 1
+    /usr/bin/vncviewer 127.0.0.1:1 -geometry=384x640 -DotWhenNoCursor=on & disown
+    while pgrep vncviewer; do
+        if [ "$ok" == '0' ]; then
             if ping 192.0.0.2 -w 1 -c 1; then
-                if timeout 5 adb connect 192.0.0.2:5555; then
-                    ok=1
-                fi
+                adb connect 192.0.0.2:5555
+                ok=1
             fi
-        fi
-        if [ $counter -eq 10 ];then
-            counter=0
         fi
         sleep 3;
     done
+    pkill -f 'qemu-system-x86_64 -name Android'
     stop_bridge
 else
     pkill -f 'qemu-system-x86_64 -name Android'
+    pkill vncviewer
 fi
