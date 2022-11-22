@@ -39,7 +39,7 @@ elif [ "$1" == 'start_bridge' ]; then
     stop_bridge;
     exit;
 fi
-if ! pgrep -f 'qemu-system-i386 -name Android'; then
+if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
     start_bridge
     sleep 1
     for i in $(lsusb -d '1908:2310' | awk '{print $2}{print $4}' | tr -d ':'); do
@@ -52,24 +52,25 @@ if ! pgrep -f 'qemu-system-i386 -name Android'; then
         /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "QEMU: Webcam não detectada..";
         exit 1;
     fi
-    su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 qemu-system-i386 \
+    su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 qemu-system-x86_64 \
                         -name Android \
                         -enable-kvm \
-                        -machine q35 \
-                        -m 4096 \
+                        -machine q35,accel=kvm \
+                        -m 2048 \
                         -smp 4 \
                         -cpu host \
+                        -bios /usr/share/edk2-ovmf/OVMF_CODE.fd \
                         -nodefaults \
                         -audiodev pa,id=pa -audio pa,model=es1370 \
                         -usbdevice tablet \
                         -netdev bridge,id=hn0,br=android_bridge0 -device virtio-net-pci,netdev=hn0,id=nic1 \
                         -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
-                        -device virtio-vga-gl \
+                        -device virtio-vga-gl,xres=640,yres=480 \
                         -display gtk,gl=on,show-cursor=on,show-menubar=off,zoom-to-fit=off \
-                        -drive file=/mnt/gentoo/.android/androidx86_hda.img,format=raw,if=virtio,cache=off' &
+                        -drive file=/mnt/gentoo/.android/androidx86_hda.img,format=raw,if=virtio -object iothread,id=disk-iothread' &
     sleep 13;
     ok=0
-    while pgrep -f 'qemu-system-i386 -name Android'; do
+    while pgrep -f 'qemu-system-x86_64 -name Android'; do
         counter=$((counter+1))
         if [[ $((counter%2)) -eq 0 && "$ok" == '0' ]]; then
             if ping 192.0.0.2 -w 1 -c 1; then
@@ -85,5 +86,5 @@ if ! pgrep -f 'qemu-system-i386 -name Android'; then
     done
     stop_bridge
 else
-    pkill -f 'qemu-system-i386 -name Android'
+    pkill -f 'qemu-system-x86_64 -name Android'
 fi

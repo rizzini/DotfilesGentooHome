@@ -5,8 +5,8 @@
 		"Category": false,
 		"Summary": false,
 		"Banner": false,
-		"x": 64,
-		"y": 594,
+		"x": 68,
+		"y": 461,
 		"width": 961,
 		"height": 412,
 		"maximized": false,
@@ -114,13 +114,14 @@
 		"OnError": null
 	},
 	"FolderHistory": [
+		"\/mnt\/gentoo\/.android\/",
+		"\/mnt\/gentoo\/.android",
 		"\/mnt\/gentoo\/temp_stuff\/",
 		"\/mnt\/gentoo\/temp_stuff",
 		"\/home\/lucas\/Downloads",
 		"\/home\/lucas",
 		"\/mnt\/gentoo\/CCACHE",
-		"\/mnt\/dados\/VMs",
-		"\/home\/lucas\/Documentos"
+		"\/mnt\/dados\/VMs"
 	],
 	"AutoSave": 1,
 	"AutoSaveInterval": 3,
