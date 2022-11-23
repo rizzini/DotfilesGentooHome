@@ -51,7 +51,9 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
         /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "QEMU: Webcam não detectada..";
         exit 1;
     fi
-    su - lucas -s /bin/bash -c 'export XDG_RUNTIME_DIR=/run/user/1000; export DISPLAY=:0; qemu-system-x86_64 \
+    su - lucas -s /bin/bash -c '
+    export XDG_RUNTIME_DIR=/run/user/1000;
+    export DISPLAY=:0; qemu-system-x86_64 \
                         -name Android \
                         -enable-kvm \
                         -machine q35,accel=kvm,vmport=off \

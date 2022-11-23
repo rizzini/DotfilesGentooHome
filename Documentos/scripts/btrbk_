@@ -24,9 +24,11 @@ counter=0
 wait=0
 while :; do
     counter=$((counter + 1))
-    if [ "$(/usr/bin/pgrep steam)" ]; then
+    if /usr/bin/pgrep steam; then
         wait=1
-    elif [ "$(/usr/bin/pgrep wine)" ]; then
+    elif /usr/bin/pgrep wine; then
+        wait=1
+    elif /usr/bin/pgrep -f qemu; then
         wait=1
     fi
     if [ $wait == 1 ]; then
