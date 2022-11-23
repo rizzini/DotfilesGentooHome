@@ -54,7 +54,7 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
     su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 qemu-system-x86_64 \
                         -name Android \
                         -enable-kvm \
-                        -machine q35,accel=kvm \
+                        -machine q35,accel=kvm,vmport=off \
                         -m 2048 \
                         -smp 4 \
                         -cpu host \
@@ -69,6 +69,7 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
                         -drive file=/mnt/gentoo/.android/androidx86_hda.img,format=raw,if=virtio -object iothread,id=disk-iothread' &
     sleep 1
     /usr/bin/vncviewer 127.0.0.1:1 -geometry=384x640 -DotWhenNoCursor=on & disown
+    ok=0
     while pgrep vncviewer; do
         if [ "$ok" == '0' ]; then
             if ping 192.0.0.2 -w 1 -c 1; then

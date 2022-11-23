@@ -32,14 +32,13 @@ wmclasscomplete=true
 wmclassmatch=1
 
 [10]
-Description=Configurações de nova janela
+Description=Configurações de janela para QEMU (Android) - TigerVNC
 ignoregeometry=true
 ignoregeometryrule=2
-size=388,737
+size=388,667
 sizerule=2
 title=QEMU (Android) - TigerVNC
 titlematch=1
-types=1
 wmclass=vncviewer vncviewer
 wmclasscomplete=true
 wmclassmatch=1
@@ -539,6 +538,18 @@ size=388,695
 sizerule=3
 title=QEMU (Android)
 wmclass=qemu qemu-system-x86_64
+wmclasscomplete=true
+wmclassmatch=1
+
+[af58a023-838a-472a-8955-9c8bdbb44048]
+Description=Configurações de janela para QEMU (Android) - TigerVNC
+ignoregeometry=true
+ignoregeometryrule=2
+size=388,667
+sizerule=2
+title=QEMU (Android) - TigerVNC
+titlematch=1
+wmclass=vncviewer vncviewer
 wmclasscomplete=true
 wmclassmatch=1
 
