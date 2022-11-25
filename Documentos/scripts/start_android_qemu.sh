@@ -35,7 +35,7 @@ stop_bridge() {
 if [ "$1" == 'start_bridge' ]; then
     start_bridge;
     exit;
-elif [ "$1" == 'start_bridge' ]; then
+elif [ "$1" == 'stop_bridge' ]; then
     stop_bridge;
     exit;
 fi

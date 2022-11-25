@@ -25,8 +25,8 @@ Tab Middle Click Close Document=true
 Tabbar Tab Limit=0
 
 [KFileDialog Settings]
-Recent Files[$e]=file:$HOME/.config/frogminer/config.myfrag,file:$HOME/qemu,file:$HOME/Documentos/scripts/not being used/waydroid_under_xorg.sh,file:$HOME/Documentos/scripts/start_android_qemu.sh,file:$HOME/Documentos/scripts/taskbar_disk_monitor.sh,file:$HOME/Documentos/scripts/renomear_serie_videos_e_legendas.sh
-Recent URLs[$e]=file:$HOME/,file:$HOME/Documentos/,file:$HOME/Documentos/scripts/,file:$HOME/.config/frogminer/,file:$HOME/Musicas/,file:$HOME/Documentos/scripts/not being used/
+Recent Files[$e]=file:$HOME/.config/frogminer/config.myfrag,file:///var/db/repos/pessoal/net-misc/warsaw/warsaw-9999.ebuild,file:$HOME/Documentos/scripts/not being used/waydroid_under_xorg.sh,file:$HOME/Documentos/scripts/start_android_qemu.sh,file:$HOME/Documentos/scripts/taskbar_disk_monitor.sh,file:$HOME/Documentos/scripts/renomear_serie_videos_e_legendas.sh
+Recent URLs[$e]=file:$HOME/,file:$HOME/Documentos/,file:$HOME/Documentos/scripts/,file:$HOME/.config/frogminer/,file:$HOME/Musicas/,file:$HOME/Documentos/scripts/not being used/,file:///var/db/repos/pessoal/net-misc/warsaw/
 iconViewIconSize=64
 
 [KTextEditor Document]
@@ -145,7 +145,7 @@ Word Completion Remove Tail=true
 
 [KTextEditor::Search]
 Replace History=qemu-system-i386,i386,,/run/meu_android,android_bridge0,192.0.0.1/30,android_bridge0 bridge do meu_android,7000000,show_data,awk,.refind_btrfs_rw_snapshots,--exclude= sys,sys --exclude=,/hardware_specs,'${path}',${path},"$path",'\\\\''%s'\\\\'',"\\\\"%s\\\\"",/bin/mv,CPU temp:,RAM: <b>'$(size $mem_used)'</b> \\\\| Swap: <b>'$(size $swap_used)'</b>,|,/gentoo/,/usr/bin/awk,sda,=m,/usr/bin/sudo /usr/bin/yadm -Y /etc/yadm,syadm add , ,# CON, is not set,/bin/mount,/bin/grep,/bin/machinectl,/bin/echo,/bin/rm,/sbin/btrfs,/bin/df,/usr/bin/btrfs,python_single_target_python3_8,${PYTHON_USEDEP},python_targets_python3_8,lxqt-archiver.desktop,Source Code Pro Semibold,sudo btrfs sub del HOME,sudo btrfs sub del ROOT,printf,/usr/bin/mv,/usr/bin/printf,/usr/bin/echo,/bin/bash,/usr/bin/find,/usr/bin/gawk,/usr/bin/sort,read -r,read -r ,"$PWD",files,srt,dfsgfg45t34f,-prune -false,DroidSansMono Nerd Font Mono,/usr/bin/echo -n,$mpv_players,/opt/wine-tkg-staging-fsync-git-opt/share/wine/wine.inf,/usr/share/wine/wine.inf,",if [[ "$players" == *"$active_window_pid"* ]]; then,players,ln -sf,/home/lucas/.config/cmyflix/,-iw,antialias" "0",yt-dlp 'https:/,/EFI/BOOT/btrfs-snapshot-stanzas/icons/snapshot.png,/ ,sudo yadm -Y /etc/yadm add /,syadm add /,yadm add /home/lucas/,yadm add ,cfs,yadm rm -r --cached \n,/usr/bin/tee,/tmp/check_btrfs_health.sh.pid,discard\\,nospace_cache\\,,en-us,noatime\\,discard\\,,yadm rm --cached ,-volume 40 ,/usr/bin/ffplay  -nodisp -autoexit -volume 50 /home/lucas/Documentos/scripts/notify.mp3,playerctl --no-messages,sed 's/^.*\\\\(etc.*\\\\).*$/\\\\1/',sed 's/^.*\\\\(etc.*\\\\).*$/\\\\1/'),grep "??",--porcelain | grep -E '^ ??|^??' | tr -d '??' | tr -d '"' | cut -c2-); do if [ -n "$i" ];then yadm add /$i; fi done,| grep -v "^A" | grep -v "^D" | tr -d '??' | tr -d '"' | cut -c2-); do if [ -n "$i" ];then yadm add /home/lucas/$i; fi done,org.kde.gwenview.desktop;Adobe Photoshop CS6.desktop,Adobe Photoshop CS6,yadm add
-Search History=READ_EXTERNAL_STORAGE,drive,sleep,adb,qemu-system-x86_64,x86_64,#,audio,pin-upstream-blobs,edk2-ovmf-bin,wayland,X86_FIRMWARE_DEPEND,EDK2_OVMF_VERSION,sys-firmware/edk2-ovmf,gnutls,lucas,psi,Xfrm,socket,quota,NETLINK_,CONFIG_NETFILTER,netli,binder,lxc,app,tele,libva,\\\\cv, 5601 proto udp,pacman -S amule,amule,port 9989,9989 ,9989,libv,color,cpl,0.0.0.0,failed,start,stop,ifdown,ifup,cleanup,use_iptables_lock,${varrun},/run/meu_android,${BRIDGE},android_bridge0,IPV4_ADDR,IPV4_NETMASK,IPV4_NETWORK,IPV4_BROADCAST,IPV4_NAT,${IPV4_NETWORK},_netmask2cidr,ipv6,IPV6_PROXY,background,tap,connect,efi,e1000,rtl_nic/rtl8168h-2.fw,rtl8761bu_fw,rtl8168h,intel,intelz,--,-m comment --comment "android_bridge0 bridge do meu_android",force,isn't runn,6000000,log,exec,adobe,photo,elogin,cplugins,llvm,${has_data[,show,exper,audi,sdc,sda,/usr/bin/awk,[[,dnsmasq,puls,echo,{ name = libpipewire-module-echo-cancel },features,experimental,pulse,refind_btrfs_rw_snapshots,git,debia,CPU temp: <b>'$cpu_temp'ºc</b>
+Search History=vnc,ssh,READ_EXTERNAL_STORAGE,drive,sleep,adb,qemu-system-x86_64,x86_64,#,audio,pin-upstream-blobs,edk2-ovmf-bin,wayland,X86_FIRMWARE_DEPEND,EDK2_OVMF_VERSION,sys-firmware/edk2-ovmf,gnutls,lucas,psi,Xfrm,socket,quota,NETLINK_,CONFIG_NETFILTER,netli,binder,lxc,app,tele,libva,\\\\cv, 5601 proto udp,pacman -S amule,amule,port 9989,9989 ,9989,libv,color,cpl,0.0.0.0,failed,start,stop,ifdown,ifup,cleanup,use_iptables_lock,${varrun},/run/meu_android,${BRIDGE},android_bridge0,IPV4_ADDR,IPV4_NETMASK,IPV4_NETWORK,IPV4_BROADCAST,IPV4_NAT,${IPV4_NETWORK},_netmask2cidr,ipv6,IPV6_PROXY,background,tap,connect,efi,e1000,rtl_nic/rtl8168h-2.fw,rtl8761bu_fw,rtl8168h,intel,intelz,--,-m comment --comment "android_bridge0 bridge do meu_android",force,isn't runn,6000000,log,exec,adobe,photo,elogin,cplugins,llvm,${has_data[,show,exper,audi,sdc,sda,/usr/bin/awk,[[,dnsmasq,puls,echo,{ name = libpipewire-module-echo-cancel },features,experimental,pulse,refind_btrfs_rw_snapshots,git
 
 [Konsole]
 AutoSyncronize=true
@@ -157,9 +157,9 @@ SetEditor=false
 
 [MainWindow]
 HDMI-1 Height 1920x1080=504
-HDMI-1 Height 1920x1080 HDMI-1=618
+HDMI-1 Height 1920x1080 HDMI-1=460
 HDMI-1 Width 1920x1080=1108
-HDMI-1 Width 1920x1080 HDMI-1=1246
+HDMI-1 Width 1920x1080 HDMI-1=812
 HDMI-A-1 Height 1920x1080 HDMI-A-1=603
 HDMI-A-1 Width 1920x1080 HDMI-A-1=789
 HDMI1 Height 1920x1080=603
