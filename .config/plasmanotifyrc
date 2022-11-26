@@ -25,6 +25,9 @@ Seen=true
 [Applications][modem-manager-gui]
 Seen=true
 
+[Applications][teams]
+Seen=true
+
 [Notifications]
 LowPriorityHistory=true
 NormalAlwaysOnTop=true
