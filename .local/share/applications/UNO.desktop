@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=Left 4 Dead 2
+Name=UNO
 Comment=Play this game on Steam
-Exec=steam steam://rungameid/550
-Icon=steam_icon_550
+Exec=steam steam://rungameid/470220
+Icon=steam_icon_470220
 Terminal=false
 Type=Application
 Categories=Game;

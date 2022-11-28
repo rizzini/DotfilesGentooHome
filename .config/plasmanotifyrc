@@ -28,6 +28,10 @@ Seen=true
 [Applications][teams]
 Seen=true
 
+[DoNotDisturb]
+NotificationSoundsMuted=true
+Until=2023,11,27,21,4,33.615
+
 [Notifications]
 LowPriorityHistory=true
 NormalAlwaysOnTop=true

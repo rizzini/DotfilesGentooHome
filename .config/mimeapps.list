@@ -2,6 +2,7 @@
 application/json=org.kde.kate.desktop;firefox.desktop;libreoffice-writer.desktop;vim.desktop;nvim.desktop;
 application/octet-stream=org.kde.kate.desktop;
 application/pdf=google-chrome.desktop;pqiv.desktop;
+application/vnd.sqlite3=org.kde.kate.desktop;
 application/x-bittorrent=org.kde.kate.desktop;
 application/x-cd-image=lxqt-archiver.desktop;
 application/x-compressed-tar=lxqt-archiver.desktop;
@@ -19,7 +20,7 @@ application/x-xz-compressed-tar=lxqt-archiver.desktop
 application/x-zstd-compressed-tar=lxqt-archiver.desktop
 application/xhtml+xml=firefox.desktop;firefox-bin.desktop;userapp-Firefox-RUWEU1.desktop;
 application/xml=org.kde.kate.desktop;google-chrome.desktop;firefox.desktop;libreoffice-writer.desktop;nvim.desktop;vim.desktop;
-application/zip=lxqt-archiver.desktop;pqiv.desktop;org.kde.kate.desktop;
+application/zip=org.kde.ark.desktop;org.kde.kate.desktop;
 audio/mpeg=mpv.desktop;fr.handbrake.ghb.desktop;
 audio/x-m4b=mpv.desktop;org.kde.kate.desktop;fr.handbrake.ghb.desktop;audacity.desktop;
 audio/x-matroska=mpv.desktop;fr.handbrake.ghb.desktop;
@@ -54,7 +55,6 @@ x-scheme-handler/https=google-chrome.desktop;chromium-bin-browser-chromium.deskt
 x-scheme-handler/mailto=google-chrome.desktop;chromium.desktop;
 x-scheme-handler/tel=skypeforlinux.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-VZNHJ1.desktop;userapp-Telegram Desktop-4BNRV1.desktop;
-application/vnd.sqlite3=org.kde.kate.desktop;
 
 [Default Applications]
 application/json=org.kde.kate.desktop;
@@ -75,7 +75,7 @@ application/x-xz-compressed-tar=lxqt-archiver.desktop;
 application/x-zstd-compressed-tar=lxqt-archiver.desktop;
 application/xhtml+xml=userapp-Firefox-RUWEU1.desktop
 application/xml=org.kde.kate.desktop;
-application/zip=lxqt-archiver.desktop;
+application/zip=org.kde.ark.desktop;
 audio/mpeg=mpv.desktop;
 audio/x-m4b=mpv.desktop;
 audio/x-matroska=mpv.desktop;
@@ -110,11 +110,11 @@ x-scheme-handler/geo=google-maps-geo-handler.desktop;
 x-scheme-handler/http=google-chrome.desktop;
 x-scheme-handler/https=google-chrome.desktop;
 x-scheme-handler/mailto=google-chrome.desktop
+x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/skype=skypeforlinux.desktop
 x-scheme-handler/tel=skypeforlinux.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-4BNRV1.desktop
 x-scheme-handler/unknown=google-chrome.desktop
-x-scheme-handler/msteams=teams.desktop
 
 [Removed Associations]
 application/pdf=org.kde.kate.desktop;wine-extension-pdf.desktop;

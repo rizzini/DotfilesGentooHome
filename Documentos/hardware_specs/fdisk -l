@@ -28,15 +28,3 @@ Dispositivo    Início       Fim   Setores Tamanho Tipo
 /dev/sdb5    77832192 164986879  87154688   41,6G Linux sistema de arquivos
 /dev/sdb6   164986880 175226879  10240000    4,9G Linux sistema de arquivos
 /dev/sdb7   175226880 488396799 313169920  149,3G Linux sistema de arquivos
-
-
-Disco /dev/loop0: 1,62 GiB, 1736511488 bytes, 3391624 setores
-Unidades: setor de 1 * 512 = 512 bytes
-Tamanho de setor (lógico/físico): 512 bytes / 512 bytes
-Tamanho E/S (mínimo/ótimo): 512 bytes / 512 bytes
-
-
-Disco /dev/loop1: 398,13 MiB, 417468416 bytes, 815368 setores
-Unidades: setor de 1 * 512 = 512 bytes
-Tamanho de setor (lógico/físico): 512 bytes / 512 bytes
-Tamanho E/S (mínimo/ótimo): 512 bytes / 512 bytes

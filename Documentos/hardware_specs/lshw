@@ -31,11 +31,11 @@ gentoo
           bus info: cpu@0
           version: 6.60.3
           slot: SOCKET 0
-          size: 3700MHz
+          size: 2494MHz
           capacity: 3800MHz
           width: 64 bits
           clock: 100MHz
-          capabilities: lm fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
+          capabilities: lm fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d cpufreq
           configuration: cores=2 enabledcores=2 microcode=40 threads=4
         *-cache:0
              description: L2 cache
@@ -121,7 +121,7 @@ gentoo
              clock: 33MHz
              capabilities: msi pm vga_controller bus_master cap_list rom fb
              configuration: depth=32 driver=i915 latency=0 resolution=1920,1080
-             resources: irq:27 memory:f7800000-f7bfffff memory:e0000000-efffffff ioport:f000(size=64) memory:c0000-dffff
+             resources: irq:29 memory:f7800000-f7bfffff memory:e0000000-efffffff ioport:f000(size=64) memory:c0000-dffff
         *-multimedia:0
              description: Audio device
              product: Xeon E3-1200 v3/4th Gen Core Processor HD Audio Controller
@@ -143,30 +143,30 @@ gentoo
              configuration: driver=snd_hda_intel latency=0
              resources: irq:31 memory:f7d14000-f7d17fff
            *-input:0
-                product: HDA Intel HDMI HDMI/DP,pcm=7
+                product: HDA Intel HDMI HDMI/DP,pcm=3
                 physical id: 0
                 logical name: input10
                 logical name: /dev/input/event10
            *-input:1
-                product: HDA Intel HDMI HDMI/DP,pcm=8
+                product: HDA Intel HDMI HDMI/DP,pcm=7
                 physical id: 1
                 logical name: input11
                 logical name: /dev/input/event11
            *-input:2
-                product: HDA Intel HDMI HDMI/DP,pcm=9
+                product: HDA Intel HDMI HDMI/DP,pcm=8
                 physical id: 2
                 logical name: input12
                 logical name: /dev/input/event12
            *-input:3
-                product: HDA Intel HDMI HDMI/DP,pcm=10
+                product: HDA Intel HDMI HDMI/DP,pcm=9
                 physical id: 3
                 logical name: input13
                 logical name: /dev/input/event13
            *-input:4
-                product: HDA Intel HDMI HDMI/DP,pcm=3
+                product: HDA Intel HDMI HDMI/DP,pcm=10
                 physical id: 4
-                logical name: input9
-                logical name: /dev/input/event9
+                logical name: input14
+                logical name: /dev/input/event14
         *-usb:0
              description: USB controller
              product: 8 Series/C220 Series Chipset Family USB xHCI
@@ -178,10 +178,10 @@ gentoo
              clock: 33MHz
              capabilities: pm msi xhci bus_master cap_list
              configuration: driver=xhci_hcd latency=0
-             resources: irq:29 memory:f7d00000-f7d0ffff
+             resources: irq:27 memory:f7d00000-f7d0ffff
            *-usbhost:0
                 product: xHCI Host Controller
-                vendor: Linux 6.0.9-tkg-cfs xhci-hcd
+                vendor: Linux 6.0.10-gentoo-dist xhci-hcd
                 physical id: 0
                 bus info: usb@3
                 logical name: usb3
@@ -204,59 +204,59 @@ gentoo
                    vendor: SHARKOON Technologies GmbH
                    physical id: 2
                    bus info: usb@3:2
-                   logical name: input3
+                   logical name: input28
+                   logical name: /dev/input/event2
+                   logical name: input29
                    logical name: /dev/input/event3
-                   logical name: input4
-                   logical name: /dev/input/event4
                    logical name: /dev/input/mouse0
                    version: 2.00
                    capabilities: usb-1.10 usb
                    configuration: driver=usbhid maxpower=100mA speed=12Mbit/s
               *-usb:2
+                   description: Video
+                   product: USB2.0 PC CAMERA: USB2.0 PC CAM
+                   vendor: Generic
+                   physical id: 4
+                   bus info: usb@3:4
+                   logical name: card0
+                   logical name: /dev/snd/controlC0
+                   logical name: /dev/snd/pcmC0D0c
+                   logical name: input53
+                   logical name: /dev/input/event20
+                   version: 1.00
+                   capabilities: usb-2.00 usb
+                   configuration: driver=snd-usb-audio maxpower=256mA speed=480Mbit/s
+              *-usb:3
                    description: Keyboard
                    product: Microsoft Wired Keyboard 600
                    vendor: Microsoft
                    physical id: 5
                    bus info: usb@3:5
-                   logical name: input5
-                   logical name: /dev/input/event5
-                   logical name: input5::capslock
-                   logical name: input5::numlock
-                   logical name: input5::scrolllock
                    logical name: input6
                    logical name: /dev/input/event6
+                   logical name: input6::capslock
+                   logical name: input6::numlock
+                   logical name: input6::scrolllock
+                   logical name: input7
+                   logical name: /dev/input/event7
                    version: 1.10
                    capabilities: usb-1.10 usb
                    configuration: driver=usbhid maxpower=100mA speed=1Mbit/s
-              *-usb:3
+              *-usb:4
                    description: Mouse
                    product: USB Optical Mouse
                    vendor: Sunplus Innovation Technology Inc.
                    physical id: 6
                    bus info: usb@3:6
-                   logical name: input7
-                   logical name: /dev/input/event7
+                   logical name: input5
+                   logical name: /dev/input/event5
                    logical name: /dev/input/mouse1
                    version: 0.90
                    capabilities: usb-2.00 usb
                    configuration: driver=usbhid maxpower=98mA speed=1Mbit/s
-              *-usb:4
-                   description: Video
-                   product: USB2.0 PC CAMERA: USB2.0 PC CAM
-                   vendor: Generic
-                   physical id: 9
-                   bus info: usb@3:9
-                   logical name: card0
-                   logical name: /dev/snd/controlC0
-                   logical name: /dev/snd/pcmC0D0c
-                   logical name: input8
-                   logical name: /dev/input/event8
-                   version: 1.00
-                   capabilities: usb-2.00 usb
-                   configuration: driver=snd-usb-audio maxpower=256mA speed=480Mbit/s
            *-usbhost:1
                 product: xHCI Host Controller
-                vendor: Linux 6.0.9-tkg-cfs xhci-hcd
+                vendor: Linux 6.0.10-gentoo-dist xhci-hcd
                 physical id: 1
                 bus info: usb@4
                 logical name: usb4
@@ -289,7 +289,7 @@ gentoo
              resources: irq:16 memory:f7d1c000-f7d1c3ff
            *-usbhost
                 product: EHCI Host Controller
-                vendor: Linux 6.0.9-tkg-cfs ehci_hcd
+                vendor: Linux 6.0.10-gentoo-dist ehci_hcd
                 physical id: 1
                 bus info: usb@1
                 logical name: usb1
@@ -327,28 +327,28 @@ gentoo
            *-input:0
                 product: HDA Intel PCH Front Mic
                 physical id: 0
-                logical name: input14
-                logical name: /dev/input/event14
+                logical name: input15
+                logical name: /dev/input/event15
            *-input:1
                 product: HDA Intel PCH Rear Mic
                 physical id: 1
-                logical name: input15
-                logical name: /dev/input/event15
+                logical name: input16
+                logical name: /dev/input/event16
            *-input:2
                 product: HDA Intel PCH Line
                 physical id: 2
-                logical name: input16
-                logical name: /dev/input/event16
+                logical name: input17
+                logical name: /dev/input/event17
            *-input:3
                 product: HDA Intel PCH Line Out
                 physical id: 3
-                logical name: input17
-                logical name: /dev/input/event17
+                logical name: input18
+                logical name: /dev/input/event18
            *-input:4
                 product: HDA Intel PCH Front Headphone
                 physical id: 4
-                logical name: input18
-                logical name: /dev/input/event18
+                logical name: input19
+                logical name: /dev/input/event19
         *-pci:0
              description: PCI bridge
              product: 8 Series/C220 Series Chipset Family PCI Express Root Port #1
@@ -387,7 +387,7 @@ gentoo
                 width: 64 bits
                 clock: 33MHz
                 capabilities: pm msi pciexpress msix bus_master cap_list ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
-                configuration: autonegotiation=on broadcast=yes driver=r8169 driverversion=6.0.9-tkg-cfs duplex=full firmware=rtl8168h-2_0.0.2 02/26/15 ip=192.168.0.202 latency=0 link=yes multicast=yes port=twisted pair speed=1Gbit/s
+                configuration: autonegotiation=on broadcast=yes driver=r8169 driverversion=6.0.10-gentoo-dist duplex=full firmware=rtl8168h-2_0.0.2 02/26/15 ip=192.168.0.202 latency=0 link=yes multicast=yes port=twisted pair speed=1Gbit/s
                 resources: irq:18 ioport:e000(size=256) memory:f7c04000-f7c04fff memory:f7c00000-f7c03fff
         *-usb:2
              description: USB controller
@@ -403,7 +403,7 @@ gentoo
              resources: irq:23 memory:f7d1b000-f7d1b3ff
            *-usbhost
                 product: EHCI Host Controller
-                vendor: Linux 6.0.9-tkg-cfs ehci_hcd
+                vendor: Linux 6.0.10-gentoo-dist ehci_hcd
                 physical id: 1
                 bus info: usb@2
                 logical name: usb2
@@ -468,12 +468,160 @@ gentoo
              vendor: Intel Corporation
              physical id: 1f.2
              bus info: pci@0000:00:1f.2
+             logical name: scsi0
+             logical name: scsi4
+             logical name: scsi5
              version: 05
              width: 32 bits
              clock: 66MHz
-             capabilities: sata msi pm ahci_1.0 bus_master cap_list
+             capabilities: sata msi pm ahci_1.0 bus_master cap_list emulated
              configuration: driver=ahci latency=0
              resources: irq:26 ioport:f0b0(size=8) ioport:f0a0(size=4) ioport:f090(size=8) ioport:f080(size=4) ioport:f060(size=32) memory:f7d1a000-f7d1a7ff
+           *-disk:0
+                description: ATA Disk
+                product: SanDisk SSD PLUS
+                physical id: 0
+                bus info: scsi@0:0.0.0
+                logical name: /dev/sda
+                version: 04RL
+                serial: 1952B4801980
+                size: 111GiB (120GB)
+                capabilities: gpt-1.00 partitioned partitioned:gpt
+                configuration: ansiversion=5 guid=c932b96a-2553-4827-be2d-2c993ed424ba logicalsectorsize=512 sectorsize=512
+              *-volume:0
+                   description: Windows FAT volume
+                   vendor: mkfs.fat
+                   physical id: 1
+                   bus info: scsi@0:0.0.0,1
+                   logical name: /dev/sda1
+                   logical name: /boot/efi
+                   version: FAT32
+                   serial: 1238-0a46
+                   size: 126MiB
+                   capacity: 127MiB
+                   capabilities: boot fat initialized
+                   configuration: FATs=2 filesystem=fat mount.fstype=vfat mount.options=rw,noatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro state=mounted
+              *-volume:1
+                   description: EFI partition
+                   physical id: 2
+                   bus info: scsi@0:0.0.0,2
+                   logical name: /dev/sda2
+                   logical name: /
+                   logical name: /mnt/gentoo
+                   logical name: /home
+                   logical name: /ccache
+                   logical name: /var/tmp/portage
+                   logical name: /var/cache
+                   logical name: /home/lucas/.cache
+                   serial: b71f1a8d-32c3-474a-a92d-bb32ca009b32
+                   capacity: 103GiB
+                   configuration: mount.fstype=btrfs mount.options=rw,noatime,ssd,discard,space_cache=v2,subvolid=669,subvol=/CACHE name=gentoo state=mounted
+              *-volume:2
+                   description: Linux swap volume
+                   vendor: Linux
+                   physical id: 3
+                   bus info: scsi@0:0.0.0,3
+                   logical name: /dev/sda3
+                   version: 1
+                   serial: fc7f0201-7c47-4d6c-a368-378c20983f65
+                   size: 8190MiB
+                   capacity: 8191MiB
+                   capabilities: nofs swap initialized
+                   configuration: filesystem=swap pagesize=4095
+           *-disk:1
+                description: ATA Disk
+                product: Hitachi HDP72502
+                vendor: Hitachi
+                physical id: 1
+                bus info: scsi@4:0.0.0
+                logical name: /dev/sdb
+                version: A57A
+                serial: GEK244RT2254TA
+                size: 232GiB (250GB)
+                capabilities: gpt-1.00 partitioned partitioned:gpt
+                configuration: ansiversion=5 guid=d59b7bbd-9136-7141-a35f-fe13b20c74c0 logicalsectorsize=512 sectorsize=512
+              *-volume:0
+                   description: Windows NTFS volume
+                   vendor: Windows
+                   physical id: 1
+                   bus info: scsi@4:0.0.0,1
+                   logical name: /dev/sdb1
+                   version: 3.1
+                   serial: a088-43ca
+                   size: 448MiB
+                   capacity: 449MiB
+                   capabilities: boot precious nomount ntfs initialized
+                   configuration: clustersize=4096 created=2022-08-02 22:08:25 filesystem=ntfs label=Recuperação name=Basic data partition state=clean
+              *-volume:1
+                   description: Windows FAT volume
+                   vendor: MSDOS5.0
+                   physical id: 2
+                   bus info: scsi@4:0.0.0,2
+                   logical name: /dev/sdb2
+                   version: FAT32
+                   serial: 0689-b602
+                   size: 93MiB
+                   capacity: 99MiB
+                   capabilities: boot nomount fat initialized
+                   configuration: FATs=2 filesystem=fat name=EFI system partition
+              *-volume:2
+                   description: reserved partition
+                   vendor: Windows
+                   physical id: 3
+                   bus info: scsi@4:0.0.0,3
+                   logical name: /dev/sdb3
+                   serial: 4e6f57f7-926f-4c5e-abb7-a0a409af3eb0
+                   capacity: 15MiB
+                   capabilities: nofs nomount
+                   configuration: name=Microsoft reserved partition
+              *-volume:3
+                   description: Windows NTFS volume
+                   vendor: Windows
+                   physical id: 4
+                   bus info: scsi@4:0.0.0,4
+                   logical name: /dev/sdb4
+                   version: 3.1
+                   serial: 3a1f9e51-08c9-2f4f-8ca1-6324ad4cb40f
+                   size: 36GiB
+                   capacity: 36GiB
+                   capabilities: ntfs initialized
+                   configuration: clustersize=4096 created=2022-08-02 22:08:29 filesystem=ntfs label=Windows name=Basic data partition state=clean
+              *-volume:4
+                   description: EFI partition
+                   physical id: 5
+                   bus info: scsi@4:0.0.0,5
+                   logical name: /dev/sdb5
+                   logical name: /mnt/backup
+                   serial: d3cc541f-2691-41b9-83df-728dbc1357d5
+                   capacity: 41GiB
+                   configuration: mount.fstype=btrfs mount.options=rw,noatime,space_cache=v2,subvolid=5,subvol=/ name=Backup state=mounted
+              *-volume:5
+                   description: EFI partition
+                   physical id: 6
+                   bus info: scsi@4:0.0.0,6
+                   logical name: /dev/sdb6
+                   serial: 28830652-4f68-6c40-ac07-d589a2c684ae
+                   capacity: 4999MiB
+              *-volume:6
+                   description: EFI partition
+                   physical id: 7
+                   bus info: scsi@4:0.0.0,7
+                   logical name: /dev/sdb7
+                   logical name: /mnt/dados
+                   serial: f0491092-3483-1c49-8323-8e3397066d07
+                   capacity: 149GiB
+                   configuration: mount.fstype=btrfs mount.options=rw,noatime,space_cache=v2,subvolid=5,subvol=/ state=mounted
+           *-cdrom
+                description: DVD-RAM writer
+                product: DVD-RAM GH22NS30
+                vendor: HL-DT-ST
+                physical id: 0.0.0
+                bus info: scsi@5:0.0.0
+                logical name: /dev/cdrom
+                logical name: /dev/sr0
+                version: 1.01
+                capabilities: removable audio cd-r cd-rw dvd dvd-r dvd-ram
+                configuration: ansiversion=5 status=nodisc
         *-serial
              description: SMBus
              product: 8 Series/C220 Series Chipset Family SMBus Controller
@@ -508,6 +656,12 @@ gentoo
   *-input:2
        product: Video Bus
        physical id: 4
-       logical name: input2
-       logical name: /dev/input/event2
+       logical name: input4
+       logical name: /dev/input/event4
        capabilities: platform
+  *-input:3
+       product: PC Speaker
+       physical id: 5
+       logical name: input8
+       logical name: /dev/input/event8
+       capabilities: isa

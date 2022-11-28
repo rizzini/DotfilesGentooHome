@@ -7,7 +7,6 @@ while :; do
     readarray -t disk_list < <(/usr/bin/awk '(!/[0-9]$/)&&(NR>2){print $4}' /proc/partitions);
     DATA=();
     has_data=();
-
     for disk in "${disk_list[@]}"; do
         counter[$disk]=$((counter[$disk]+1));
         data1_read[$disk]=$(/usr/bin/awk '/\<'"$disk"'\>/{print $6}' /proc/diskstats);

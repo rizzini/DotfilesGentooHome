@@ -46,10 +46,14 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
     done
     if [[ ${webcam[0]} && ${webcam[1]} ]]; then
         /bin/chgrp qemu /dev/bus/usb/"${webcam[0]}"/"${webcam[1]}";
+        webcam='-device qemu-xhci,id=webcam -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"''
     else
-        echo "Webcam não detectada..";
-        /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send -u critical "QEMU: Webcam não detectada..";
-        exit 1;
+        /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send "QEMU: Webcam não detectada..";
+    fi
+    if [[ "$@" == *'secure'* ]]; then
+        vnc='-vnc :0,password-secret=sec0 -k pt-br -object secret,id=sec0,file=/mnt/gentoo/.android/passwd,format=base64';
+    else
+        vnc='-vnc :0 -k pt-br'
     fi
     su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 \
             qemu-system-x86_64 \
@@ -60,17 +64,14 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
                     -smp 4 \
                     -cpu host \
                     -bios /usr/share/edk2-ovmf/OVMF_CODE.fd \
-                    -nodefaults \
+                    -nodefaults '"$webcam"' \
                     -audiodev pa,id=pa -audio pa,model=es1370 \
                     -usbdevice tablet \
-                    -netdev bridge,id=hn0,br=android_bridge0 -device virtio-net-pci,netdev=hn0,id=nic1 \
-                    -device qemu-xhci,id=xhci -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"' \
-                    -device virtio-vga-gl,xres=640,yres=480 \
-                    -display egl-headless -vnc :1 -k pt-br \
+                    -netdev bridge,id=hn0,br=android_bridge0 -device virtio-net-pci,netdev=hn0 \
+                    -device virtio-vga-gl,xres=640,yres=480 -display egl-headless '"$vnc"' \
                     -drive file=/mnt/gentoo/.android/androidx86_hda.img,format=raw,if=virtio -object iothread,id=disk-iothread &'
-
     sleep 1
-    if [ "$1" == 'background' ]; then
+    if [[ "$@" == *'background'* ]]; then
         while pgrep qemu; do
             if [ "$ok" == '0' ]; then
                 if ping 192.0.0.2 -w 1 -c 1; then
@@ -81,7 +82,7 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
             sleep 3;
         done
     else
-        su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 /usr/bin/vncviewer 127.0.0.1:1 -geometry=384x640 -PreferredEncoding=raw -RemoteResize -DotWhenNoCursor=on &'
+        su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 /usr/bin/vncviewer 127.0.0.1:0 -geometry=384x640 -PreferredEncoding=raw -RemoteResize -DotWhenNoCursor=on -ReconnectOnError=off &'
         ok=0
         while pgrep vncviewer; do
             if [ "$ok" == '0' ]; then
