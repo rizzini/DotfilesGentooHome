@@ -54,6 +54,7 @@ CommandAllKey=Alt
 LatitudeAuto=-22.9485
 LongitudeAuto=-43.3436
 Mode=Constant
+NightTemperature=2600
 
 [Plugins]
 ParachuteEnabled=true

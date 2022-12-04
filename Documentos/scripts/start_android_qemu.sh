@@ -51,9 +51,9 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
         /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send "QEMU: Webcam não detectada..";
     fi
     if [[ "$@" == *'secure'* ]]; then
-        vnc='-vnc :0,password-secret=sec0 -k pt-br -object secret,id=sec0,file=/mnt/gentoo/.android/passwd,format=base64';
+        vnc='-vnc :87,password-secret=sec0 -k pt-br -object secret,id=sec0,file=/mnt/gentoo/.android/passwd,format=base64';
     else
-        vnc='-vnc :0 -k pt-br'
+        vnc='-vnc :87 -k pt-br'
     fi
     su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 \
             qemu-system-x86_64 \
@@ -82,7 +82,7 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
             sleep 3;
         done
     else
-        su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 /usr/bin/vncviewer 127.0.0.1:0 -geometry=384x640 -PreferredEncoding=raw -RemoteResize -DotWhenNoCursor=on -ReconnectOnError=off &'
+        su - lucas -s /bin/bash -c 'XDG_RUNTIME_DIR=/run/user/1000 DISPLAY=:0 /usr/bin/vncviewer 127.0.0.1:87 -geometry=640x480 -PreferredEncoding=raw -RemoteResize -DotWhenNoCursor=on -ReconnectOnError=off &'
         ok=0
         while pgrep vncviewer; do
             if [ "$ok" == '0' ]; then
