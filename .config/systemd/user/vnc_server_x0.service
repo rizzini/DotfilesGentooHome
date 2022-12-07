@@ -1,0 +1,9 @@
+[Unit]
+Description=VNC Server - X0
+
+[Service]
+ExecStart=/usr/bin/x0vncserver -display=:0 -rfbport=9999 -PasswordFile=/mnt/gentoo/.android/passwd
+Type=simple
+Restart=on-failure
+RestartSec=5s
+

@@ -24,7 +24,7 @@ CompletionMode=1
 History=kate
 
 [PlasmaTransientsConfig]
-PreloadWeight=42
+PreloadWeight=34
 
 [PlasmaViews][Panel 2][Defaults]
 thickness=44
@@ -39,6 +39,9 @@ thickness=28
 thickness=28
 
 [PlasmaViews][Panel 84][Horizontal1280]
+thickness=28
+
+[PlasmaViews][Panel 84][Horizontal1360]
 thickness=28
 
 [PlasmaViews][Panel 84][Horizontal1920]
