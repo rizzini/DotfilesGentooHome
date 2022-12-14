@@ -28,6 +28,9 @@ Seen=true
 [Applications][teams]
 Seen=true
 
+[DoNotDisturb]
+Until=2023,12,13,9,18,13.051
+
 [Notifications]
 LowPriorityHistory=true
 NormalAlwaysOnTop=true

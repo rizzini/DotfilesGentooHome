@@ -31,6 +31,15 @@ wmclass=ttoj.exe ttoj.exe
 wmclasscomplete=true
 wmclassmatch=1
 
+[10]
+Description=Configurações de janela para QEMU (Android) - TigerVNC
+size=644,507
+sizerule=2
+title=QEMU (Android) - TigerVNC
+wmclass=vncviewer vncviewer
+wmclasscomplete=true
+wmclassmatch=1
+
 [11]
 Description=android
 ignoregeometry=true
@@ -498,7 +507,7 @@ wmclassmatch=1
 
 [General]
 count=10
-rules=1,2,3,4,5,6,7,8,9,82c6c873-a04c-4c3d-a47f-185c051d75f0
+rules=1,2,3,4,5,6,7,8,9,10
 
 [a0a0e2c0-fef1-4087-b006-bc4730991325]
 Description=Configurações de janela para Ion Fury

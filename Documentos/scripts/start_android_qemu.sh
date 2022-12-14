@@ -47,8 +47,8 @@ if ! pgrep -f 'qemu-system-x86_64 -name Android'; then
     if [[ ${webcam[0]} && ${webcam[1]} ]]; then
         /bin/chgrp qemu /dev/bus/usb/"${webcam[0]}"/"${webcam[1]}";
         webcam='-device qemu-xhci,id=webcam -device usb-host,hostdevice=/dev/bus/usb/'"${webcam[0]}"'/'"${webcam[1]}"''
-    else
-        /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send "QEMU: Webcam não detectada..";
+#     else
+#         /bin/machinectl shell --uid=lucas .host /usr/bin/notify-send "QEMU: Webcam não detectada.." &
     fi
     if [[ "$@" == *'secure'* ]]; then
         vnc='-vnc :87,password-secret=sec0 -k pt-br -object secret,id=sec0,file=/mnt/gentoo/.android/passwd,format=base64';
