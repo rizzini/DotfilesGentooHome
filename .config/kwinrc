@@ -10,10 +10,8 @@ OpenGLIsUnsafe1=false
 
 [Desktops]
 Id_1=01215cf7-285e-49c9-a14b-0775340fc48f
-Id_2=8fa7e682-7c30-4004-9964-e16804379972
 Name_1=1
-Name_2=2
-Number=2
+Number=1
 Rows=1
 
 [Effect-Blur]
